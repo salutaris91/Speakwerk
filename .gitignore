@@ -9,4 +9,6 @@ DerivedData/
 *.dSYM.zip
 *.dSYM
 scratch/
+build/
+
 
