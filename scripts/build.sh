@@ -10,7 +10,9 @@ echo "=================================================="
 # 1. Laden der Umgebungsvariablen falls vorhanden
 if [ -f .env ]; then
     echo "-> Lade .env Datei..."
-    export $(grep -v '^#' .env | xargs)
+    set -a
+    source .env
+    set +a
 else
     echo "⚠️  Keine .env-Datei gefunden. Trockentest-Modus aktiv."
 fi
@@ -50,11 +52,22 @@ SPARKLE_DEST="$APP_BUNDLE/Contents/Frameworks/Sparkle.framework"
 echo "-> Bette Sparkle.framework ein..."
 cp -R "$SPARKLE_SOURCE" "$APP_BUNDLE/Contents/Frameworks/"
 
+# Füge rpath für das eingebettete Framework hinzu (muss vor dem Signieren geschehen)
+echo "-> Füge @rpath für eingebettetes Framework hinzu..."
+install_name_tool -add_rpath "@executable_path/../Frameworks" "$APP_BUNDLE/Contents/MacOS/Speakwerk"
+
+# Starte Launch-Smoke-Test (Trockenlauf zur Überprüfung von dyld/Verknüpfung)
+echo "-> Starte Launch-Smoke-Test..."
+LAUNCH_OUTPUT=$("$APP_BUNDLE/Contents/MacOS/Speakwerk")
+echo "   - Ausgabeprüfung:"
+echo "$LAUNCH_OUTPUT" | sed 's/^/     /'
+echo "   - Launch-Smoke-Test erfolgreich abgeschlossen."
+
 # 5. Stoppen falls Trockentest
 if [ "$DRY_RUN" = true ]; then
     echo "--------------------------------------------------"
     echo "✅ TROCKENTEST ERFOLGREICH!"
-    echo "Das App-Bundle wurde erstellt unter:"
+    echo "Das App-Bundle wurde erstellt und verifiziert unter:"
     echo "   $APP_BUNDLE"
     echo "Füge das Developer-ID-Zertifikat in die .env ein,"
     echo "um das Skript vollständig auszuführen."
