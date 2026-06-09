@@ -6,6 +6,8 @@
     <string>de.alex.speakwerk</string>
     <key>CFBundleName</key>
     <string>Speakwerk</string>
+    <key>CFBundleExecutable</key>
+    <string>Speakwerk</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
