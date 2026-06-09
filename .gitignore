@@ -8,3 +8,7 @@ DerivedData/
 *.ipa
 *.dSYM.zip
 *.dSYM
+scratch/
+build/
+
+
