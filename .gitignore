@@ -1,0 +1,10 @@
+STAND.md
+.DS_Store
+.env
+*.xcodeproj/
+*.xcworkspace/
+.build/
+DerivedData/
+*.ipa
+*.dSYM.zip
+*.dSYM
