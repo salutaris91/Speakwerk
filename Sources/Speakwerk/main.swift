@@ -153,6 +153,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc func quitApp() {
         HotkeyManager.shared.unregister()
+        audioRecorder.stopRecording()
+        audioRecorder.deleteRecording()
         NSApp.terminate(nil)
     }
 }
