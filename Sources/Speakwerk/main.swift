@@ -3,14 +3,16 @@ import AppKit
 import os
 import SwiftUI
 import KeyboardShortcuts
+import Sparkle
 
 @MainActor
-class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandardUserDriverDelegate {
     private let logger = Logger(subsystem: "com.alex.Speakwerk", category: "AppDelegate")
     private let audioRecorder = AudioRecorder()
     private let transcriptionManager = TranscriptionManager()
     private let historyManager = HistoryManager()
     private var errorResetTimer: Timer?
+    private var updaterController: SPUStandardUpdaterController?
     
     var statusItem: NSStatusItem?
     var state: AppState = .idle
@@ -18,11 +20,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     private var settingsWindow: NSWindow?
     
     func applicationDidFinishLaunching(_ notification: Notification) {
+        // Initialize Sparkle Updater (verifies linking during smoke-test)
+        updaterController = SPUStandardUpdaterController(startingUpdater: false, updaterDelegate: nil, userDriverDelegate: self)
+        
         // Smoke test protection: exit successfully if argument is passed
         if CommandLine.arguments.contains("--smoke-test") {
             print("Smoke test check passed after full initialization.")
             exit(0)
         }
+        
+        // Start updater immediately after smoke-test validation
+        updaterController?.startUpdater()
         
         // Set activation policy programmatically to run as an accessory app without a dock icon
         NSApp.setActivationPolicy(.accessory)
@@ -183,7 +191,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             menu.addItem(NSMenuItem.separator())
         }
         
-        // 5. Quit App
+        // 5. Sparkle Update Check
+        menu.addItem(NSMenuItem.separator())
+        let updateItem = NSMenuItem(
+            title: "Nach Updates suchen...",
+            action: #selector(SPUStandardUpdaterController.checkForUpdates(_:)),
+            keyEquivalent: ""
+        )
+        updateItem.target = updaterController
+        menu.addItem(updateItem)
+        
+        // 6. Quit App
         let quit = NSMenuItem(title: "Beenden", action: #selector(quitApp), keyEquivalent: "q")
         quit.target = self
         menu.addItem(quit)
@@ -412,6 +430,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         NSApp.terminate(nil)
     }
     
+    // MARK: - SPUStandardUserDriverDelegate
+    
+    nonisolated func standardUserDriverWillShowModalAlert() {
+        Task { @MainActor in
+            NSApp.activate(ignoringOtherApps: true)
+        }
+    }
+
+    nonisolated func standardUserDriverWillHandleShowingUpdate(_ handleShowingUpdate: Bool, forUpdate update: SUAppcastItem, state: SPUUserUpdateState) {
+        if handleShowingUpdate {
+            Task { @MainActor in
+                NSApp.activate(ignoringOtherApps: true)
+            }
+        }
+    }
+
     // MARK: - NSWindowDelegate
     
     func windowWillClose(_ notification: Notification) {

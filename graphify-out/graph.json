@@ -18,7 +18,7 @@
       "source_file": "Tests/SpeakwerkTests.swift",
       "source_location": "L1",
       "id": "tests_speakwerktests_swift",
-      "community": 16,
+      "community": 0,
       "norm_label": "speakwerktests.swift"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "Tests/SpeakwerkTests.swift",
       "source_location": "L4",
       "id": "tests_speakwerktests_speakwerktests",
-      "community": 16,
+      "community": 0,
       "norm_label": "speakwerktests"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "",
       "source_location": "",
       "id": "xctestcase",
-      "community": 16,
+      "community": 0,
       "norm_label": "xctestcase"
     },
     {
@@ -45,7 +45,7 @@
       "source_file": "Tests/SpeakwerkTests.swift",
       "source_location": "L5",
       "id": "tests_speakwerktests_speakwerktests_testexample",
-      "community": 16,
+      "community": 0,
       "norm_label": ".testexample()"
     },
     {
@@ -619,7 +619,7 @@
       "source_file": "",
       "source_location": "",
       "id": "identifiable",
-      "community": 15,
+      "community": 0,
       "norm_label": "identifiable"
     },
     {
@@ -797,7 +797,7 @@
       "label": "AppDelegate",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L7",
+      "source_location": "L8",
       "id": "speakwerk_main_appdelegate",
       "community": 3,
       "norm_label": "appdelegate"
@@ -830,19 +830,37 @@
       "norm_label": "nswindowdelegate"
     },
     {
+      "label": "SPUStandardUserDriverDelegate",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "spustandarduserdriverdelegate",
+      "community": 3,
+      "norm_label": "spustandarduserdriverdelegate"
+    },
+    {
       "label": "Timer",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L13",
+      "source_location": "L14",
       "id": "sources_speakwerk_main_swift_timer",
       "community": 3,
       "norm_label": "timer"
     },
     {
-      "label": "NSStatusItem",
+      "label": "SPUStandardUpdaterController",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
       "source_location": "L15",
+      "id": "spustandardupdatercontroller",
+      "community": 3,
+      "norm_label": "spustandardupdatercontroller"
+    },
+    {
+      "label": "NSStatusItem",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L17",
       "id": "nsstatusitem",
       "community": 3,
       "norm_label": "nsstatusitem"
@@ -851,7 +869,7 @@
       "label": "AppState",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L16",
+      "source_location": "L18",
       "id": "appstate",
       "community": 3,
       "norm_label": "appstate"
@@ -860,7 +878,7 @@
       "label": "NSWindow",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L17",
+      "source_location": "L19",
       "id": "nswindow",
       "community": 3,
       "norm_label": "nswindow"
@@ -869,7 +887,7 @@
       "label": ".applicationDidFinishLaunching()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L20",
+      "source_location": "L22",
       "id": "speakwerk_main_appdelegate_applicationdidfinishlaunching",
       "community": 3,
       "norm_label": ".applicationdidfinishlaunching()"
@@ -878,7 +896,7 @@
       "label": "Notification",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L20",
+      "source_location": "L22",
       "id": "notification",
       "community": 3,
       "norm_label": "notification"
@@ -887,7 +905,7 @@
       "label": ".updateUI()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L56",
+      "source_location": "L64",
       "id": "speakwerk_main_appdelegate_updateui",
       "community": 3,
       "norm_label": ".updateui()"
@@ -896,7 +914,7 @@
       "label": ".rebuildMenu()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L81",
+      "source_location": "L89",
       "id": "speakwerk_main_appdelegate_rebuildmenu",
       "community": 3,
       "norm_label": ".rebuildmenu()"
@@ -905,7 +923,7 @@
       "label": ".selectModelItem()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L194",
+      "source_location": "L212",
       "id": "speakwerk_main_appdelegate_selectmodelitem",
       "community": 3,
       "norm_label": ".selectmodelitem()"
@@ -914,7 +932,7 @@
       "label": "NSMenuItem",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L194",
+      "source_location": "L212",
       "id": "nsmenuitem",
       "community": 3,
       "norm_label": "nsmenuitem"
@@ -923,7 +941,7 @@
       "label": ".startOnboardingAction()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L212",
+      "source_location": "L230",
       "id": "speakwerk_main_appdelegate_startonboardingaction",
       "community": 3,
       "norm_label": ".startonboardingaction()"
@@ -932,7 +950,7 @@
       "label": ".resetOnboardingAction()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L216",
+      "source_location": "L234",
       "id": "speakwerk_main_appdelegate_resetonboardingaction",
       "community": 3,
       "norm_label": ".resetonboardingaction()"
@@ -941,7 +959,7 @@
       "label": ".showOnboarding()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L220",
+      "source_location": "L238",
       "id": "speakwerk_main_appdelegate_showonboarding",
       "community": 3,
       "norm_label": ".showonboarding()"
@@ -950,7 +968,7 @@
       "label": "OnboardingViewMode",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L220",
+      "source_location": "L238",
       "id": "onboardingviewmode",
       "community": 3,
       "norm_label": "onboardingviewmode"
@@ -959,7 +977,7 @@
       "label": ".showSettingsAction()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L270",
+      "source_location": "L288",
       "id": "speakwerk_main_appdelegate_showsettingsaction",
       "community": 3,
       "norm_label": ".showsettingsaction()"
@@ -968,7 +986,7 @@
       "label": ".completeOnboardingFlow()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L297",
+      "source_location": "L315",
       "id": "speakwerk_main_appdelegate_completeonboardingflow",
       "community": 3,
       "norm_label": ".completeonboardingflow()"
@@ -977,7 +995,7 @@
       "label": ".setupGlobalHotkey()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L306",
+      "source_location": "L324",
       "id": "speakwerk_main_appdelegate_setupglobalhotkey",
       "community": 3,
       "norm_label": ".setupglobalhotkey()"
@@ -986,7 +1004,7 @@
       "label": ".startRecordingProcess()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L313",
+      "source_location": "L331",
       "id": "speakwerk_main_appdelegate_startrecordingprocess",
       "community": 3,
       "norm_label": ".startrecordingprocess()"
@@ -995,7 +1013,7 @@
       "label": ".setErrorState()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L331",
+      "source_location": "L349",
       "id": "speakwerk_main_appdelegate_seterrorstate",
       "community": 3,
       "norm_label": ".seterrorstate()"
@@ -1004,7 +1022,7 @@
       "label": "String",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L331",
+      "source_location": "L349",
       "id": "sources_speakwerk_main_swift_string",
       "community": 3,
       "norm_label": "string"
@@ -1013,7 +1031,7 @@
       "label": ".toggleRecording()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L347",
+      "source_location": "L365",
       "id": "speakwerk_main_appdelegate_togglerecording",
       "community": 3,
       "norm_label": ".togglerecording()"
@@ -1022,16 +1040,61 @@
       "label": ".quitApp()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L408",
+      "source_location": "L426",
       "id": "speakwerk_main_appdelegate_quitapp",
       "community": 3,
       "norm_label": ".quitapp()"
     },
     {
+      "label": ".standardUserDriverWillShowModalAlert()",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L435",
+      "id": "speakwerk_main_appdelegate_standarduserdriverwillshowmodalalert",
+      "community": 3,
+      "norm_label": ".standarduserdriverwillshowmodalalert()"
+    },
+    {
+      "label": ".standardUserDriverWillHandleShowingUpdate()",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L441",
+      "id": "speakwerk_main_appdelegate_standarduserdriverwillhandleshowingupdate",
+      "community": 14,
+      "norm_label": ".standarduserdriverwillhandleshowingupdate()"
+    },
+    {
+      "label": "Bool",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L441",
+      "id": "sources_speakwerk_main_swift_bool",
+      "community": 14,
+      "norm_label": "bool"
+    },
+    {
+      "label": "SUAppcastItem",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L441",
+      "id": "suappcastitem",
+      "community": 14,
+      "norm_label": "suappcastitem"
+    },
+    {
+      "label": "SPUUserUpdateState",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L441",
+      "id": "spuuserupdatestate",
+      "community": 14,
+      "norm_label": "spuuserupdatestate"
+    },
+    {
       "label": ".windowWillClose()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L417",
+      "source_location": "L451",
       "id": "speakwerk_main_appdelegate_windowwillclose",
       "community": 3,
       "norm_label": ".windowwillclose()"
@@ -1159,7 +1222,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L7",
       "id": "speakwerk_onboardingview_onboardingstep",
-      "community": 14,
+      "community": 17,
       "norm_label": "onboardingstep"
     },
     {
@@ -1168,7 +1231,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L8",
       "id": "speakwerk_onboardingview_onboardingstep_welcome",
-      "community": 14,
+      "community": 17,
       "norm_label": "welcome"
     },
     {
@@ -1177,7 +1240,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L9",
       "id": "speakwerk_onboardingview_onboardingstep_downloading",
-      "community": 14,
+      "community": 17,
       "norm_label": "downloading"
     },
     {
@@ -1186,7 +1249,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L10",
       "id": "speakwerk_onboardingview_onboardingstep_permissions",
-      "community": 14,
+      "community": 17,
       "norm_label": "permissions"
     },
     {
@@ -1195,7 +1258,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L11",
       "id": "speakwerk_onboardingview_onboardingstep_hotkeyinfo",
-      "community": 14,
+      "community": 17,
       "norm_label": "hotkeyinfo"
     },
     {
@@ -1231,7 +1294,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L19",
       "id": "speakwerk_onboardingview_onboardingstate",
-      "community": 14,
+      "community": 17,
       "norm_label": "onboardingstate"
     },
     {
@@ -1249,7 +1312,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L24",
       "id": "sources_speakwerk_onboardingview_swift_bool",
-      "community": 14,
+      "community": 17,
       "norm_label": "bool"
     },
     {
@@ -1258,7 +1321,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L26",
       "id": "avauthorizationstatus",
-      "community": 14,
+      "community": 17,
       "norm_label": "avauthorizationstatus"
     },
     {
@@ -1267,7 +1330,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L30",
       "id": "sources_speakwerk_onboardingview_swift_timer",
-      "community": 14,
+      "community": 17,
       "norm_label": "timer"
     },
     {
@@ -1276,7 +1339,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L32",
       "id": "speakwerk_onboardingview_onboardingstate_init",
-      "community": 14,
+      "community": 17,
       "norm_label": ".init()"
     },
     {
@@ -1285,7 +1348,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L44",
       "id": "speakwerk_onboardingview_onboardingstate_invalidate",
-      "community": 14,
+      "community": 17,
       "norm_label": ".invalidate()"
     },
     {
@@ -1294,7 +1357,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L49",
       "id": "speakwerk_onboardingview_onboardingstate_checkpermissions",
-      "community": 14,
+      "community": 17,
       "norm_label": ".checkpermissions()"
     },
     {
@@ -1303,7 +1366,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L58",
       "id": "speakwerk_onboardingview_onboardingstate_requestmicrophone",
-      "community": 14,
+      "community": 17,
       "norm_label": ".requestmicrophone()"
     },
     {
@@ -1312,7 +1375,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L66",
       "id": "speakwerk_onboardingview_onboardingstate_openaccessibilitysettings",
-      "community": 14,
+      "community": 17,
       "norm_label": ".openaccessibilitysettings()"
     },
     {
@@ -1321,7 +1384,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L72",
       "id": "speakwerk_onboardingview_onboardingstate_openmicrophonesettings",
-      "community": 14,
+      "community": 17,
       "norm_label": ".openmicrophonesettings()"
     },
     {
@@ -1548,6 +1611,78 @@
       "id": "speakwerk_readme_speakwerk",
       "community": 10,
       "norm_label": "speakwerk"
+    },
+    {
+      "label": "Systemvoraussetzungen",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L7",
+      "id": "speakwerk_readme_systemvoraussetzungen",
+      "community": 10,
+      "norm_label": "systemvoraussetzungen"
+    },
+    {
+      "label": "Tech-Stack",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L12",
+      "id": "speakwerk_readme_tech_stack",
+      "community": 10,
+      "norm_label": "tech-stack"
+    },
+    {
+      "label": "Installation & Build f\u00fcr Entwickler",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L23",
+      "id": "speakwerk_readme_installation_build_f\u00fcr_entwickler",
+      "community": 10,
+      "norm_label": "installation & build fur entwickler"
+    },
+    {
+      "label": "1. Lokales Bauen (Kompilierung)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L25",
+      "id": "speakwerk_readme_1_lokales_bauen_kompilierung",
+      "community": 10,
+      "norm_label": "1. lokales bauen (kompilierung)"
+    },
+    {
+      "label": "2. App-Bundle erstellen und verpacken",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L31",
+      "id": "speakwerk_readme_2_app_bundle_erstellen_und_verpacken",
+      "community": 10,
+      "norm_label": "2. app-bundle erstellen und verpacken"
+    },
+    {
+      "label": "Auto-Update System (Sparkle 2.x)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L39",
+      "id": "speakwerk_readme_auto_update_system_sparkle_2_x",
+      "community": 10,
+      "norm_label": "auto-update system (sparkle 2.x)"
+    },
+    {
+      "label": "1. Ed25519-Schl\u00fcsselpaar generieren (einmalig)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L43",
+      "id": "speakwerk_readme_1_ed25519_schl\u00fcsselpaar_generieren_einmalig",
+      "community": 10,
+      "norm_label": "1. ed25519-schlusselpaar generieren (einmalig)"
+    },
+    {
+      "label": "2. Update-Prozess & Verteilung",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L51",
+      "id": "speakwerk_readme_2_update_prozess_verteilung",
+      "community": 10,
+      "norm_label": "2. update-prozess & verteilung"
     },
     {
       "label": "AGENTS.md",
@@ -3457,6 +3592,26 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L441",
+      "weight": 1.0,
+      "source": "speakwerk_main_appdelegate",
+      "target": "speakwerk_main_appdelegate_standarduserdriverwillhandleshowingupdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L435",
+      "weight": 1.0,
+      "source": "speakwerk_main_appdelegate",
+      "target": "speakwerk_main_appdelegate_standarduserdriverwillshowmodalalert",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/main.swift",
       "source_location": "L173",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -3507,6 +3662,27 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L15",
+      "weight": 1.0,
+      "context": "field",
+      "source": "speakwerk_main_appdelegate",
+      "target": "spustandardupdatercontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "speakwerk_main_appdelegate",
+      "target": "spustandarduserdriverdelegate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/main.swift",
       "source_location": "L12",
       "weight": 1.0,
       "context": "field",
@@ -3523,6 +3699,17 @@
       "confidence_score": 1.0,
       "source": "speakwerk_audiorecorder_audiorecorder",
       "target": "nsobject"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "speakwerk_main_appdelegate_applicationdidfinishlaunching",
+      "target": "spustandardupdatercontroller",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3941,6 +4128,39 @@
       "confidence_score": 1.0,
       "source": "speakwerk_main_appdelegate_registerglobalhotkey",
       "target": "speakwerk_main_appdelegate_togglerecording"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L441",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "speakwerk_main_appdelegate_standarduserdriverwillhandleshowingupdate",
+      "target": "sources_speakwerk_main_swift_bool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L441",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "speakwerk_main_appdelegate_standarduserdriverwillhandleshowingupdate",
+      "target": "spuuserupdatestate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L441",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "speakwerk_main_appdelegate_standarduserdriverwillhandleshowingupdate",
+      "target": "suappcastitem",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -4819,6 +5039,86 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "speakwerk_readme_speakwerk",
+      "target": "speakwerk_readme_auto_update_system_sparkle_2_x",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "speakwerk_readme_speakwerk",
+      "target": "speakwerk_readme_installation_build_f\u00fcr_entwickler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "speakwerk_readme_speakwerk",
+      "target": "speakwerk_readme_systemvoraussetzungen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "speakwerk_readme_speakwerk",
+      "target": "speakwerk_readme_tech_stack",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "speakwerk_readme_installation_build_f\u00fcr_entwickler",
+      "target": "speakwerk_readme_1_lokales_bauen_kompilierung",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "speakwerk_readme_installation_build_f\u00fcr_entwickler",
+      "target": "speakwerk_readme_2_app_bundle_erstellen_und_verpacken",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "speakwerk_readme_auto_update_system_sparkle_2_x",
+      "target": "speakwerk_readme_1_ed25519_schl\u00fcsselpaar_generieren_einmalig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "speakwerk_readme_auto_update_system_sparkle_2_x",
+      "target": "speakwerk_readme_2_update_prozess_verteilung",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "AGENTS.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -5206,5 +5506,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "0921b9e85220cf9dbd1c325f10a77721c98297a1"
+  "built_at_commit": "699238d7b9962c9262736bdf93096cc957842756"
 }

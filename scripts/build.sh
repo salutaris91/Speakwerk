@@ -52,6 +52,10 @@ SPARKLE_DEST="$APP_BUNDLE/Contents/Frameworks/Sparkle.framework"
 echo "-> Bette Sparkle.framework ein..."
 cp -R "$SPARKLE_SOURCE" "$APP_BUNDLE/Contents/Frameworks/"
 
+# Da wir eine non-sandboxed App sind, entfernen wir die XPC-Services aus Sparkle.framework, um Platz zu sparen.
+echo "-> Entferne ungenutzte Sparkle XPC Services für non-sandboxed App..."
+rm -rf "$SPARKLE_DEST/Versions/B/XPCServices"
+
 # Füge rpath für das eingebettete Framework hinzu (muss vor dem Signieren geschehen)
 echo "-> Füge @rpath für eingebettetes Framework hinzu..."
 install_name_tool -add_rpath "@executable_path/../Frameworks" "$APP_BUNDLE/Contents/MacOS/Speakwerk"
@@ -79,15 +83,7 @@ fi
 echo "-> Starte Code-Signing (Inside-Out)..."
 SPARKLE_PATH="$APP_BUNDLE/Contents/Frameworks/Sparkle.framework"
 
-# A. Signiere die eingebetteten Sparkle XPC Services & Hilfs-Apps
-echo "   - Signiere Sparkle Downloader.xpc..."
-codesign --force --options runtime --timestamp --sign "$DEVELOPER_ID_APPLICATION" "$SPARKLE_PATH/Versions/B/XPCServices/Downloader.xpc/Contents/MacOS/Downloader"
-codesign --force --options runtime --timestamp --sign "$DEVELOPER_ID_APPLICATION" "$SPARKLE_PATH/Versions/B/XPCServices/Downloader.xpc"
-
-echo "   - Signiere Sparkle Installer.xpc..."
-codesign --force --options runtime --timestamp --sign "$DEVELOPER_ID_APPLICATION" "$SPARKLE_PATH/Versions/B/XPCServices/Installer.xpc/Contents/MacOS/Installer"
-codesign --force --options runtime --timestamp --sign "$DEVELOPER_ID_APPLICATION" "$SPARKLE_PATH/Versions/B/XPCServices/Installer.xpc"
-
+# A. Signiere Sparkle Hilfs-Apps
 echo "   - Signiere Sparkle Updater.app..."
 codesign --force --options runtime --timestamp --sign "$DEVELOPER_ID_APPLICATION" "$SPARKLE_PATH/Versions/B/Updater.app/Contents/MacOS/Updater"
 codesign --force --options runtime --timestamp --sign "$DEVELOPER_ID_APPLICATION" "$SPARKLE_PATH/Versions/B/Updater.app"

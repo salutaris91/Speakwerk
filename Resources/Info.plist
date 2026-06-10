@@ -20,5 +20,13 @@
     <true/>
     <key>NSMicrophoneUsageDescription</key>
     <string>Speakwerk benötigt Zugriff auf das Mikrofon, um Sprache aufzunehmen und zu transkribieren.</string>
+    <key>SUFeedURL</key>
+    <string>https://raw.githubusercontent.com/salutaris91/Speakwerk/main/appcast.xml</string>
+    <key>SUPublicEDKey</key>
+    <string>placeholder_ed25519_public_key_here</string>
+    <key>SUEnableAutomaticChecks</key>
+    <true/>
+    <key>SUScheduledCheckInterval</key>
+    <integer>86400</integer>
 </dict>
 </plist>
