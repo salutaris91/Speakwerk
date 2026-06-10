@@ -55,37 +55,28 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         }
     }
     
-    private func setStatusItem(imageName: String, fallbackText: String, titleText: String = "") {
-        guard let button = statusItem?.button else { return }
-        
-        if let image = NSImage(systemSymbolName: imageName, accessibilityDescription: fallbackText) {
-            image.isTemplate = true
-            button.image = image
-            button.title = titleText
-        } else {
-            button.image = nil
-            button.title = fallbackText + titleText
-        }
-    }
-    
     func updateUI() {
-        guard self.statusItem != nil else {
+        guard let statusItem = self.statusItem,
+              let button = statusItem.button else {
             return
         }
         
         rebuildMenu()
         
+        // Ensure no image is set, only use the robust emoji text-based title
+        button.image = nil
+        
         switch state {
         case .idle:
-            setStatusItem(imageName: "mic", fallbackText: "🎙️")
+            button.title = "🎙️"
         case .recording:
-            setStatusItem(imageName: "mic.fill", fallbackText: "🔴", titleText: " [REC]")
+            button.title = "🔴 [REC]"
         case .transcribing:
-            setStatusItem(imageName: "hourglass", fallbackText: "⏳")
+            button.title = "⏳"
         case .downloadingModel:
-            setStatusItem(imageName: "arrow.down.circle", fallbackText: "⬇️")
+            button.title = "⬇️"
         case .error:
-            setStatusItem(imageName: "exclamationmark.triangle", fallbackText: "🎙️⚠️")
+            button.title = "🎙️⚠️"
         }
     }
     
@@ -446,9 +437,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     }
 }
 
+var globalDelegate: AppDelegate?
+
 // Start the main event loop
 let app = NSApplication.shared
 let delegate = AppDelegate()
+globalDelegate = delegate
 app.delegate = delegate
 
 withExtendedLifetime(delegate) {
