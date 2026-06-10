@@ -162,6 +162,8 @@ public struct OnboardingView: View {
             Text("Wähle das Whisper-Modell für deine Transkriptionen. Modelle laufen zu 100% lokal auf deiner Apple Neural Engine.")
                 .font(.body)
                 .multilineTextAlignment(.center)
+                .lineLimit(nil)
+                .fixedSize(horizontal: false, vertical: true)
                 .foregroundStyle(.secondary)
                 .padding(.horizontal)
             
@@ -492,7 +494,7 @@ public struct OnboardingView: View {
         case .small:
             return "Ausgewogen (\(tier.sizeDescription)) - Gute Balance aus Geschwindigkeit und Genauigkeit"
         case .largeV3Turbo:
-            return "Genau (\(tier.sizeDescription)) - Höchste Qualität, benötigt Apple Silicon"
+            return "Genau (\(tier.sizeDescription)) - Höchste Qualität, benötigt die meisten Ressourcen"
         }
     }
 }
