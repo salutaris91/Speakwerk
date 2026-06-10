@@ -2,6 +2,7 @@ import SwiftUI
 import AVFoundation
 import ApplicationServices
 import WhisperKit
+import KeyboardShortcuts
 
 public enum OnboardingStep {
     case welcome
@@ -138,7 +139,7 @@ public struct OnboardingView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(NSColor.controlBackgroundColor))
         }
-        .frame(width: 600, height: 450)
+        .frame(width: 600, height: 540)
         .onAppear {
             if case .downloadOnly(let tier) = mode {
                 // Instantly trigger download
@@ -161,6 +162,8 @@ public struct OnboardingView: View {
             Text("Wähle das Whisper-Modell für deine Transkriptionen. Modelle laufen zu 100% lokal auf deiner Apple Neural Engine.")
                 .font(.body)
                 .multilineTextAlignment(.center)
+                .lineLimit(nil)
+                .fixedSize(horizontal: false, vertical: true)
                 .foregroundStyle(.secondary)
                 .padding(.horizontal)
             
@@ -424,30 +427,20 @@ public struct OnboardingView: View {
                 .font(.title)
                 .bold()
             
-            Text("Du kannst die Aufnahme von überall mit folgendem Tastenkürzel starten und stoppen:")
+            Text("Lege dein Tastenkürzel fest, um die Aufnahme von überall zu starten und stoppen:")
                 .font(.body)
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.secondary)
                 .padding(.horizontal)
             
-            // Key representation
-            HStack(spacing: 10) {
-                keyCap("⌥ Option")
-                Text("+")
-                    .font(.title2)
-                    .bold()
-                keyCap("⌘ Command")
-                Text("+")
-                    .font(.title2)
-                    .bold()
-                keyCap("K")
-            }
-            .padding(.vertical, 20)
+            // Key recorder
+            KeyboardShortcuts.Recorder("Tastatur-Kurzbefehl:", name: .toggleRecording)
+                .padding(.vertical, 15)
             
             VStack(alignment: .leading, spacing: 12) {
                 HStack(alignment: .top, spacing: 10) {
                     Image(systemName: "1.circle.fill").foregroundStyle(.blue)
-                    Text("Drücke **Cmd+Option+K** zum Starten (Menüleiste wechselt auf 🔴 [REC]).")
+                    Text("Drücke deinen definierten Shortcut zum Starten (Menüleiste wechselt auf 🔴 [REC]).")
                 }
                 HStack(alignment: .top, spacing: 10) {
                     Image(systemName: "2.circle.fill").foregroundStyle(.blue)
@@ -479,24 +472,6 @@ public struct OnboardingView: View {
         }
     }
     
-    // MARK: - Helper Views / Functions
-    
-    private func keyCap(_ text: String) -> some View {
-        Text(text)
-            .font(.system(.body, design: .monospaced))
-            .bold()
-            .padding(.horizontal, 12)
-            .padding(.vertical, 8)
-            .background(
-                RoundedRectangle(cornerRadius: 6)
-                    .fill(Color.gray.opacity(0.15))
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: 6)
-                    .stroke(Color.gray.opacity(0.3), lineWidth: 1)
-            )
-    }
-    
     private func triggerDownload(for tier: ModelTier) {
         modelManager.resetDownloadState()
         if case .fullOnboarding = mode {
@@ -519,7 +494,7 @@ public struct OnboardingView: View {
         case .small:
             return "Ausgewogen (\(tier.sizeDescription)) - Gute Balance aus Geschwindigkeit und Genauigkeit"
         case .largeV3Turbo:
-            return "Genau (\(tier.sizeDescription)) - Höchste Qualität, benötigt Apple Silicon"
+            return "Genau (\(tier.sizeDescription)) - Höchste Qualität, benötigt die meisten Ressourcen"
         }
     }
 }
