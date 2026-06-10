@@ -58,7 +58,7 @@ install_name_tool -add_rpath "@executable_path/../Frameworks" "$APP_BUNDLE/Conte
 
 # Starte Launch-Smoke-Test (Trockenlauf zur Überprüfung von dyld/Verknüpfung)
 echo "-> Starte Launch-Smoke-Test..."
-LAUNCH_OUTPUT=$("$APP_BUNDLE/Contents/MacOS/Speakwerk")
+LAUNCH_OUTPUT=$("$APP_BUNDLE/Contents/MacOS/Speakwerk" --smoke-test)
 echo "   - Ausgabeprüfung:"
 echo "$LAUNCH_OUTPUT" | sed 's/^/     /'
 echo "   - Launch-Smoke-Test erfolgreich abgeschlossen."
