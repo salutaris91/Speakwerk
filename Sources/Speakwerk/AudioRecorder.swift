@@ -2,7 +2,8 @@ import Foundation
 import AVFoundation
 import os
 
-class AudioRecorder: NSObject, AVAudioRecorderDelegate {
+@MainActor
+class AudioRecorder: NSObject {
     private let logger = Logger(subsystem: "com.alex.Speakwerk", category: "AudioRecorder")
     private var audioRecorder: AVAudioRecorder?
     private(set) var isRecording = false
@@ -91,9 +92,11 @@ class AudioRecorder: NSObject, AVAudioRecorderDelegate {
         }
         self.audioFileURL = nil
     }
-    
-    // MARK: - AVAudioRecorderDelegate
-    
+}
+
+// MARK: - AVAudioRecorderDelegate (Swift 6 Preconcurrency Conformance)
+
+extension AudioRecorder: @preconcurrency AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         logger.info("AVAudioRecorder finished recording. Success status: \(flag)")
     }
