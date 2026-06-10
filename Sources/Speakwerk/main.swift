@@ -6,7 +6,6 @@ import KeyboardShortcuts
 
 @MainActor
 class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
-    static var shared: AppDelegate?
     private let logger = Logger(subsystem: "com.alex.Speakwerk", category: "AppDelegate")
     private let audioRecorder = AudioRecorder()
     private let transcriptionManager = TranscriptionManager()
@@ -19,7 +18,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     private var settingsWindow: NSWindow?
     
     func applicationDidFinishLaunching(_ notification: Notification) {
-        Self.shared = self
         // Smoke test protection: exit successfully if argument is passed
         if CommandLine.arguments.contains("--smoke-test") {
             print("Smoke test check passed after full initialization.")
@@ -27,7 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         }
         
         // Set activation policy programmatically to run as an accessory app without a dock icon
-        // NSApp.setActivationPolicy(.accessory)
+        NSApp.setActivationPolicy(.accessory)
         
         // Initialize status item in the system menu bar
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
@@ -58,11 +56,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     func updateUI() {
         guard let statusItem = self.statusItem,
               let button = statusItem.button else {
-            logger.error("updateUI failed: statusItem or button is nil.")
             return
         }
-        
-        logger.info("updateUI: statusItem is visible: \(statusItem.isVisible), width: \(button.frame.width), height: \(button.frame.height)")
         
         rebuildMenu()
         
@@ -80,12 +75,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             button.title = "⬇️"
         case .error:
             button.title = "🎙️⚠️"
-        }
-        
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self,
-                  let button = self.statusItem?.button else { return }
-            self.logger.info("updateUI async: title: '\(button.title)', width: \(button.frame.width), height: \(button.frame.height)")
         }
     }
     
@@ -446,12 +435,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     }
 }
 
-var globalDelegate: AppDelegate?
-
 // Start the main event loop
 let app = NSApplication.shared
 let delegate = AppDelegate()
-globalDelegate = delegate
 app.delegate = delegate
 
 withExtendedLifetime(delegate) {
