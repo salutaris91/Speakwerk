@@ -23,7 +23,7 @@
     <key>SUFeedURL</key>
     <string>https://raw.githubusercontent.com/salutaris91/Speakwerk/main/appcast.xml</string>
     <key>SUPublicEDKey</key>
-    <string>placeholder_ed25519_public_key_here</string>
+    <string>hlecx5AgQ+xjp72n+1Qg19aYl2wbVQW9UgSeO/NDjp8=</string>
     <key>SUEnableAutomaticChecks</key>
     <true/>
     <key>SUScheduledCheckInterval</key>
