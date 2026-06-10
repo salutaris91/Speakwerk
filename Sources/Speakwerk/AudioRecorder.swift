@@ -6,7 +6,7 @@ class AudioRecorder: NSObject, AVAudioRecorderDelegate {
     private let logger = Logger(subsystem: "com.alex.Speakwerk", category: "AudioRecorder")
     private var audioRecorder: AVAudioRecorder?
     private(set) var isRecording = false
-    private var audioFileURL: URL?
+    private(set) var audioFileURL: URL?
     
     /// Starts recording audio and returns the URL where the recording is saved.
     func startRecording() throws -> URL {
