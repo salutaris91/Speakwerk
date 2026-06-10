@@ -1,0 +1,82 @@
+{
+  "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Package.swift": {
+    "mtime": 1781030700.4258637,
+    "ast_hash": "75cc82501c0ae2bbabca7dc07f23b031",
+    "semantic_hash": ""
+  },
+  "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Tests/SpeakwerkTests.swift": {
+    "mtime": 1781030700.4271178,
+    "ast_hash": "d6dd9379fa655b375766f895b5568708",
+    "semantic_hash": ""
+  },
+  "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Tests/HistoryManagerTests.swift": {
+    "mtime": 1781081951.432835,
+    "ast_hash": "26e1c0803b80201c4c3787e957031e2e",
+    "semantic_hash": ""
+  },
+  "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/.claude/settings.local.json": {
+    "mtime": 1781082174.3495207,
+    "ast_hash": "61698f2923e22a9bb84118d6076fb14c",
+    "semantic_hash": ""
+  },
+  "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/scripts/refresh_graphify.sh": {
+    "mtime": 1781080958.1581714,
+    "ast_hash": "05027ceaa603106d49dcf73724d322e6",
+    "semantic_hash": ""
+  },
+  "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/scripts/build.sh": {
+    "mtime": 1781072922.0263402,
+    "ast_hash": "5697ce63e0c093751361e3890ed1ff88",
+    "semantic_hash": ""
+  },
+  "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Sources/Speakwerk/AppState.swift": {
+    "mtime": 1781080571.636439,
+    "ast_hash": "b6ca6da6970dfe8479b64f99cce49f8e",
+    "semantic_hash": ""
+  },
+  "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Sources/Speakwerk/HotkeyManager.swift": {
+    "mtime": 1781074308.7297919,
+    "ast_hash": "830d8fe8dbf9a7e4e7d53ebe72d76828",
+    "semantic_hash": ""
+  },
+  "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Sources/Speakwerk/ClipboardManager.swift": {
+    "mtime": 1781082258.1222916,
+    "ast_hash": "3324c18cff7ef07771ec710ffe7b13bd",
+    "semantic_hash": ""
+  },
+  "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Sources/Speakwerk/TranscriptionManager.swift": {
+    "mtime": 1781077808.9019947,
+    "ast_hash": "8c041bdc90afc68e31062a0e768e60aa",
+    "semantic_hash": ""
+  },
+  "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Sources/Speakwerk/main.swift": {
+    "mtime": 1781081922.8209608,
+    "ast_hash": "6df68debb70b4b4433a698eff3af58b0",
+    "semantic_hash": ""
+  },
+  "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Sources/Speakwerk/AudioRecorder.swift": {
+    "mtime": 1781077808.901771,
+    "ast_hash": "3b5e9121811945fd2b6a9a4438d339b2",
+    "semantic_hash": ""
+  },
+  "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Sources/Speakwerk/HistoryManager.swift": {
+    "mtime": 1781080633.3115575,
+    "ast_hash": "f1507511f20125e6aa473bbec5ab21c8",
+    "semantic_hash": ""
+  },
+  "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/README.md": {
+    "mtime": 1781030700.4261224,
+    "ast_hash": "65f225d8a7618c790ad68562477811ba",
+    "semantic_hash": ""
+  },
+  "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/AGENTS.md": {
+    "mtime": 1781030700.425153,
+    "ast_hash": "caf79fe03b2234134a0ccf9f18219c4f",
+    "semantic_hash": ""
+  },
+  "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/CLAUDE.md": {
+    "mtime": 1781030700.4254029,
+    "ast_hash": "9401e2ced86d7be18e6f8bd688f2bd41",
+    "semantic_hash": ""
+  }
+}
