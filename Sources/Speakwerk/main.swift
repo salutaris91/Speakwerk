@@ -6,6 +6,7 @@ import KeyboardShortcuts
 
 @MainActor
 class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
+    static var shared: AppDelegate?
     private let logger = Logger(subsystem: "com.alex.Speakwerk", category: "AppDelegate")
     private let audioRecorder = AudioRecorder()
     private let transcriptionManager = TranscriptionManager()
@@ -18,6 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     private var settingsWindow: NSWindow?
     
     func applicationDidFinishLaunching(_ notification: Notification) {
+        Self.shared = self
         // Smoke test protection: exit successfully if argument is passed
         if CommandLine.arguments.contains("--smoke-test") {
             print("Smoke test check passed after full initialization.")
@@ -53,9 +55,21 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         }
     }
     
+    private func setStatusItem(imageName: String, fallbackText: String, titleText: String = "") {
+        guard let button = statusItem?.button else { return }
+        
+        if let image = NSImage(systemSymbolName: imageName, accessibilityDescription: fallbackText) {
+            image.isTemplate = true
+            button.image = image
+            button.title = titleText
+        } else {
+            button.image = nil
+            button.title = fallbackText + titleText
+        }
+    }
+    
     func updateUI() {
-        guard let statusItem = self.statusItem,
-              let button = statusItem.button else {
+        guard self.statusItem != nil else {
             return
         }
         
@@ -63,25 +77,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         
         switch state {
         case .idle:
-            button.image = NSImage(systemSymbolName: "mic", accessibilityDescription: "Speakwerk Bereit")
-            button.image?.isTemplate = true
-            button.title = ""
+            setStatusItem(imageName: "mic", fallbackText: "🎙️")
         case .recording:
-            button.image = NSImage(systemSymbolName: "mic.fill", accessibilityDescription: "Aufnahme läuft")
-            button.image?.isTemplate = true
-            button.title = " [REC]"
+            setStatusItem(imageName: "mic.fill", fallbackText: "🔴", titleText: " [REC]")
         case .transcribing:
-            button.image = NSImage(systemSymbolName: "hourglass", accessibilityDescription: "Transkribiere...")
-            button.image?.isTemplate = true
-            button.title = ""
+            setStatusItem(imageName: "hourglass", fallbackText: "⏳")
         case .downloadingModel:
-            button.image = NSImage(systemSymbolName: "arrow.down.circle", accessibilityDescription: "Modell wird geladen...")
-            button.image?.isTemplate = true
-            button.title = ""
+            setStatusItem(imageName: "arrow.down.circle", fallbackText: "⬇️")
         case .error:
-            button.image = NSImage(systemSymbolName: "exclamationmark.triangle", accessibilityDescription: "Fehler / Onboarding ausstehend")
-            button.image?.isTemplate = true
-            button.title = ""
+            setStatusItem(imageName: "exclamationmark.triangle", fallbackText: "🎙️⚠️")
         }
     }
     
@@ -446,4 +450,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 let app = NSApplication.shared
 let delegate = AppDelegate()
 app.delegate = delegate
-app.run()
+
+withExtendedLifetime(delegate) {
+    app.run()
+}
