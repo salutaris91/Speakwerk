@@ -29,6 +29,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         // Initialize status item in the system menu bar
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
+        // Observe model downloader progress updates to update the menu bar status
+        ModelManager.shared.onProgressUpdate = { [weak self] progress in
+            guard let self = self else { return }
+            if case .downloadingModel = self.state {
+                self.state = .downloadingModel(progress)
+                self.updateUI()
+            }
+        }
+        
         // Check onboarding status
         if !UserDefaults.standard.bool(forKey: "hasCompletedOnboarding") {
             state = .error("Onboarding ausstehend")
@@ -379,6 +388,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     func windowWillClose(_ notification: Notification) {
         if let window = notification.object as? NSWindow, window == onboardingWindow {
             onboardingWindow = nil
+            
+            if !UserDefaults.standard.bool(forKey: "hasCompletedOnboarding") {
+                state = .error("Onboarding ausstehend")
+                ModelManager.shared.resetDownloadState()
+            } else if case .downloadingModel = state {
+                state = .idle
+                ModelManager.shared.resetDownloadState()
+            }
+            
             updateUI()
         }
     }

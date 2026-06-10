@@ -1,5 +1,4 @@
 import Foundation
-import AppKit
 import Observation
 import WhisperKit
 import os
@@ -42,6 +41,7 @@ public class ModelManager {
     private let logger = Logger(subsystem: "com.alex.Speakwerk", category: "ModelManager")
     
     public var downloadState: DownloadState = .idle
+    public var onProgressUpdate: (@MainActor @Sendable (Double) -> Void)?
     
     private let fileManager = FileManager.default
     private let defaults = UserDefaults.standard
@@ -118,11 +118,7 @@ public class ModelManager {
                         ModelManager.shared.downloadState = .downloading(progress: fraction)
                         ModelManager.shared.logger.debug("Download progress: \(fraction * 100)%")
                         
-                        if let delegate = NSApp.delegate as? AppDelegate,
-                           case .downloadingModel = delegate.state {
-                            delegate.state = .downloadingModel(fraction)
-                            delegate.updateUI()
-                        }
+                        ModelManager.shared.onProgressUpdate?(fraction)
                     }
                 }
             )
