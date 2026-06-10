@@ -10,41 +10,41 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var toggleItem: NSMenuItem?
     
     func applicationDidFinishLaunching(_ notification: Notification) {
-        // Hintergrundmodus ohne Dock-Icon programmatisch setzen
+        // Set activation policy programmatically to run as an accessory app without a dock icon
         NSApp.setActivationPolicy(.accessory)
         
-        // StatusItem in der Menüleiste initialisieren
+        // Initialize status item in the system menu bar
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
-        // Menü aufbauen
+        // Build the dropdown menu
         let menu = NSMenu()
         
-        // 1. Status-Anzeige (deaktiviertes Menüelement zur Information)
+        // 1. Status label (disabled menu item for information)
         let statusLabel = NSMenuItem(title: "Status: Bereit", action: nil, keyEquivalent: "")
         statusLabel.isEnabled = false
         self.statusLabelItem = statusLabel
         menu.addItem(statusLabel)
         
-        // 2. Toggle-Menüpunkt für Aufnahme
+        // 2. Toggle menu item for recording
         let toggle = NSMenuItem(title: "Aufnahme starten", action: #selector(toggleRecording), keyEquivalent: "r")
         toggle.target = self
         self.toggleItem = toggle
         menu.addItem(toggle)
         
-        // 3. Trennlinie
+        // 3. Separator
         menu.addItem(NSMenuItem.separator())
         
-        // 4. Beenden
+        // 4. Quit app
         let quit = NSMenuItem(title: "Beenden", action: #selector(quitApp), keyEquivalent: "q")
         quit.target = self
         menu.addItem(quit)
         
         statusItem?.menu = menu
         
-        // UI auf den initialen Zustand setzen
+        // Set UI to initial state
         updateUI()
         
-        // Smoke-Test Schutz: Beende sofort erfolgreich, wenn Argument übergeben wurde
+        // Smoke test protection: exit successfully if argument is passed
         if CommandLine.arguments.contains("--smoke-test") {
             print("Smoke test check passed after full initialization.")
             exit(0)
@@ -52,7 +52,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func updateUI() {
-        // Sicheres Entpacken des System-Buttons gemäß Hausregeln (keine Force-Unwraps)
+        // Safe unwrapping of system button without force-unwrapping
         guard let statusItem = self.statusItem,
               let button = statusItem.button else {
             return
@@ -80,7 +80,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 }
 
-// Haupt-Event-Loop starten
+// Start the main event loop
 let app = NSApplication.shared
 let delegate = AppDelegate()
 app.delegate = delegate
