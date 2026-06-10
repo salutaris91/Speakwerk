@@ -1,8 +1,8 @@
 import Foundation
 import AppKit
-import Carbon
 import os
 import SwiftUI
+import KeyboardShortcuts
 
 @MainActor
 class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
@@ -15,6 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     var statusItem: NSStatusItem?
     var state: AppState = .idle
     private var onboardingWindow: NSWindow?
+    private var settingsWindow: NSWindow?
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Smoke test protection: exit successfully if argument is passed
@@ -46,7 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         } else {
             state = .idle
             updateUI()
-            registerGlobalHotkey()
+            setupGlobalHotkey()
             transcriptionManager.preloadModel()
         }
     }
@@ -156,7 +157,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             modelSubmenuItem.isEnabled = !isBusy
             menu.addItem(modelSubmenuItem)
             
-            // 4. Repeat Setup
+            // 4. Settings
+            let settingsItem = NSMenuItem(title: "Einstellungen...", action: #selector(showSettingsAction), keyEquivalent: ",")
+            settingsItem.target = self
+            settingsItem.isEnabled = !isBusy
+            menu.addItem(settingsItem)
+            
+            // 5. Repeat Setup
             let resetItem = NSMenuItem(title: "Einrichtung erneut ausführen...", action: #selector(resetOnboardingAction), keyEquivalent: "")
             resetItem.target = self
             resetItem.isEnabled = !isBusy
@@ -256,28 +263,47 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         NSApp.activate(ignoringOtherApps: true)
     }
     
+    @MainActor
+    @objc private func showSettingsAction() {
+        if settingsWindow != nil {
+            settingsWindow?.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
+            return
+        }
+        
+        let settingsView = SettingsView()
+        
+        let window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 480, height: 220),
+            styleMask: [.titled, .closable],
+            backing: .buffered,
+            defer: false
+        )
+        window.center()
+        window.title = "Speakwerk - Einstellungen"
+        window.contentView = NSHostingView(rootView: settingsView)
+        window.isReleasedWhenClosed = false
+        window.delegate = self
+        
+        self.settingsWindow = window
+        window.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
+    }
+    
     private func completeOnboardingFlow() {
         logger.info("Onboarding completed successfully.")
         UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
         state = .idle
         updateUI()
-        registerGlobalHotkey()
+        setupGlobalHotkey()
         transcriptionManager.preloadModel()
     }
     
-    private func registerGlobalHotkey() {
-        let success = HotkeyManager.shared.register(
-            keyCode: 40,
-            carbonModifiers: UInt32(cmdKey | optionKey)
-        ) {
+    private func setupGlobalHotkey() {
+        HotkeyManager.shared.setup {
             self.toggleRecording()
         }
-        
-        if !success {
-            logger.error("Could not register global hotkey (Cmd+Option+K)")
-        } else {
-            logger.info("Global hotkey (Cmd+Option+K) registered successfully.")
-        }
+        logger.info("Global hotkey setup configured.")
     }
     
     private func startRecordingProcess() {
@@ -377,7 +403,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     
     @objc func quitApp() {
         errorResetTimer?.invalidate()
-        HotkeyManager.shared.unregister()
         audioRecorder.stopRecording()
         audioRecorder.deleteRecording()
         NSApp.terminate(nil)
@@ -386,7 +411,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     // MARK: - NSWindowDelegate
     
     func windowWillClose(_ notification: Notification) {
-        if let window = notification.object as? NSWindow, window == onboardingWindow {
+        guard let window = notification.object as? NSWindow else { return }
+        
+        if window == onboardingWindow {
             onboardingWindow = nil
             
             if !UserDefaults.standard.bool(forKey: "hasCompletedOnboarding") {
@@ -398,6 +425,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             }
             
             updateUI()
+        } else if window == settingsWindow {
+            settingsWindow = nil
         }
     }
 }

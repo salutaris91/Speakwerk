@@ -11,14 +11,16 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/argmaxinc/argmax-oss-swift.git", from: "1.0.0"),
-        .package(url: "https://github.com/sparkle-project/Sparkle.git", from: "2.0.0")
+        .package(url: "https://github.com/sparkle-project/Sparkle.git", from: "2.0.0"),
+        .package(url: "https://github.com/sindresorhus/KeyboardShortcuts.git", exact: "1.15.0")
     ],
     targets: [
         .executableTarget(
             name: "Speakwerk",
             dependencies: [
                 .product(name: "WhisperKit", package: "argmax-oss-swift"),
-                .product(name: "Sparkle", package: "Sparkle")
+                .product(name: "Sparkle", package: "Sparkle"),
+                .product(name: "KeyboardShortcuts", package: "KeyboardShortcuts")
             ],
             path: "Sources/Speakwerk"
         ),
