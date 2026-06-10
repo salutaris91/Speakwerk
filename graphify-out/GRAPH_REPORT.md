@@ -1,16 +1,16 @@
 # Graph Report - Speakwerk  (2026-06-10)
 
 ## Corpus Check
-- 18 files · ~7,850 words
+- 18 files · ~7,935 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 205 nodes · 281 edges · 17 communities (12 shown, 5 thin omitted)
+- 207 nodes · 284 edges · 17 communities (12 shown, 5 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 8 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0893a410`
+- Built from commit: `31767ecb`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -39,7 +39,7 @@
 4. `AGENTS.md — Hausregeln für Coding-Projekte (Speakwerk)` - 13 edges
 5. `CLAUDE.md — Hausregeln für Coding-Projekte (Speakwerk)` - 13 edges
 6. `ModelTier` - 12 edges
-7. `OnboardingState` - 11 edges
+7. `OnboardingState` - 12 edges
 8. `AudioRecorder` - 10 edges
 9. `OnboardingView` - 10 edges
 10. `HotkeyManager` - 9 edges
@@ -74,7 +74,7 @@ Cohesion: 0.12
 Nodes (15): Arbeitsweise, Aufgabenwechsel und Übergabe, CLAUDE.md — Hausregeln für Coding-Projekte (Speakwerk), Codequalität (Swift & macOS), Deployment-Notizen, Git und Commits, graphify, Kommunikation (+7 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.14
+Cohesion: 0.15
 Nodes (13): AppState, Notification, NSApplicationDelegate, NSMenuItem, NSStatusItem, NSWindow, NSWindowDelegate, OnboardingViewMode (+5 more)
 
 ### Community 4 - "Community 4"
@@ -90,8 +90,8 @@ Cohesion: 0.18
 Nodes (10): EventHandlerRef, EventHotKeyRef, FourCharCode, MainActor, Bool, String, Void, HotkeyManager (+2 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.29
-Nodes (6): Equatable, AppState, error, idle, recording, transcribing
+Cohesion: 0.25
+Nodes (7): Equatable, AppState, downloadingModel, error, idle, recording, transcribing
 
 ### Community 8 - "Community 8"
 Cohesion: 0.33
@@ -99,14 +99,14 @@ Nodes (5): ModelTier, String, URL, TranscriptionManager, WhisperKit
 
 ### Community 14 - "Community 14"
 Cohesion: 0.10
-Nodes (16): Bool, ModelTier, String, Timer, Void, OnboardingState, OnboardingStep, downloading (+8 more)
+Nodes (17): AVAuthorizationStatus, Bool, ModelTier, String, Timer, Void, OnboardingState, OnboardingStep (+9 more)
 
 ### Community 15 - "Community 15"
 Cohesion: 0.13
 Nodes (16): CaseIterable, Identifiable, Sendable, Bool, URL, DownloadState, completed, downloading (+8 more)
 
 ## Knowledge Gaps
-- **73 isolated node(s):** `URL`, `allow`, `refresh_graphify.sh script`, `build.sh script`, `idle` (+68 more)
+- **75 isolated node(s):** `URL`, `allow`, `refresh_graphify.sh script`, `build.sh script`, `idle` (+70 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -114,15 +114,15 @@ Nodes (16): CaseIterable, Identifiable, Sendable, Bool, URL, DownloadState, comp
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `WhisperKit` connect `Community 8` to `Community 14`, `Community 15`?**
-  _High betweenness centrality (0.344) - this node is a cross-community bridge._
+  _High betweenness centrality (0.346) - this node is a cross-community bridge._
 - **Why does `OnboardingView` connect `Community 14` to `Community 3`?**
   _High betweenness centrality (0.318) - this node is a cross-community bridge._
 - **Why does `TranscriptionEntry` connect `Community 0` to `Community 15`, `Community 7`?**
-  _High betweenness centrality (0.254) - this node is a cross-community bridge._
+  _High betweenness centrality (0.253) - this node is a cross-community bridge._
 - **Are the 3 inferred relationships involving `HistoryManager` (e.g. with `.testAddAndLoadHistory()` and `.testAtomicSaving()`) actually correct?**
   _`HistoryManager` has 3 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `URL`, `allow`, `refresh_graphify.sh script` to the rest of the system?**
-  _73 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _75 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.14 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

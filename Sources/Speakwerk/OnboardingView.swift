@@ -22,6 +22,9 @@ class OnboardingState {
     var selectedTier: ModelTier = .small
     var micGranted: Bool = false
     var accessibilityGranted: Bool = false
+    var micStatus: AVAuthorizationStatus {
+        AVCaptureDevice.authorizationStatus(for: .audio)
+    }
     
     var progressTimer: Timer?
     
@@ -136,7 +139,6 @@ public struct OnboardingView: View {
             .background(Color(NSColor.controlBackgroundColor))
         }
         .frame(width: 600, height: 450)
-        .preferredColorScheme(.dark)
         .onAppear {
             if case .downloadOnly(let tier) = mode {
                 // Instantly trigger download
@@ -347,10 +349,17 @@ public struct OnboardingView: View {
                             .foregroundStyle(.green)
                             .font(.title3)
                     } else {
-                        Button("Freigeben") {
-                            state.requestMicrophone()
+                        if state.micStatus == .notDetermined {
+                            Button("Freigeben") {
+                                state.requestMicrophone()
+                            }
+                            .buttonStyle(.bordered)
+                        } else {
+                            Button("Einstellungen öffnen") {
+                                state.openMicrophoneSettings()
+                            }
+                            .buttonStyle(.bordered)
                         }
-                        .buttonStyle(.bordered)
                     }
                 }
                 .padding()

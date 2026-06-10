@@ -57,6 +57,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             button.title = "🔴 [REC]"
         case .transcribing:
             button.title = "⏳"
+        case .downloadingModel:
+            button.title = "⬇️"
         case .error:
             button.title = "⚠️"
         }
@@ -74,6 +76,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             statusTitle = "Status: Aufnahme läuft..."
         case .transcribing:
             statusTitle = "Status: Transkribiere..."
+        case .downloadingModel(let progress):
+            statusTitle = "Status: Lade Modell (\(Int(progress * 100))%)..."
         case .error(let message):
             statusTitle = "Fehler: \(message)"
         }
@@ -98,6 +102,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
                 selector = #selector(toggleRecording)
             case .transcribing:
                 actionTitle = "Transkription läuft..."
+                isEnabled = false
+                selector = nil
+            case .downloadingModel:
+                actionTitle = "Download läuft..."
                 isEnabled = false
                 selector = nil
             }
@@ -127,11 +135,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             
             let modelSubmenuItem = NSMenuItem(title: "Modell wechseln", action: nil, keyEquivalent: "")
             modelSubmenuItem.submenu = modelMenu
+            
+            var isBusy = false
+            switch state {
+            case .recording, .transcribing, .downloadingModel:
+                isBusy = true
+            default:
+                break
+            }
+            
+            modelSubmenuItem.isEnabled = !isBusy
             menu.addItem(modelSubmenuItem)
             
             // 4. Repeat Setup
             let resetItem = NSMenuItem(title: "Einrichtung erneut ausführen...", action: #selector(resetOnboardingAction), keyEquivalent: "")
             resetItem.target = self
+            resetItem.isEnabled = !isBusy
             menu.addItem(resetItem)
             
             menu.addItem(NSMenuItem.separator())
@@ -164,7 +183,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             transcriptionManager.switchModel(to: tier)
             updateUI()
         } else {
-            state = .transcribing
+            state = .downloadingModel(0.0)
             updateUI()
             showOnboarding(mode: .downloadOnly(tier))
         }
@@ -342,8 +361,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
                 }
             }
             
-        case .transcribing:
-            logger.info("Ignoring toggle request: transcription is currently in progress.")
+        case .transcribing, .downloadingModel:
+            logger.info("Ignoring toggle request: busy with transcription or model download.")
         }
     }
     
@@ -360,10 +379,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     func windowWillClose(_ notification: Notification) {
         if let window = notification.object as? NSWindow, window == onboardingWindow {
             onboardingWindow = nil
-            if !UserDefaults.standard.bool(forKey: "hasCompletedOnboarding") {
-                logger.info("Onboarding window closed before completion. Terminating app.")
-                NSApp.terminate(nil)
-            }
+            updateUI()
         }
     }
 }

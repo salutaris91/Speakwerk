@@ -1,4 +1,5 @@
 import Foundation
+import AppKit
 import Observation
 import WhisperKit
 import os
@@ -73,7 +74,7 @@ public class ModelManager {
     
     /// The local folder where WhisperKit models are stored
     public var modelsDirectoryURL: URL {
-        let appSupport = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+        let appSupport = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first ?? fileManager.temporaryDirectory
         let modelsDir = appSupport.appendingPathComponent("com.alex.Speakwerk/Models", isDirectory: true)
         try? fileManager.createDirectory(at: modelsDir, withIntermediateDirectories: true)
         return modelsDir
@@ -116,6 +117,12 @@ public class ModelManager {
                         let fraction = progress.fractionCompleted
                         ModelManager.shared.downloadState = .downloading(progress: fraction)
                         ModelManager.shared.logger.debug("Download progress: \(fraction * 100)%")
+                        
+                        if let delegate = NSApp.delegate as? AppDelegate,
+                           case .downloadingModel = delegate.state {
+                            delegate.state = .downloadingModel(fraction)
+                            delegate.updateUI()
+                        }
                     }
                 }
             )
