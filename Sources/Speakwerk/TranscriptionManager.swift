@@ -18,27 +18,47 @@ class TranscriptionManager {
             return
         }
         
+        let selectedModel = ModelManager.shared.selectedModel
+        guard let modelFolderURL = ModelManager.shared.modelFolderURL(for: selectedModel) else {
+            logger.error("Active model \(selectedModel.rawValue) is not downloaded yet.")
+            loadingFailed = true
+            return
+        }
+        
         isDownloadingOrLoading = true
         loadingFailed = false
-        logger.info("Starting WhisperKit model preloading...")
+        logger.info("Starting WhisperKit model preloading for: \(selectedModel.rawValue)...")
         
         Task {
             do {
-                let config = WhisperKitConfig(model: "openai_whisper-base")
-                logger.info("Initializing WhisperKit with model: openai_whisper-base")
+                let config = WhisperKitConfig(
+                    model: selectedModel.rawValue,
+                    modelFolder: modelFolderURL.path,
+                    download: false
+                )
+                logger.info("Initializing WhisperKit with local model folder: \(modelFolderURL.path)")
                 
                 let kit = try await WhisperKit(config)
                 
                 // Safe update on MainActor since Task inherits main actor isolation here
                 self.whisperKit = kit
                 self.isDownloadingOrLoading = false
-                logger.info("WhisperKit initialization completed successfully.")
+                logger.info("WhisperKit initialization completed successfully for model: \(selectedModel.rawValue).")
             } catch {
                 self.isDownloadingOrLoading = false
                 self.loadingFailed = true
                 logger.error("Failed to initialize WhisperKit: \(error.localizedDescription)")
             }
         }
+    }
+    
+    /// Dynamically switches the active WhisperKit model.
+    func switchModel(to tier: ModelTier) {
+        logger.info("switchModel: Switching active model to \(tier.rawValue)")
+        whisperKit = nil
+        loadingFailed = false
+        isDownloadingOrLoading = false
+        preloadModel()
     }
     
     /// Transcribes the audio file at the specified URL.
@@ -58,7 +78,7 @@ class TranscriptionManager {
         
         // Wait for WhisperKit to finish loading
         var elapsedSeconds = 0
-        let timeoutLimit = 300 // 5 minutes timeout (allows for slow initial model downloads)
+        let timeoutLimit = 300 // 5 minutes timeout
         
         while whisperKit == nil {
             if loadingFailed {

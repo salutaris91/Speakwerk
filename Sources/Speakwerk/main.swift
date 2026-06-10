@@ -2,9 +2,10 @@ import Foundation
 import AppKit
 import Carbon
 import os
+import SwiftUI
 
 @MainActor
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     private let logger = Logger(subsystem: "com.alex.Speakwerk", category: "AppDelegate")
     private let audioRecorder = AudioRecorder()
     private let transcriptionManager = TranscriptionManager()
@@ -13,46 +14,258 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var statusItem: NSStatusItem?
     var state: AppState = .idle
-    
-    var statusLabelItem: NSMenuItem?
-    var toggleItem: NSMenuItem?
+    private var onboardingWindow: NSWindow?
     
     func applicationDidFinishLaunching(_ notification: Notification) {
+        // Smoke test protection: exit successfully if argument is passed
+        if CommandLine.arguments.contains("--smoke-test") {
+            print("Smoke test check passed after full initialization.")
+            exit(0)
+        }
+        
         // Set activation policy programmatically to run as an accessory app without a dock icon
         NSApp.setActivationPolicy(.accessory)
         
         // Initialize status item in the system menu bar
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
-        // Build the dropdown menu
+        // Observe model downloader progress updates to update the menu bar status
+        ModelManager.shared.onProgressUpdate = { [weak self] progress in
+            guard let self = self else { return }
+            if case .downloadingModel = self.state {
+                self.state = .downloadingModel(progress)
+                self.updateUI()
+            }
+        }
+        
+        // Check onboarding status
+        if !UserDefaults.standard.bool(forKey: "hasCompletedOnboarding") {
+            state = .error("Onboarding ausstehend")
+            updateUI()
+            showOnboarding(mode: .fullOnboarding)
+        } else {
+            state = .idle
+            updateUI()
+            registerGlobalHotkey()
+            transcriptionManager.preloadModel()
+        }
+    }
+    
+    func updateUI() {
+        guard let statusItem = self.statusItem,
+              let button = statusItem.button else {
+            return
+        }
+        
+        rebuildMenu()
+        
+        switch state {
+        case .idle:
+            button.title = "🎙️"
+        case .recording:
+            button.title = "🔴 [REC]"
+        case .transcribing:
+            button.title = "⏳"
+        case .downloadingModel:
+            button.title = "⬇️"
+        case .error:
+            button.title = "⚠️"
+        }
+    }
+    
+    private func rebuildMenu() {
         let menu = NSMenu()
         
-        // 1. Status label (disabled menu item for information)
-        let statusLabel = NSMenuItem(title: "Status: Bereit", action: nil, keyEquivalent: "")
+        // 1. Status Label
+        let statusTitle: String
+        switch state {
+        case .idle:
+            statusTitle = "Status: Bereit"
+        case .recording:
+            statusTitle = "Status: Aufnahme läuft..."
+        case .transcribing:
+            statusTitle = "Status: Transkribiere..."
+        case .downloadingModel(let progress):
+            statusTitle = "Status: Lade Modell (\(Int(progress * 100))%)..."
+        case .error(let message):
+            statusTitle = "Fehler: \(message)"
+        }
+        let statusLabel = NSMenuItem(title: statusTitle, action: nil, keyEquivalent: "")
         statusLabel.isEnabled = false
-        self.statusLabelItem = statusLabel
         menu.addItem(statusLabel)
         
-        // 2. Toggle menu item for recording
-        let toggle = NSMenuItem(title: "Aufnahme starten", action: #selector(toggleRecording), keyEquivalent: "r")
-        toggle.target = self
-        self.toggleItem = toggle
-        menu.addItem(toggle)
+        // 2. Action Items (only if onboarding is complete)
+        if UserDefaults.standard.bool(forKey: "hasCompletedOnboarding") {
+            let actionTitle: String
+            let isEnabled: Bool
+            let selector: Selector?
+            
+            switch state {
+            case .idle, .error:
+                actionTitle = "Aufnahme starten"
+                isEnabled = true
+                selector = #selector(toggleRecording)
+            case .recording:
+                actionTitle = "Aufnahme stoppen"
+                isEnabled = true
+                selector = #selector(toggleRecording)
+            case .transcribing:
+                actionTitle = "Transkription läuft..."
+                isEnabled = false
+                selector = nil
+            case .downloadingModel:
+                actionTitle = "Download läuft..."
+                isEnabled = false
+                selector = nil
+            }
+            
+            let actionItem = NSMenuItem(title: actionTitle, action: selector, keyEquivalent: "r")
+            actionItem.target = self
+            actionItem.isEnabled = isEnabled
+            menu.addItem(actionItem)
+            
+            menu.addItem(NSMenuItem.separator())
+            
+            // 3. Model Switch Submenu
+            let modelMenu = NSMenu()
+            let selectedModel = ModelManager.shared.selectedModel
+            
+            for tier in ModelTier.allCases {
+                let isSelected = (tier == selectedModel)
+                let isDownloaded = ModelManager.shared.isModelDownloaded(tier: tier)
+                
+                let titleStr = "\(tier.displayName) (\(tier.sizeDescription))\(isDownloaded ? "" : " ⬇️")"
+                let item = NSMenuItem(title: titleStr, action: #selector(selectModelItem(_:)), keyEquivalent: "")
+                item.target = self
+                item.representedObject = tier
+                item.state = isSelected ? .on : .off
+                modelMenu.addItem(item)
+            }
+            
+            let modelSubmenuItem = NSMenuItem(title: "Modell wechseln", action: nil, keyEquivalent: "")
+            modelSubmenuItem.submenu = modelMenu
+            
+            var isBusy = false
+            switch state {
+            case .recording, .transcribing, .downloadingModel:
+                isBusy = true
+            default:
+                break
+            }
+            
+            modelSubmenuItem.isEnabled = !isBusy
+            menu.addItem(modelSubmenuItem)
+            
+            // 4. Repeat Setup
+            let resetItem = NSMenuItem(title: "Einrichtung erneut ausführen...", action: #selector(resetOnboardingAction), keyEquivalent: "")
+            resetItem.target = self
+            resetItem.isEnabled = !isBusy
+            menu.addItem(resetItem)
+            
+            menu.addItem(NSMenuItem.separator())
+        } else {
+            // Setup pending
+            let setupItem = NSMenuItem(title: "Einrichtung starten...", action: #selector(startOnboardingAction), keyEquivalent: "")
+            setupItem.target = self
+            menu.addItem(setupItem)
+            
+            menu.addItem(NSMenuItem.separator())
+        }
         
-        // 3. Separator
-        menu.addItem(NSMenuItem.separator())
-        
-        // 4. Quit app
+        // 5. Quit App
         let quit = NSMenuItem(title: "Beenden", action: #selector(quitApp), keyEquivalent: "q")
         quit.target = self
         menu.addItem(quit)
         
         statusItem?.menu = menu
+    }
+    
+    @objc private func selectModelItem(_ sender: NSMenuItem) {
+        guard let tier = sender.representedObject as? ModelTier else { return }
         
-        // Set UI to initial state
+        if tier == ModelManager.shared.selectedModel {
+            return
+        }
+        
+        if ModelManager.shared.isModelDownloaded(tier: tier) {
+            ModelManager.shared.selectedModel = tier
+            transcriptionManager.switchModel(to: tier)
+            updateUI()
+        } else {
+            state = .downloadingModel(0.0)
+            updateUI()
+            showOnboarding(mode: .downloadOnly(tier))
+        }
+    }
+    
+    @objc private func startOnboardingAction() {
+        showOnboarding(mode: .fullOnboarding)
+    }
+    
+    @objc private func resetOnboardingAction() {
+        showOnboarding(mode: .fullOnboarding)
+    }
+    
+    @MainActor
+    func showOnboarding(mode: OnboardingViewMode) {
+        if onboardingWindow != nil {
+            onboardingWindow?.makeKeyAndOrderFront(nil)
+            return
+        }
+        
+        let onboardingView = OnboardingView(
+            mode: mode,
+            onCompletion: { [weak self] in
+                guard let self = self else { return }
+                self.onboardingWindow?.close()
+                self.onboardingWindow = nil
+                
+                if case .fullOnboarding = mode {
+                    self.completeOnboardingFlow()
+                } else if case .downloadOnly(let tier) = mode {
+                    self.transcriptionManager.switchModel(to: tier)
+                    self.state = .idle
+                    self.updateUI()
+                }
+            },
+            onCancel: { [weak self] in
+                guard let self = self else { return }
+                self.onboardingWindow?.close()
+                self.onboardingWindow = nil
+                if case .downloadOnly = mode {
+                    self.state = .idle
+                    self.updateUI()
+                }
+            }
+        )
+        
+        let window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 600, height: 450),
+            styleMask: [.titled, .closable],
+            backing: .buffered,
+            defer: false
+        )
+        window.center()
+        window.title = "Speakwerk - Einrichtung"
+        window.contentView = NSHostingView(rootView: onboardingView)
+        window.isReleasedWhenClosed = false
+        window.delegate = self
+        
+        self.onboardingWindow = window
+        window.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
+    }
+    
+    private func completeOnboardingFlow() {
+        logger.info("Onboarding completed successfully.")
+        UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
+        state = .idle
         updateUI()
-        
-        // Register Command + Option + K (Keycode 40, Cmd=256, Option=2048)
+        registerGlobalHotkey()
+        transcriptionManager.preloadModel()
+    }
+    
+    private func registerGlobalHotkey() {
         let success = HotkeyManager.shared.register(
             keyCode: 40,
             carbonModifiers: UInt32(cmdKey | optionKey)
@@ -61,45 +274,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         if !success {
-            let logger = Logger(subsystem: "com.alex.Speakwerk", category: "AppDelegate")
             logger.error("Could not register global hotkey (Cmd+Option+K)")
-        }
-        
-        // Smoke test protection: exit successfully if argument is passed
-        if CommandLine.arguments.contains("--smoke-test") {
-            print("Smoke test check passed after full initialization.")
-            exit(0)
-        }
-    }
-    
-    func updateUI() {
-        // Safe unwrapping of system button without force-unwrapping
-        guard let statusItem = self.statusItem,
-              let button = statusItem.button else {
-            return
-        }
-        
-        switch state {
-        case .idle:
-            button.title = "🎙️"
-            statusLabelItem?.title = "Status: Bereit"
-            toggleItem?.title = "Aufnahme starten"
-            toggleItem?.isEnabled = true
-        case .recording:
-            button.title = "🔴 [REC]"
-            statusLabelItem?.title = "Status: Aufnahme läuft..."
-            toggleItem?.title = "Aufnahme stoppen"
-            toggleItem?.isEnabled = true
-        case .transcribing:
-            button.title = "⏳"
-            statusLabelItem?.title = "Status: Transkribiere..."
-            toggleItem?.title = "Transkription läuft..."
-            toggleItem?.isEnabled = false
-        case .error(let message):
-            button.title = "⚠️"
-            statusLabelItem?.title = "Fehler: \(message)"
-            toggleItem?.title = "Aufnahme starten"
-            toggleItem?.isEnabled = true
+        } else {
+            logger.info("Global hotkey (Cmd+Option+K) registered successfully.")
         }
     }
     
@@ -111,7 +288,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let fileURL = try audioRecorder.startRecording()
             logger.info("Recording started and saving to: \(fileURL.path)")
             
-            // Preload model on first record start
             transcriptionManager.preloadModel()
             
             state = .recording
@@ -149,7 +325,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             state = .transcribing
             updateUI()
             
-            // Perform asynchronous transcription
             Task {
                 var textToInsert: String?
                 do {
@@ -167,8 +342,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     if !result.isEmpty {
                         textToInsert = result
                         do {
-                            // History-first: Speichere in lokalem Verlauf
-                            _ = try await historyManager.addEntry(text: result, modelName: "openai_whisper-base")
+                            let activeModelName = ModelManager.shared.selectedModel.rawValue
+                            _ = try await historyManager.addEntry(text: result, modelName: activeModelName)
                         } catch {
                             logger.error("Failed to save to history: \(error.localizedDescription)")
                         }
@@ -178,10 +353,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     setErrorState(message: "Transkription fehlgeschlagen")
                 }
                 
-                // Safe cleanup of temporary recording file
                 audioRecorder.deleteRecording()
                 
-                // If we have text, insert it
                 if let text = textToInsert {
                     do {
                         try await ClipboardManager.shared.insert(text)
@@ -192,14 +365,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                         setErrorState(message: "Einfügen fehlgeschlagen (Rechte?)")
                     }
                 } else if case .transcribing = self.state {
-                    // Falls kein Text transkribiert wurde und kein Fehler vorlag, gehe zurück zu idle
                     self.state = .idle
                     self.updateUI()
                 }
             }
             
-        case .transcribing:
-            logger.info("Ignoring toggle request: transcription is currently in progress.")
+        case .transcribing, .downloadingModel:
+            logger.info("Ignoring toggle request: busy with transcription or model download.")
         }
     }
     
@@ -209,6 +381,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         audioRecorder.stopRecording()
         audioRecorder.deleteRecording()
         NSApp.terminate(nil)
+    }
+    
+    // MARK: - NSWindowDelegate
+    
+    func windowWillClose(_ notification: Notification) {
+        if let window = notification.object as? NSWindow, window == onboardingWindow {
+            onboardingWindow = nil
+            
+            if !UserDefaults.standard.bool(forKey: "hasCompletedOnboarding") {
+                state = .error("Onboarding ausstehend")
+                ModelManager.shared.resetDownloadState()
+            } else if case .downloadingModel = state {
+                state = .idle
+                ModelManager.shared.resetDownloadState()
+            }
+            
+            updateUI()
+        }
     }
 }
 
