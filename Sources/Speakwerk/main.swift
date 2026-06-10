@@ -165,9 +165,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     logger.info("Transcription result: \(result)")
                     
                     if !result.isEmpty {
-                        // History-first: Speichere in lokalem Verlauf
-                        _ = try await historyManager.addEntry(text: result, modelName: "openai_whisper-base")
                         textToInsert = result
+                        do {
+                            // History-first: Speichere in lokalem Verlauf
+                            _ = try await historyManager.addEntry(text: result, modelName: "openai_whisper-base")
+                        } catch {
+                            logger.error("Failed to save to history: \(error.localizedDescription)")
+                        }
                     }
                 } catch {
                     logger.error("Error during transcription process: \(error.localizedDescription)")

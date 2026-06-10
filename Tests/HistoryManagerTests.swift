@@ -51,12 +51,26 @@ final class HistoryManagerTests: XCTestCase {
     
     func testAtomicSaving() async throws {
         let manager = HistoryManager(storageURL: testFileURL, maxEntriesLimit: 5)
-        _ = try await manager.addEntry(text: "Atomic Test", modelName: "model")
+        _ = try await manager.addEntry(text: "Atomic Test Original", modelName: "model")
         
         XCTAssertTrue(FileManager.default.fileExists(atPath: testFileURL.path))
         
+        // Remove write permissions from directory to simulate system/permission failure during write
+        try? FileManager.default.setAttributes([.posixPermissions: 0o555], ofItemAtPath: tempDirectory.path)
+        
+        do {
+            _ = try await manager.addEntry(text: "Atomic Test Failed Attempt", modelName: "model")
+            XCTFail("Should have failed to write due to read-only directory")
+        } catch {
+            // Expected error
+        }
+        
+        // Restore write permissions for cleanup
+        try? FileManager.default.setAttributes([.posixPermissions: 0o777], ofItemAtPath: tempDirectory.path)
+        
+        // Verify original data is still intact and readable
         let history = try await manager.loadHistory()
         XCTAssertEqual(history.count, 1)
-        XCTAssertEqual(history.first?.text, "Atomic Test")
+        XCTAssertEqual(history.first?.text, "Atomic Test Original")
     }
 }

@@ -8,7 +8,6 @@ public struct PasteboardBackup {
     private static let logger = Logger(subsystem: "com.alex.Speakwerk", category: "PasteboardBackup")
     
     public struct BackupItem {
-        public let types: [NSPasteboard.PasteboardType]
         public let dataMap: [NSPasteboard.PasteboardType: Data]
     }
     
@@ -24,23 +23,23 @@ public struct PasteboardBackup {
         
         var backupItems: [BackupItem] = []
         
-        for item in pbItems {
+        for (itemIndex, item) in pbItems.enumerated() {
             var dataMap: [NSPasteboard.PasteboardType: Data] = [:]
             for type in item.types {
                 if let data = item.data(forType: type) {
                     dataMap[type] = data
                 } else {
-                    // Fallback to pasteboard-level query to trigger lazy promises
-                    if let pbData = pasteboard.data(forType: type) {
+                    // Fallback only if there is exactly one item to avoid cross-item data pollution
+                    if pbItems.count == 1, let pbData = pasteboard.data(forType: type) {
                         dataMap[type] = pbData
-                        Self.logger.debug("Resolved lazy promise on pasteboard-level for type: \(type.rawValue)")
+                        Self.logger.debug("Resolved lazy promise on pasteboard-level for single-item of type: \(type.rawValue)")
                     } else {
-                        Self.logger.warning("Failed to resolve pasteboard data for type: \(type.rawValue)")
+                        Self.logger.warning("Failed to resolve pasteboard data for item \(itemIndex + 1) type: \(type.rawValue)")
                     }
                 }
             }
             if !dataMap.isEmpty {
-                backupItems.append(BackupItem(types: Array(dataMap.keys), dataMap: dataMap))
+                backupItems.append(BackupItem(dataMap: dataMap))
             }
         }
         
@@ -99,8 +98,11 @@ public class ClipboardManager {
         
         logger.info("Starting text insertion of length \(text.count)...")
         
-        // 1. Capture original clipboard
+                // 1. Capture original clipboard
         let backup = PasteboardBackup.capture()
+        defer {
+            backup.restore()
+        }
         
         // 2. Set new text on general pasteboard
         let pasteboard = NSPasteboard.general
@@ -117,20 +119,11 @@ public class ClipboardManager {
         }
         
         // 3. Simulate Command+V
-        do {
-            try simulateCmdV()
-        } catch {
-            logger.error("Failed to post Cmd+V event: \(error.localizedDescription)")
-            // Try to restore immediately on error to avoid leaving pasteboard modified
-            backup.restore()
-            throw error
-        }
+        try simulateCmdV()
         
         // 4. Wait asynchronously without blocking the thread
         try await Task.sleep(for: .milliseconds(delayMs))
         
-        // 5. Restore original clipboard
-        backup.restore()
         logger.info("Text insertion and clipboard restoration completed.")
     }
     
