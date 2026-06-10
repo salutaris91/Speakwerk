@@ -1,5 +1,7 @@
 import Foundation
 import AppKit
+import Carbon
+import os
 
 @MainActor
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -44,6 +46,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Set UI to initial state
         updateUI()
         
+        // Register Command + Option + K (Keycode 40, Cmd=256, Option=2048)
+        let success = HotkeyManager.shared.register(
+            keyCode: 40,
+            carbonModifiers: UInt32(cmdKey | optionKey)
+        ) {
+            self.toggleRecording()
+        }
+        
+        if !success {
+            let logger = Logger(subsystem: "com.alex.Speakwerk", category: "AppDelegate")
+            logger.error("Could not register global hotkey (Cmd+Option+K)")
+        }
+        
         // Smoke test protection: exit successfully if argument is passed
         if CommandLine.arguments.contains("--smoke-test") {
             print("Smoke test check passed after full initialization.")
@@ -76,6 +91,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func quitApp() {
+        HotkeyManager.shared.unregister()
         NSApp.terminate(nil)
     }
 }
