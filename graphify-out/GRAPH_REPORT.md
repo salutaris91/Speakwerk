@@ -1,16 +1,16 @@
 # Graph Report - Speakwerk  (2026-06-10)
 
 ## Corpus Check
-- 18 files · ~7,987 words
+- 19 files · ~7,996 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 211 nodes · 290 edges · 17 communities (12 shown, 5 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 8 edges (avg confidence: 0.8)
+- 219 nodes · 306 edges · 18 communities (13 shown, 5 thin omitted)
+- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 9 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c7cfcb5b`
+- Built from commit: `4a3d5c94`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -31,9 +31,10 @@
 - [[_COMMUNITY_Community 14|Community 14]]
 - [[_COMMUNITY_Community 15|Community 15]]
 - [[_COMMUNITY_Community 16|Community 16]]
+- [[_COMMUNITY_Community 17|Community 17]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `AppDelegate` - 24 edges
+1. `AppDelegate` - 27 edges
 2. `TranscriptionEntry` - 14 edges
 3. `ModelManager` - 13 edges
 4. `HistoryManager` - 13 edges
@@ -41,7 +42,7 @@
 6. `CLAUDE.md — Hausregeln für Coding-Projekte (Speakwerk)` - 13 edges
 7. `ModelTier` - 12 edges
 8. `OnboardingState` - 12 edges
-9. `HotkeyManager` - 10 edges
+9. `HotkeyManager` - 11 edges
 10. `AudioRecorder` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
@@ -59,7 +60,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (17 total, 5 thin omitted)
+## Communities (18 total, 5 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.14
@@ -74,7 +75,7 @@ Cohesion: 0.12
 Nodes (15): Arbeitsweise, Aufgabenwechsel und Übergabe, CLAUDE.md — Hausregeln für Coding-Projekte (Speakwerk), Codequalität (Swift & macOS), Deployment-Notizen, Git und Commits, graphify, Kommunikation (+7 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.15
+Cohesion: 0.14
 Nodes (13): AppState, Notification, NSApplicationDelegate, NSMenuItem, NSStatusItem, NSWindow, NSWindowDelegate, OnboardingViewMode (+5 more)
 
 ### Community 4 - "Community 4"
@@ -86,8 +87,8 @@ Cohesion: 0.21
 Nodes (7): AVAudioRecorder, AVAudioRecorderDelegate, Error, NSObject, Bool, URL, AudioRecorder
 
 ### Community 6 - "Community 6"
-Cohesion: 0.17
-Nodes (11): EventHandlerRef, EventHotKeyRef, FourCharCode, MainActor, Bool, MainActor, String, Void (+3 more)
+Cohesion: 0.15
+Nodes (12): EventHandlerRef, EventHotKeyRef, FourCharCode, MainActor, Bool, MainActor, String, Void (+4 more)
 
 ### Community 7 - "Community 7"
 Cohesion: 0.25
@@ -98,12 +99,16 @@ Cohesion: 0.33
 Nodes (5): ModelTier, String, URL, TranscriptionManager, WhisperKit
 
 ### Community 14 - "Community 14"
-Cohesion: 0.10
-Nodes (17): AVAuthorizationStatus, Bool, ModelTier, String, Timer, Void, OnboardingState, OnboardingStep (+9 more)
+Cohesion: 0.14
+Nodes (9): AVAuthorizationStatus, Bool, Timer, OnboardingState, OnboardingStep, downloading, hotkeyInfo, permissions (+1 more)
 
 ### Community 15 - "Community 15"
 Cohesion: 0.12
 Nodes (19): CaseIterable, Double, Identifiable, Sendable, Bool, MainActor, URL, Void (+11 more)
+
+### Community 17 - "Community 17"
+Cohesion: 0.18
+Nodes (9): ModelTier, String, Void, OnboardingView, OnboardingViewMode, downloadOnly, fullOnboarding, SettingsView (+1 more)
 
 ## Knowledge Gaps
 - **78 isolated node(s):** `URL`, `allow`, `refresh_graphify.sh script`, `build.sh script`, `idle` (+73 more)
@@ -113,12 +118,12 @@ Nodes (19): CaseIterable, Double, Identifiable, Sendable, Bool, MainActor, URL, 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `WhisperKit` connect `Community 8` to `Community 14`, `Community 15`?**
-  _High betweenness centrality (0.349) - this node is a cross-community bridge._
-- **Why does `OnboardingView` connect `Community 14` to `Community 3`?**
-  _High betweenness centrality (0.319) - this node is a cross-community bridge._
+- **Why does `WhisperKit` connect `Community 8` to `Community 17`, `Community 15`?**
+  _High betweenness centrality (0.352) - this node is a cross-community bridge._
+- **Why does `OnboardingView` connect `Community 17` to `Community 3`?**
+  _High betweenness centrality (0.332) - this node is a cross-community bridge._
 - **Why does `TranscriptionEntry` connect `Community 0` to `Community 15`, `Community 7`?**
-  _High betweenness centrality (0.251) - this node is a cross-community bridge._
+  _High betweenness centrality (0.247) - this node is a cross-community bridge._
 - **Are the 3 inferred relationships involving `HistoryManager` (e.g. with `.testAddAndLoadHistory()` and `.testAtomicSaving()`) actually correct?**
   _`HistoryManager` has 3 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `URL`, `allow`, `refresh_graphify.sh script` to the rest of the system?**
