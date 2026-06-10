@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>CFBundleIdentifier</key>
-    <string>de.alex.speakwerk</string>
+    <string>de.alex.speakwerk.app</string>
     <key>CFBundleName</key>
     <string>Speakwerk</string>
     <key>CFBundleExecutable</key>
