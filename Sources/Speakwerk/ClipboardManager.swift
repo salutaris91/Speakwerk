@@ -98,7 +98,7 @@ public class ClipboardManager {
         
         logger.info("Starting text insertion of length \(text.count)...")
         
-                // 1. Capture original clipboard
+        // 1. Capture original clipboard
         let backup = PasteboardBackup.capture()
         defer {
             backup.restore()
