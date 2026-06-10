@@ -8,6 +8,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private let logger = Logger(subsystem: "com.alex.Speakwerk", category: "AppDelegate")
     private let audioRecorder = AudioRecorder()
     private let transcriptionManager = TranscriptionManager()
+    private let historyManager = HistoryManager()
+    private var errorResetTimer: Timer?
     
     var statusItem: NSStatusItem?
     var state: AppState = .idle
@@ -93,26 +95,53 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             statusLabelItem?.title = "Status: Transkribiere..."
             toggleItem?.title = "Transkription läuft..."
             toggleItem?.isEnabled = false
+        case .error(let message):
+            button.title = "⚠️"
+            statusLabelItem?.title = "Fehler: \(message)"
+            toggleItem?.title = "Aufnahme starten"
+            toggleItem?.isEnabled = true
+        }
+    }
+    
+    private func startRecordingProcess() {
+        errorResetTimer?.invalidate()
+        errorResetTimer = nil
+        
+        do {
+            let fileURL = try audioRecorder.startRecording()
+            logger.info("Recording started and saving to: \(fileURL.path)")
+            
+            // Preload model on first record start
+            transcriptionManager.preloadModel()
+            
+            state = .recording
+            updateUI()
+        } catch {
+            logger.error("Failed to start audio recording: \(error.localizedDescription)")
+            setErrorState(message: "Aufnahme fehlgeschlagen")
+        }
+    }
+    
+    private func setErrorState(message: String) {
+        errorResetTimer?.invalidate()
+        state = .error(message)
+        updateUI()
+        
+        errorResetTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false) { [weak self] _ in
+            guard let self = self else { return }
+            Task { @MainActor in
+                if case .error = self.state {
+                    self.state = .idle
+                    self.updateUI()
+                }
+            }
         }
     }
     
     @objc func toggleRecording() {
         switch state {
-        case .idle:
-            do {
-                let fileURL = try audioRecorder.startRecording()
-                logger.info("Recording started and saving to: \(fileURL.path)")
-                
-                // Preload model on first record start
-                transcriptionManager.preloadModel()
-                
-                state = .recording
-                updateUI()
-            } catch {
-                logger.error("Failed to start audio recording: \(error.localizedDescription)")
-                state = .idle
-                updateUI()
-            }
+        case .idle, .error:
+            startRecordingProcess()
             
         case .recording:
             audioRecorder.stopRecording()
@@ -122,6 +151,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             // Perform asynchronous transcription
             Task {
+                var textToInsert: String?
                 do {
                     guard let fileURL = audioRecorder.audioFileURL else {
                         throw NSError(
@@ -133,17 +163,35 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     
                     let result = try await transcriptionManager.transcribe(audioURL: fileURL)
                     logger.info("Transcription result: \(result)")
-                    print("TRANSCRIPTION_RESULT: \(result)")
                     
+                    if !result.isEmpty {
+                        // History-first: Speichere in lokalem Verlauf
+                        _ = try await historyManager.addEntry(text: result, modelName: "openai_whisper-base")
+                        textToInsert = result
+                    }
                 } catch {
                     logger.error("Error during transcription process: \(error.localizedDescription)")
+                    setErrorState(message: "Transkription fehlgeschlagen")
                 }
                 
                 // Safe cleanup of temporary recording file
                 audioRecorder.deleteRecording()
                 
-                self.state = .idle
-                self.updateUI()
+                // If we have text, insert it
+                if let text = textToInsert {
+                    do {
+                        try await ClipboardManager.shared.insert(text)
+                        self.state = .idle
+                        self.updateUI()
+                    } catch {
+                        logger.error("Error during clipboard insertion: \(error.localizedDescription)")
+                        setErrorState(message: "Einfügen fehlgeschlagen (Rechte?)")
+                    }
+                } else if case .transcribing = self.state {
+                    // Falls kein Text transkribiert wurde und kein Fehler vorlag, gehe zurück zu idle
+                    self.state = .idle
+                    self.updateUI()
+                }
             }
             
         case .transcribing:
@@ -152,6 +200,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func quitApp() {
+        errorResetTimer?.invalidate()
         HotkeyManager.shared.unregister()
         audioRecorder.stopRecording()
         audioRecorder.deleteRecording()

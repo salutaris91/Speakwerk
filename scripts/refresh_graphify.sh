@@ -11,6 +11,6 @@ if [ -f .env ]; then
 fi
 
 echo "-> Aktualisiere Graphify-Wissensgraph (inkrementell)..."
-graphify . --update
+graphify update .
 
 echo "-> Graphify-Wissensgraph erfolgreich aktualisiert!"
