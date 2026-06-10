@@ -29,6 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         
         // Initialize status item in the system menu bar
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+        statusItem?.isVisible = true
         
         // Observe model downloader progress updates to update the menu bar status
         ModelManager.shared.onProgressUpdate = { [weak self] progress in
@@ -62,15 +63,25 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         
         switch state {
         case .idle:
-            button.title = "🎙️"
+            button.image = NSImage(systemSymbolName: "mic", accessibilityDescription: "Speakwerk Bereit")
+            button.image?.isTemplate = true
+            button.title = ""
         case .recording:
-            button.title = "🔴 [REC]"
+            button.image = NSImage(systemSymbolName: "mic.fill", accessibilityDescription: "Aufnahme läuft")
+            button.image?.isTemplate = true
+            button.title = " [REC]"
         case .transcribing:
-            button.title = "⏳"
+            button.image = NSImage(systemSymbolName: "hourglass", accessibilityDescription: "Transkribiere...")
+            button.image?.isTemplate = true
+            button.title = ""
         case .downloadingModel:
-            button.title = "⬇️"
+            button.image = NSImage(systemSymbolName: "arrow.down.circle", accessibilityDescription: "Modell wird geladen...")
+            button.image?.isTemplate = true
+            button.title = ""
         case .error:
-            button.title = "🎙️⚠️"
+            button.image = NSImage(systemSymbolName: "exclamationmark.triangle", accessibilityDescription: "Fehler / Onboarding ausstehend")
+            button.image?.isTemplate = true
+            button.title = ""
         }
     }
     
