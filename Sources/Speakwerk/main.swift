@@ -5,6 +5,10 @@ import os
 
 @MainActor
 class AppDelegate: NSObject, NSApplicationDelegate {
+    private let logger = Logger(subsystem: "com.alex.Speakwerk", category: "AppDelegate")
+    private let audioRecorder = AudioRecorder()
+    private let transcriptionManager = TranscriptionManager()
+    
     var statusItem: NSStatusItem?
     var state: AppState = .idle
     
@@ -78,16 +82,73 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.title = "🎙️"
             statusLabelItem?.title = "Status: Bereit"
             toggleItem?.title = "Aufnahme starten"
+            toggleItem?.isEnabled = true
         case .recording:
             button.title = "🔴 [REC]"
             statusLabelItem?.title = "Status: Aufnahme läuft..."
             toggleItem?.title = "Aufnahme stoppen"
+            toggleItem?.isEnabled = true
+        case .transcribing:
+            button.title = "⏳"
+            statusLabelItem?.title = "Status: Transkribiere..."
+            toggleItem?.title = "Transkription läuft..."
+            toggleItem?.isEnabled = false
         }
     }
     
     @objc func toggleRecording() {
-        state = (state == .idle) ? .recording : .idle
-        updateUI()
+        switch state {
+        case .idle:
+            do {
+                let fileURL = try audioRecorder.startRecording()
+                logger.info("Recording started and saving to: \(fileURL.path)")
+                
+                // Preload model on first record start
+                transcriptionManager.preloadModel()
+                
+                state = .recording
+                updateUI()
+            } catch {
+                logger.error("Failed to start audio recording: \(error.localizedDescription)")
+                state = .idle
+                updateUI()
+            }
+            
+        case .recording:
+            audioRecorder.stopRecording()
+            
+            state = .transcribing
+            updateUI()
+            
+            // Perform asynchronous transcription
+            Task {
+                do {
+                    guard let fileURL = audioRecorder.audioFileURL else {
+                        throw NSError(
+                            domain: "AppDelegate",
+                            code: 1,
+                            userInfo: [NSLocalizedDescriptionKey: "Audio file URL is missing after recording stopped"]
+                        )
+                    }
+                    
+                    let result = try await transcriptionManager.transcribe(audioURL: fileURL)
+                    logger.info("Transcription result: \(result)")
+                    print("TRANSCRIPTION_RESULT: \(result)")
+                    
+                } catch {
+                    logger.error("Error during transcription process: \(error.localizedDescription)")
+                }
+                
+                // Safe cleanup of temporary recording file
+                audioRecorder.deleteRecording()
+                
+                self.state = .idle
+                self.updateUI()
+            }
+            
+        case .transcribing:
+            logger.info("Ignoring toggle request: transcription is currently in progress.")
+        }
     }
     
     @objc func quitApp() {
