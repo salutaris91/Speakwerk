@@ -49,6 +49,10 @@ public class ModelManager {
     private let downloadedModelsKey = "downloadedModels"
     private let selectedModelKey = "selectedModel"
     
+    private init() {
+        migrateLegacyPaths()
+    }
+    
     public var selectedModel: ModelTier {
         get {
             guard let raw = defaults.string(forKey: selectedModelKey),
@@ -81,49 +85,86 @@ public class ModelManager {
     }
     
     private func resolvedModelFolder(for tier: ModelTier) -> URL? {
-        if let storedValue = downloadedModels[tier.rawValue] {
-            // If it's an absolute path, verify if it exists and is not empty
+        guard let storedValue = downloadedModels[tier.rawValue],
+              storedValue.hasPrefix("/") else {
+            return nil
+        }
+        
+        let folderURL = URL(fileURLWithPath: storedValue, isDirectory: true)
+        var isDir: ObjCBool = false
+        if fileManager.fileExists(atPath: folderURL.path, isDirectory: &isDir), isDir.boolValue {
+            if let files = try? fileManager.contentsOfDirectory(atPath: folderURL.path), !files.isEmpty {
+                return folderURL
+            }
+        }
+        
+        return nil
+    }
+    
+    /// Migrates any legacy relative paths in downloadedModels to absolute paths by performing a one-time recursive search.
+    public func migrateLegacyPaths() {
+        var updated = false
+        var currentDownloaded = downloadedModels
+        
+        for tier in ModelTier.allCases {
+            guard let storedValue = currentDownloaded[tier.rawValue] else {
+                continue
+            }
+            
+            // If it is already an absolute path and exists, no migration needed
             if storedValue.hasPrefix("/") {
                 let folderURL = URL(fileURLWithPath: storedValue, isDirectory: true)
                 var isDir: ObjCBool = false
                 if fileManager.fileExists(atPath: folderURL.path, isDirectory: &isDir), isDir.boolValue {
                     if let files = try? fileManager.contentsOfDirectory(atPath: folderURL.path), !files.isEmpty {
-                        return folderURL
+                        continue
                     }
                 }
             }
-        }
-        
-        // Otherwise, perform recursive self-healing search under modelsDirectoryURL
-        let keys: [URLResourceKey] = [.isDirectoryKey]
-        guard let enumerator = fileManager.enumerator(
-            at: modelsDirectoryURL,
-            includingPropertiesForKeys: keys,
-            options: [.skipsHiddenFiles],
-            errorHandler: nil
-        ) else {
-            return nil
-        }
-        
-        for case let url as URL in enumerator {
-            guard let resourceValues = try? url.resourceValues(forKeys: Set(keys)),
-                  let isDirectory = resourceValues.isDirectory,
-                  isDirectory else {
+            
+            // Otherwise (relative leaf name or invalid path), search recursively once
+            logger.info("Migrating legacy path for tier: \(tier.rawValue) (stored: \(storedValue))")
+            
+            let keys: [URLResourceKey] = [.isDirectoryKey]
+            guard let enumerator = fileManager.enumerator(
+                at: modelsDirectoryURL,
+                includingPropertiesForKeys: keys,
+                options: [.skipsHiddenFiles],
+                errorHandler: nil
+            ) else {
                 continue
             }
             
-            if url.lastPathComponent == tier.rawValue {
-                if let files = try? fileManager.contentsOfDirectory(atPath: url.path), !files.isEmpty {
-                    var currentDownloaded = downloadedModels
-                    currentDownloaded[tier.rawValue] = url.path
-                    downloadedModels = currentDownloaded
-                    logger.info("Healed model path for \(tier.rawValue) to: \(url.path)")
-                    return url
+            var found = false
+            for case let url as URL in enumerator {
+                guard let resourceValues = try? url.resourceValues(forKeys: Set(keys)),
+                      let isDirectory = resourceValues.isDirectory,
+                      isDirectory else {
+                    continue
                 }
+                
+                if url.lastPathComponent == tier.rawValue {
+                    if let files = try? fileManager.contentsOfDirectory(atPath: url.path), !files.isEmpty {
+                        currentDownloaded[tier.rawValue] = url.path
+                        updated = true
+                        found = true
+                        logger.info("Successfully migrated \(tier.rawValue) to absolute path: \(url.path)")
+                        break
+                    }
+                }
+            }
+            
+            if !found {
+                // If the folder was not found, clear the invalid legacy entry to prevent future tree walks
+                currentDownloaded.removeValue(forKey: tier.rawValue)
+                updated = true
+                logger.warning("Cleared invalid legacy path for \(tier.rawValue) as no matching folder was found.")
             }
         }
         
-        return nil
+        if updated {
+            downloadedModels = currentDownloaded
+        }
     }
     
     public func isModelDownloaded(tier: ModelTier) -> Bool {

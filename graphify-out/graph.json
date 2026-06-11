@@ -646,7 +646,7 @@
       "source_file": "",
       "source_location": "",
       "id": "sendable",
-      "community": 0,
+      "community": 15,
       "norm_label": "sendable"
     },
     {
@@ -655,7 +655,7 @@
       "source_file": "",
       "source_location": "",
       "id": "identifiable",
-      "community": 0,
+      "community": 15,
       "norm_label": "identifiable"
     },
     {
@@ -767,10 +767,19 @@
       "norm_label": "void"
     },
     {
+      "label": ".init()",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L52",
+      "id": "speakwerk_modelmanager_modelmanager_init",
+      "community": 15,
+      "norm_label": ".init()"
+    },
+    {
       "label": "URL",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L76",
+      "source_location": "L80",
       "id": "sources_speakwerk_modelmanager_swift_url",
       "community": 15,
       "norm_label": "url"
@@ -779,16 +788,25 @@
       "label": ".resolvedModelFolder()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L83",
+      "source_location": "L87",
       "id": "speakwerk_modelmanager_modelmanager_resolvedmodelfolder",
       "community": 15,
       "norm_label": ".resolvedmodelfolder()"
     },
     {
+      "label": ".migrateLegacyPaths()",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L105",
+      "id": "speakwerk_modelmanager_modelmanager_migratelegacypaths",
+      "community": 15,
+      "norm_label": ".migratelegacypaths()"
+    },
+    {
       "label": ".isModelDownloaded()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L129",
+      "source_location": "L170",
       "id": "speakwerk_modelmanager_modelmanager_ismodeldownloaded",
       "community": 15,
       "norm_label": ".ismodeldownloaded()"
@@ -797,7 +815,7 @@
       "label": "Bool",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L129",
+      "source_location": "L170",
       "id": "sources_speakwerk_modelmanager_swift_bool",
       "community": 15,
       "norm_label": "bool"
@@ -806,7 +824,7 @@
       "label": ".downloadModel()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L133",
+      "source_location": "L174",
       "id": "speakwerk_modelmanager_modelmanager_downloadmodel",
       "community": 15,
       "norm_label": ".downloadmodel()"
@@ -815,7 +833,7 @@
       "label": ".modelFolderURL()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L179",
+      "source_location": "L220",
       "id": "speakwerk_modelmanager_modelmanager_modelfolderurl",
       "community": 15,
       "norm_label": ".modelfolderurl()"
@@ -824,7 +842,7 @@
       "label": ".reconcileSelectedModel()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L185",
+      "source_location": "L226",
       "id": "speakwerk_modelmanager_modelmanager_reconcileselectedmodel",
       "community": 15,
       "norm_label": ".reconcileselectedmodel()"
@@ -833,7 +851,7 @@
       "label": ".resetDownloadState()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L205",
+      "source_location": "L246",
       "id": "speakwerk_modelmanager_modelmanager_resetdownloadstate",
       "community": 15,
       "norm_label": ".resetdownloadstate()"
@@ -3224,9 +3242,9 @@
       "source_location": "L83",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "speakwerk_modelmanager_modelmanager_resolvedmodelfolder",
-      "target": "speakwerk_modelmanager_modeltier",
-      "confidence_score": 1.0
+      "target": "speakwerk_modelmanager_modeltier"
     },
     {
       "relation": "implements",
@@ -3450,11 +3468,31 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "speakwerk_modelmanager_modelmanager",
+      "target": "speakwerk_modelmanager_modelmanager_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
       "source_location": "L82",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "speakwerk_modelmanager_modelmanager",
       "target": "speakwerk_modelmanager_modelmanager_ismodeldownloaded"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "speakwerk_modelmanager_modelmanager",
+      "target": "speakwerk_modelmanager_modelmanager_migratelegacypaths",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3472,9 +3510,9 @@
       "source_file": "Sources/Speakwerk/ModelManager.swift",
       "source_location": "L185",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_modelmanager_modelmanager",
-      "target": "speakwerk_modelmanager_modelmanager_reconcileselectedmodel",
-      "confidence_score": 1.0
+      "target": "speakwerk_modelmanager_modelmanager_reconcileselectedmodel"
     },
     {
       "relation": "method",
@@ -3492,8 +3530,19 @@
       "source_file": "Sources/Speakwerk/ModelManager.swift",
       "source_location": "L83",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_modelmanager_modelmanager",
-      "target": "speakwerk_modelmanager_modelmanager_resolvedmodelfolder",
+      "target": "speakwerk_modelmanager_modelmanager_resolvedmodelfolder"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "speakwerk_modelmanager_modelmanager_init",
+      "target": "speakwerk_modelmanager_modelmanager_migratelegacypaths",
       "confidence_score": 1.0
     },
     {
@@ -3514,9 +3563,9 @@
       "source_location": "L83",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "speakwerk_modelmanager_modelmanager_resolvedmodelfolder",
-      "target": "sources_speakwerk_modelmanager_swift_url",
-      "confidence_score": 1.0
+      "target": "sources_speakwerk_modelmanager_swift_url"
     },
     {
       "relation": "calls",
@@ -3525,9 +3574,9 @@
       "source_file": "Sources/Speakwerk/ModelManager.swift",
       "source_location": "L130",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_modelmanager_modelmanager_ismodeldownloaded",
-      "target": "speakwerk_modelmanager_modelmanager_resolvedmodelfolder",
-      "confidence_score": 1.0
+      "target": "speakwerk_modelmanager_modelmanager_resolvedmodelfolder"
     },
     {
       "relation": "calls",
@@ -3536,9 +3585,9 @@
       "source_file": "Sources/Speakwerk/ModelManager.swift",
       "source_location": "L180",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_modelmanager_modelmanager_modelfolderurl",
-      "target": "speakwerk_modelmanager_modelmanager_resolvedmodelfolder",
-      "confidence_score": 1.0
+      "target": "speakwerk_modelmanager_modelmanager_resolvedmodelfolder"
     },
     {
       "relation": "references",
@@ -3569,9 +3618,9 @@
       "source_file": "Sources/Speakwerk/ModelManager.swift",
       "source_location": "L187",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_modelmanager_modelmanager_reconcileselectedmodel",
-      "target": "speakwerk_modelmanager_modelmanager_ismodeldownloaded",
-      "confidence_score": 1.0
+      "target": "speakwerk_modelmanager_modelmanager_ismodeldownloaded"
     },
     {
       "relation": "references",
@@ -3580,9 +3629,9 @@
       "source_location": "L185",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "speakwerk_modelmanager_modelmanager_reconcileselectedmodel",
-      "target": "sources_speakwerk_modelmanager_swift_bool",
-      "confidence_score": 1.0
+      "target": "sources_speakwerk_modelmanager_swift_bool"
     },
     {
       "relation": "contains",
@@ -5748,5 +5797,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "2f983a98a36c22348f364aa5554cd8e0c2d2d02f"
+  "built_at_commit": "b420390836ffa3b080567a41383adbb465724e47"
 }
