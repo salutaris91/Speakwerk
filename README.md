@@ -8,6 +8,7 @@ Speakwerk ist ein lokales Voice-to-Text-Tool für macOS. Über einen konfigurier
 
 Das Projekt ist **kostenlos**, Open Source (MIT-Lizenz) und speichert/verarbeitet alle Audiodaten und Transkripte vollständig lokal (keine Cloud-Datenbank, kein Web-Backend). Geplante Features stehen in der [Roadmap](docs/ROADMAP.md).
 
+
 <p align="center">
   <img src="docs/images/onboarding.jpg" width="640" alt="Speakwerk Onboarding: Auswahl des Whisper-Modells">
 </p>
