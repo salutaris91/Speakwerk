@@ -45,6 +45,7 @@ mkdir -p "$APP_BUNDLE/Contents/Frameworks"
 echo "-> Kopiere App-Ressourcen..."
 cp "$BIN_PATH/Speakwerk" "$APP_BUNDLE/Contents/MacOS/Speakwerk"
 cp Resources/Info.plist "$APP_BUNDLE/Contents/Info.plist"
+cp Resources/AppIcon.icns "$APP_BUNDLE/Contents/Resources/AppIcon.icns"
 
 # Kopiere Sparkle.framework (unter Behalt von Symlinks)
 SPARKLE_SOURCE="$BIN_PATH/Sparkle.framework"
