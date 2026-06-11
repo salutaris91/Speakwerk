@@ -4,6 +4,30 @@ Speakwerk ist ein lokales Voice-to-Text-Tool für macOS. Über einen konfigurier
 
 Das Projekt ist kostenlos, Open Source (MIT-Lizenz) und speichert/verarbeitet alle Audiodaten und Transkripte vollständig lokal (keine Cloud-Datenbank, kein Web-Backend).
 
+## 📦 Installation (für Nutzer)
+
+1. Laden Sie die Datei `Speakwerk-Dist.zip` der neuesten Version von der [Releases-Seite](https://github.com/salutaris91/Speakwerk/releases) herunter.
+2. Entpacken Sie das Archiv und verschieben Sie `Speakwerk.app` in den Ordner **Programme**.
+3. **Wichtig — erster Start:** Folgen Sie der Anleitung im nächsten Abschnitt, da macOS die App beim ersten Öffnen blockiert.
+
+> ### ⚠️ Erster Start: macOS-Sicherheitswarnung (Gatekeeper)
+>
+> Speakwerk ist **nicht von Apple notariert**, da das Projekt ohne kostenpflichtigen Apple Developer Account entwickelt wird. macOS blockiert die App deshalb beim ersten Öffnen mit einer Warnung wie *„Speakwerk kann nicht geöffnet werden"*. **Das ist normal und kein Hinweis auf Schadsoftware** — der gesamte Quellcode ist in diesem Repository öffentlich einsehbar.
+>
+> **So öffnen Sie die App trotzdem (einmalig nötig):**
+>
+> **macOS 15 (Sequoia) oder neuer:**
+> 1. Versuchen Sie, die App per Doppelklick zu öffnen (die Warnung erscheint — klicken Sie auf „Fertig").
+> 2. Öffnen Sie **Systemeinstellungen → Datenschutz & Sicherheit**.
+> 3. Scrollen Sie nach unten zum Abschnitt „Sicherheit" — dort erscheint der Hinweis zu Speakwerk.
+> 4. Klicken Sie auf **„Dennoch öffnen"** und bestätigen Sie mit Ihrem Passwort bzw. Touch ID.
+>
+> **macOS 14 (Sonoma):**
+> 1. Klicken Sie mit der **rechten Maustaste** (bzw. Ctrl-Klick) auf `Speakwerk.app`.
+> 2. Wählen Sie **„Öffnen"** und bestätigen Sie den Dialog erneut mit **„Öffnen"**.
+>
+> Danach startet Speakwerk dauerhaft ohne weitere Nachfrage. Auch automatische Updates über die integrierte Update-Funktion sind davon nicht betroffen — sie sind kryptografisch signiert (Sparkle/Ed25519).
+
 ## Systemvoraussetzungen
 
 *   **macOS**: 14.0 (Sonoma) oder neuer.
