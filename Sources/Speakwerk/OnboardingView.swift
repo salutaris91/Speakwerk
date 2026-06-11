@@ -142,7 +142,7 @@ public struct OnboardingView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(NSColor.controlBackgroundColor))
         }
-        .frame(width: 600, height: 540)
+        .frame(width: 600, height: 580)
         .onAppear {
             if case .downloadOnly(let tier) = mode {
                 // Instantly trigger download
