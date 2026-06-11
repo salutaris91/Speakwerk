@@ -35,9 +35,16 @@ public struct SettingsView: View {
                     .foregroundStyle(.secondary)
                     .lineLimit(nil)
                 
-                HStack {
-                    KeyboardShortcuts.Recorder("Aufnahme starten/stoppen:", name: .toggleRecording)
-                    Spacer()
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack {
+                        KeyboardShortcuts.Recorder("Aufnahme starten/stoppen:", name: .toggleRecording)
+                        Spacer()
+                    }
+                    
+                    Text("Hinweis: Wenn ein Tastenkürzel bereits vom System oder einer anderen App belegt ist (z. B. Spotlight oder Siri), wird es nicht ausgelöst. Wähle in diesem Fall eine andere Tastenkombination.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
                 .padding()
                 .background(
@@ -53,7 +60,7 @@ public struct SettingsView: View {
             
             Spacer()
         }
-        .frame(width: 480, height: 220)
+        .frame(width: 480, height: 260)
         .background(Color(NSColor.windowBackgroundColor))
     }
 }

@@ -18,6 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
     var state: AppState = .idle
     private var onboardingWindow: NSWindow?
     private var settingsWindow: NSWindow?
+    private var aboutWindow: NSWindow?
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Initialize Sparkle Updater (verifies linking during smoke-test)
@@ -88,6 +89,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
     
     private func rebuildMenu() {
         let menu = NSMenu()
+        
+        // 0. About
+        let aboutItem = NSMenuItem(title: "Über Speakwerk...", action: #selector(showAboutAction), keyEquivalent: "")
+        aboutItem.target = self
+        menu.addItem(aboutItem)
+        menu.addItem(NSMenuItem.separator())
         
         // 1. Status Label
         let statusTitle: String
@@ -191,7 +198,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
             menu.addItem(NSMenuItem.separator())
         }
         
-        // 5. Sparkle Update Check
+        // 6. Sparkle Update Check
         menu.addItem(NSMenuItem.separator())
         let updateItem = NSMenuItem(
             title: "Nach Updates suchen...",
@@ -201,7 +208,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
         updateItem.target = updaterController
         menu.addItem(updateItem)
         
-        // 6. Quit App
+        // 7. Quit App
         let quit = NSMenuItem(title: "Beenden", action: #selector(quitApp), keyEquivalent: "q")
         quit.target = self
         menu.addItem(quit)
@@ -296,7 +303,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
         let settingsView = SettingsView()
         
         let window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 480, height: 220),
+            contentRect: NSRect(x: 0, y: 0, width: 480, height: 260),
             styleMask: [.titled, .closable],
             backing: .buffered,
             defer: false
@@ -308,6 +315,33 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
         window.delegate = self
         
         self.settingsWindow = window
+        window.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
+    }
+    
+    @MainActor
+    @objc private func showAboutAction() {
+        if aboutWindow != nil {
+            aboutWindow?.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
+            return
+        }
+        
+        let aboutView = AboutView()
+        
+        let window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 340, height: 400),
+            styleMask: [.titled, .closable],
+            backing: .buffered,
+            defer: false
+        )
+        window.center()
+        window.title = "Über Speakwerk"
+        window.contentView = NSHostingView(rootView: aboutView)
+        window.isReleasedWhenClosed = false
+        window.delegate = self
+        
+        self.aboutWindow = window
         window.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
     }
@@ -465,6 +499,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
             updateUI()
         } else if window == settingsWindow {
             settingsWindow = nil
+        } else if window == aboutWindow {
+            aboutWindow = nil
         }
     }
 }

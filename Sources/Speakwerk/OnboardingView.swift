@@ -9,6 +9,7 @@ public enum OnboardingStep {
     case downloading
     case permissions
     case hotkeyInfo
+    case finished
 }
 
 public enum OnboardingViewMode {
@@ -32,7 +33,7 @@ class OnboardingState {
     init() {
         checkPermissions()
         
-        // Start polling for permissions changes while on the permissions screen
+        // Start polling for permissions changes while the onboarding window is open
         progressTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             guard let self = self else { return }
             Task { @MainActor in
@@ -130,6 +131,8 @@ public struct OnboardingView: View {
                         permissionsStep
                     case .hotkeyInfo:
                         hotkeyInfoStep
+                    case .finished:
+                        finishedStep
                     }
                 case .downloadOnly(let tier):
                     downloadStep(tier: tier)
@@ -396,6 +399,24 @@ public struct OnboardingView: View {
                 }
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.05)))
+                
+                // TCC Troubleshoot Hint (Dezent grau)
+                VStack(alignment: .leading, spacing: 6) {
+                    HStack(alignment: .top, spacing: 6) {
+                        Image(systemName: "info.circle")
+                            .foregroundStyle(.secondary)
+                        Text("Erkennungs-Probleme unter macOS?")
+                            .font(.caption)
+                            .bold()
+                            .foregroundStyle(.secondary)
+                    }
+                    Text("Falls die Freigabe nicht erkannt wird: Öffne die Systemeinstellungen, wähle Speakwerk in den Bedienungshilfen, entferne es mit dem Minus-Button (−) und füge es neu hinzu. Manchmal hilft auch ein Neustart der App.")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .padding(.top, 8)
+                .padding(.horizontal, 4)
             }
             .padding(.vertical, 10)
             
@@ -423,7 +444,7 @@ public struct OnboardingView: View {
     
     private var hotkeyInfoStep: some View {
         VStack(spacing: 25) {
-            Text("Alles bereit!")
+            Text("Tastatur-Kurzbefehl festlegen")
                 .font(.title)
                 .bold()
             
@@ -434,10 +455,101 @@ public struct OnboardingView: View {
                 .padding(.horizontal)
             
             // Key recorder
-            KeyboardShortcuts.Recorder("Tastatur-Kurzbefehl:", name: .toggleRecording)
-                .padding(.vertical, 15)
+            VStack(spacing: 8) {
+                KeyboardShortcuts.Recorder("Tastatur-Kurzbefehl:", name: .toggleRecording)
+                    .padding(.vertical, 10)
+                
+                Text("Hinweis: Wenn ein Tastenkürzel bereits vom System oder einer anderen App belegt ist (z. B. Spotlight oder Siri), wird es nicht ausgelöst. Wähle in diesem Fall eine andere Tastenkombination.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 20)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.gray.opacity(0.05))
+            )
             
-            VStack(alignment: .leading, spacing: 12) {
+            Spacer()
+            
+            Button(action: {
+                state.currentStep = .finished
+            }) {
+                Text("Weiter")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+            .buttonStyle(.plain)
+        }
+    }
+    
+    // MARK: - Finished Step
+    
+    private var finishedStep: some View {
+        VStack(spacing: 20) {
+            Text("Alles bereit!")
+                .font(.title)
+                .bold()
+            
+            // Visual Menu Bar Mockup
+            VStack(spacing: 8) {
+                Text("Speakwerk läuft jetzt im Hintergrund.")
+                    .font(.headline)
+                
+                Text("Du findest das Mikrofon-Symbol 🎙️ oben rechts in deiner macOS-Menüleiste.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+                    
+                // Visual Mockup of Menu Bar
+                HStack(spacing: 12) {
+                    Spacer()
+                    HStack(spacing: 8) {
+                        Text("📡")
+                        Text("10:30")
+                        Text("🎙️")
+                            .font(.system(size: 16, weight: .bold))
+                            .foregroundColor(.blue)
+                            .padding(.horizontal, 4)
+                            .padding(.vertical, 2)
+                            .background(Color.blue.opacity(0.15))
+                            .cornerRadius(4)
+                        Text("🔋")
+                    }
+                    .font(.system(size: 12))
+                    .foregroundStyle(.secondary)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 6)
+                    .background(
+                        Capsule()
+                            .fill(Color.gray.opacity(0.1))
+                    )
+                    .overlay(
+                        Capsule()
+                            .stroke(Color.gray.opacity(0.2), lineWidth: 1)
+                    )
+                    Spacer()
+                }
+                .padding(.vertical, 10)
+            }
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color.gray.opacity(0.03))
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(Color.gray.opacity(0.1), lineWidth: 1)
+            )
+            
+            // Usage Guide
+            VStack(alignment: .leading, spacing: 10) {
                 HStack(alignment: .top, spacing: 10) {
                     Image(systemName: "1.circle.fill").foregroundStyle(.blue)
                     Text("Drücke deinen definierten Shortcut zum Starten (Menüleiste wechselt auf 🔴 [REC]).")
@@ -448,11 +560,11 @@ public struct OnboardingView: View {
                 }
                 HStack(alignment: .top, spacing: 10) {
                     Image(systemName: "3.circle.fill").foregroundStyle(.blue)
-                    Text("Drücke den Shortcut erneut. Der Text wird automatisch transkribiert und an deiner Cursorposition eingefügt.")
+                    Text("Drücke den Shortcut erneut. Der Text wird transkribiert und automatisch an deiner Cursorposition eingefügt.")
                 }
             }
             .font(.subheadline)
-            .padding(.horizontal)
+            .padding(.horizontal, 10)
             
             Spacer()
             
@@ -460,7 +572,7 @@ public struct OnboardingView: View {
                 modelManager.selectedModel = state.selectedTier
                 onCompletion()
             }) {
-                Text("Onboarding abschließen")
+                Text("Einrichtung abschließen")
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
