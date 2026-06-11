@@ -11,35 +11,43 @@ public struct AboutView: View {
     
     public var body: some View {
         VStack(spacing: 0) {
-            // Gradient Background Header Image/Emoji Area
+            // App Logo Header Area
             VStack {
                 Spacer()
-                ZStack {
-                    RoundedRectangle(cornerRadius: 24)
-                        .fill(
-                            LinearGradient(
-                                colors: [Color.blue.opacity(0.15), Color.purple.opacity(0.15)],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
+                if let appIcon = NSApplication.shared.applicationIconImage {
+                    Image(nsImage: appIcon)
+                        .resizable()
                         .frame(width: 80, height: 80)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 24)
-                                .stroke(
-                                    LinearGradient(
-                                        colors: [Color.blue, Color.purple],
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    ),
-                                    lineWidth: 2
+                        .padding(.bottom, 12)
+                } else {
+                    // Fallback Emoji if icon loading fails
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 24)
+                            .fill(
+                                LinearGradient(
+                                    colors: [Color.blue.opacity(0.15), Color.purple.opacity(0.15)],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
                                 )
-                        )
-                    
-                    Text("🎙️")
-                        .font(.system(size: 44))
+                            )
+                            .frame(width: 80, height: 80)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 24)
+                                    .stroke(
+                                        LinearGradient(
+                                            colors: [Color.blue, Color.purple],
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        ),
+                                        lineWidth: 2
+                                    )
+                            )
+                        
+                        Text("🎙️")
+                            .font(.system(size: 44))
+                    }
+                    .padding(.bottom, 12)
                 }
-                .padding(.bottom, 12)
                 
                 Text("Speakwerk")
                     .font(.system(size: 26, weight: .bold, design: .rounded))
@@ -90,33 +98,65 @@ public struct AboutView: View {
                 
                 // Links Area
                 VStack(spacing: 8) {
-                    Button(action: {
-                        if let url = URL(string: "https://github.com/salutaris91/Speakwerk") {
-                            NSWorkspace.shared.open(url)
+                    HStack(spacing: 8) {
+                        Button(action: {
+                            if let url = URL(string: "https://anderzlabs.de/speakwerk/") {
+                                NSWorkspace.shared.open(url)
+                            }
+                        }) {
+                            HStack {
+                                Image(systemName: "globe")
+                                Text("Webseite")
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 8)
                         }
-                    }) {
-                        HStack {
-                            Image(systemName: "link")
-                            Text("GitHub Repository")
+                        .buttonStyle(.borderedProminent)
+                        
+                        Button(action: {
+                            if let url = URL(string: "mailto:info@anderzlabs.de?subject=Speakwerk%20Feedback") {
+                                NSWorkspace.shared.open(url)
+                            }
+                        }) {
+                            HStack {
+                                Image(systemName: "envelope")
+                                Text("Support")
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 8)
                         }
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 8)
+                        .buttonStyle(.bordered)
                     }
-                    .buttonStyle(.bordered)
                     
-                    Button(action: {
-                        if let url = URL(string: "https://github.com/salutaris91") {
-                            NSWorkspace.shared.open(url)
+                    HStack(spacing: 8) {
+                        Button(action: {
+                            if let url = URL(string: "https://github.com/salutaris91/Speakwerk") {
+                                NSWorkspace.shared.open(url)
+                            }
+                        }) {
+                            HStack {
+                                Image(systemName: "link")
+                                Text("GitHub Repo")
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 8)
                         }
-                    }) {
-                        HStack {
-                            Image(systemName: "person.2")
-                            Text("Weitere Projekte")
+                        .buttonStyle(.bordered)
+                        
+                        Button(action: {
+                            if let url = URL(string: "https://github.com/salutaris91") {
+                                NSWorkspace.shared.open(url)
+                            }
+                        }) {
+                            HStack {
+                                Image(systemName: "person.2")
+                                Text("Projekte")
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 8)
                         }
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 8)
+                        .buttonStyle(.bordered)
                     }
-                    .buttonStyle(.bordered)
                 }
                 .padding(.horizontal, 10)
             }
@@ -124,7 +164,7 @@ public struct AboutView: View {
             
             Spacer()
         }
-        .frame(width: 340, height: 400)
+        .frame(width: 380, height: 460)
         .background(Color(NSColor.windowBackgroundColor))
     }
 }

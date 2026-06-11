@@ -137,7 +137,7 @@ public struct SettingsView: View {
             
             Spacer()
         }
-        .frame(width: 480, height: 380)
+        .frame(width: 480, height: 450)
         .background(Color(NSColor.windowBackgroundColor))
     }
 }

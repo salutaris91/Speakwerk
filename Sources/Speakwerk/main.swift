@@ -309,7 +309,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
         let settingsView = SettingsView()
         
         let window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 480, height: 380),
+            contentRect: NSRect(x: 0, y: 0, width: 480, height: 450),
             styleMask: [.titled, .closable],
             backing: .buffered,
             defer: false
@@ -336,7 +336,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
         let aboutView = AboutView()
         
         let window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 340, height: 400),
+            contentRect: NSRect(x: 0, y: 0, width: 380, height: 460),
             styleMask: [.titled, .closable],
             backing: .buffered,
             defer: false
