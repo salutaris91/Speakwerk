@@ -1,16 +1,16 @@
 # Graph Report - Speakwerk  (2026-06-11)
 
 ## Corpus Check
-- 20 files · ~9,521 words
+- 23 files · ~47,563 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 244 nodes · 341 edges · 18 communities (15 shown, 3 thin omitted)
+- 284 nodes · 385 edges · 19 communities (16 shown, 3 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 10 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b4203908`
+- Built from commit: `da5e4c0d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -32,55 +32,56 @@
 - [[_COMMUNITY_Community 15|Community 15]]
 - [[_COMMUNITY_Community 16|Community 16]]
 - [[_COMMUNITY_Community 17|Community 17]]
+- [[_COMMUNITY_Community 18|Community 18]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `AppDelegate` - 32 edges
-2. `ModelManager` - 17 edges
-3. `TranscriptionEntry` - 14 edges
-4. `ModelTier` - 13 edges
-5. `HistoryManager` - 13 edges
-6. `AGENTS.md — Hausregeln für Coding-Projekte (Speakwerk)` - 13 edges
-7. `CLAUDE.md — Hausregeln für Coding-Projekte (Speakwerk)` - 13 edges
-8. `OnboardingState` - 12 edges
-9. `HotkeyManager` - 11 edges
-10. `AudioRecorder` - 10 edges
+2. `ModelManager` - 18 edges
+3. `ModelTier` - 14 edges
+4. `TranscriptionEntry` - 14 edges
+5. `TranscriptionLanguage` - 13 edges
+6. `HistoryManager` - 13 edges
+7. `AGENTS.md — Hausregeln für Coding-Projekte (Speakwerk)` - 13 edges
+8. `CLAUDE.md — Hausregeln für Coding-Projekte (Speakwerk)` - 13 edges
+9. `OnboardingState` - 12 edges
+10. `HotkeyManager` - 11 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `TranscriptionEntry` --implements--> `Equatable`  [EXTRACTED]
   Sources/Speakwerk/HistoryManager.swift →   _Bridges community 7 → community 0_
 - `DownloadState` --implements--> `Equatable`  [EXTRACTED]
   Sources/Speakwerk/ModelManager.swift →   _Bridges community 7 → community 15_
-- `BackupItem` --references--> `Data`  [EXTRACTED]
-  Sources/Speakwerk/ClipboardManager.swift → Sources/Speakwerk/ClipboardManager.swift  _Bridges community 4 → community 0_
-- `TranscriptionEntry` --implements--> `Sendable`  [EXTRACTED]
+- `TranscriptionEntry` --implements--> `Identifiable`  [EXTRACTED]
   Sources/Speakwerk/HistoryManager.swift →   _Bridges community 15 → community 0_
 - `AppDelegate` --inherits--> `NSObject`  [EXTRACTED]
   Sources/Speakwerk/main.swift →   _Bridges community 3 → community 5_
+- `OnboardingState` --references--> `ModelTier`  [EXTRACTED]
+  Sources/Speakwerk/OnboardingView.swift → Sources/Speakwerk/OnboardingView.swift  _Bridges community 14 → community 17_
 
 ## Import Cycles
 - None detected.
 
-## Communities (18 total, 3 thin omitted)
+## Communities (19 total, 3 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.11
-Nodes (13): Codable, Data, Date, Int, String, URL, HistoryManager, TranscriptionEntry (+5 more)
+Cohesion: 0.12
+Nodes (12): Codable, Date, Int, String, URL, HistoryManager, TranscriptionEntry, HistoryManagerTests (+4 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.12
-Nodes (15): AGENTS.md — Hausregeln für Coding-Projekte (Speakwerk), Arbeitsweise, Aufgabenwechsel und Übergabe, Codequalität (Swift & macOS), Deployment-Notizen, Git und Commits, graphify, Kommunikation (+7 more)
+Nodes (16): AGENTS.md — Hausregeln für Coding-Projekte (Speakwerk), Arbeitsweise, Aufgabenwechsel und Übergabe, Codequalität (Swift & macOS), Deployment-Notizen, Git und Commits, graphify, Kommunikation (+8 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.12
-Nodes (15): Arbeitsweise, Aufgabenwechsel und Übergabe, CLAUDE.md — Hausregeln für Coding-Projekte (Speakwerk), Codequalität (Swift & macOS), Deployment-Notizen, Git und Commits, graphify, Kommunikation (+7 more)
+Nodes (16): Arbeitsweise, Aufgabenwechsel und Übergabe, CLAUDE.md — Hausregeln für Coding-Projekte (Speakwerk), Codequalität (Swift & macOS), Deployment-Notizen, Git und Commits, graphify, Kommunikation (+8 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.12
-Nodes (15): AppState, Notification, NSApplicationDelegate, NSMenuItem, NSStatusItem, NSWindow, NSWindowDelegate, OnboardingViewMode (+7 more)
+Cohesion: 0.10
+Nodes (18): AppState, Notification, NSApplicationDelegate, NSMenuItem, NSStatusItem, NSWindow, NSWindowDelegate, OnboardingViewMode (+10 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.21
-Nodes (7): NSPasteboard, Bool, Int, String, BackupItem, ClipboardManager, PasteboardBackup
+Cohesion: 0.19
+Nodes (8): Data, NSPasteboard, Bool, Int, String, BackupItem, ClipboardManager, PasteboardBackup
 
 ### Community 5 - "Community 5"
 Cohesion: 0.21
@@ -99,27 +100,31 @@ Cohesion: 0.33
 Nodes (5): ModelTier, String, URL, TranscriptionManager, WhisperKit
 
 ### Community 10 - "Community 10"
-Cohesion: 0.20
-Nodes (9): 1. Ed25519-Schlüsselpaar generieren (einmalig), 1. Lokales Bauen (Kompilierung), 2. App-Bundle erstellen und verpacken, 2. Update-Prozess & Verteilung, Auto-Update System (Sparkle 2.x), Installation & Build für Entwickler, Speakwerk, Systemvoraussetzungen (+1 more)
+Cohesion: 0.13
+Nodes (15): 1. Ed25519-Schlüsselpaar generieren (einmalig), 1. Lokales Bauen (Kompilierung), 2. App-Bundle erstellen, 2. App-Bundle erstellen und verpacken, 2. Update-Prozess & Verteilung, Alternativ: Download per Browser, Auto-Update System (Sparkle 2.x), Bauen aus dem Quellcode (für Entwickler) (+7 more)
 
 ### Community 14 - "Community 14"
 Cohesion: 0.13
 Nodes (10): AVAuthorizationStatus, Bool, Timer, OnboardingState, OnboardingStep, downloading, finished, hotkeyInfo (+2 more)
 
 ### Community 15 - "Community 15"
-Cohesion: 0.11
-Nodes (19): CaseIterable, Double, Identifiable, Sendable, Bool, MainActor, URL, Void (+11 more)
+Cohesion: 0.08
+Nodes (29): CaseIterable, Double, Identifiable, Sendable, Bool, MainActor, URL, Void (+21 more)
 
 ### Community 16 - "Community 16"
-Cohesion: 0.50
-Nodes (3): Bool, SPUUserUpdateState, SUAppcastItem
+Cohesion: 0.13
+Nodes (14): 1. Versionen erhöhen, 2. App-Bundle bauen, 3. Ad-hoc signieren (inside-out), 4. Distributions-Archiv erstellen, 5. Appcast generieren, 6. Appcast committen und nach `main` bringen, 7. GitHub-Release erstellen, 8. Verifizieren (+6 more)
 
 ### Community 17 - "Community 17"
-Cohesion: 0.14
+Cohesion: 0.13
 Nodes (11): String, ModelTier, String, Void, AboutView, OnboardingView, OnboardingViewMode, downloadOnly (+3 more)
 
+### Community 18 - "Community 18"
+Cohesion: 0.33
+Nodes (5): In Evaluation (kein Versionsziel), Roadmap, v1.1 — Bedienkomfort, v1.2 — Eigenes Vokabular, v2.0 — Intelligente Nachbearbeitung
+
 ## Knowledge Gaps
-- **87 isolated node(s):** `URL`, `allow`, `refresh_graphify.sh script`, `build.sh script`, `String` (+82 more)
+- **115 isolated node(s):** `URL`, `allow`, `refresh_graphify.sh script`, `build.sh script`, `String` (+110 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -127,16 +132,16 @@ Nodes (11): String, ModelTier, String, Void, AboutView, OnboardingView, Onboardi
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `WhisperKit` connect `Community 8` to `Community 17`, `Community 15`?**
-  _High betweenness centrality (0.335) - this node is a cross-community bridge._
+  _High betweenness centrality (0.278) - this node is a cross-community bridge._
 - **Why does `OnboardingView` connect `Community 17` to `Community 3`?**
-  _High betweenness centrality (0.325) - this node is a cross-community bridge._
+  _High betweenness centrality (0.263) - this node is a cross-community bridge._
 - **Why does `TranscriptionEntry` connect `Community 0` to `Community 15`, `Community 7`?**
-  _High betweenness centrality (0.223) - this node is a cross-community bridge._
-- **Are the 3 inferred relationships involving `HistoryManager` (e.g. with `.testAddAndLoadHistory()` and `.testAtomicSaving()`) actually correct?**
-  _`HistoryManager` has 3 INFERRED edges - model-reasoned connections that need verification._
+  _High betweenness centrality (0.178) - this node is a cross-community bridge._
 - **What connects `URL`, `allow`, `refresh_graphify.sh script` to the rest of the system?**
-  _87 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _115 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.11330049261083744 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11904761904761904 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.125 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
+- **Should `Community 2` be split into smaller, more focused modules?**
+  _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
