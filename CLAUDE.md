@@ -87,6 +87,10 @@ Claude arbeitet ausschließlich im **Review-Modus**:
 - Jede Commit-Message endet mit der tool-spezifischen Zeile für Claude:
   `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`
 
+### Releases
+
+- Bei jeder neuen Release-Version muss zusätzlich die Produktseite https://anderzlabs.de/speakwerk/ aktualisiert werden (Versionsnummer/Download-Link). Der technische Release-Prozess steht in `docs/RELEASING.md`.
+
 ### Parallele Agents
 
 - Jeder Agent arbeitet zwingend in einem eigenen Branch und einem eigenen Git-Worktree.

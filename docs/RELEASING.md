@@ -101,6 +101,10 @@ curl -sIL -o /dev/null -w "%{http_code}\n" "https://github.com/salutaris91/Speak
 
 Die Enclosure-URL muss auf das hochgeladene Asset zeigen, der Download mit HTTP 200 antworten. Idealerweise zusätzlich auf einer bestehenden Installation „Nach Updates suchen" auslösen.
 
+### 9. Produktseite aktualisieren
+
+Auf https://anderzlabs.de/speakwerk/ die Versionsnummer und ggf. den Download-Link auf die neue Version aktualisieren.
+
 ---
 
 ## Ausblick: Notarisiertes Release (mit Apple Developer Account)
