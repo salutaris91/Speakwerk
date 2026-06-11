@@ -48,6 +48,7 @@ public class ModelManager {
     
     private let downloadedModelsKey = "downloadedModels"
     private let selectedModelKey = "selectedModel"
+    private let selectedLanguageKey = "selectedLanguage"
     
     private init() {
         migrateLegacyPaths()
@@ -64,6 +65,20 @@ public class ModelManager {
         set {
             defaults.set(newValue.rawValue, forKey: selectedModelKey)
             logger.info("Selected model changed to: \(newValue.rawValue)")
+        }
+    }
+    
+    public var selectedLanguage: TranscriptionLanguage {
+        get {
+            guard let raw = defaults.string(forKey: selectedLanguageKey),
+                  let lang = TranscriptionLanguage(rawValue: raw) else {
+                return .auto
+            }
+            return lang
+        }
+        set {
+            defaults.set(newValue.rawValue, forKey: selectedLanguageKey)
+            logger.info("Selected language changed to: \(newValue.rawValue)")
         }
     }
     

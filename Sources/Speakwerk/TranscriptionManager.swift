@@ -107,8 +107,17 @@ class TranscriptionManager {
         
         logger.info("Starting transcription for file: \(audioURL.path)")
         
+        let language = ModelManager.shared.selectedLanguage
+        let options: DecodingOptions
+        switch language {
+        case .auto:
+            options = DecodingOptions(usePrefillPrompt: true, detectLanguage: true)
+        default:
+            options = DecodingOptions(language: language.code)
+        }
+        
         // WhisperKit v1.0.0+ transcribe returns [TranscriptionResult]
-        let results = try await kit.transcribe(audioPath: audioURL.path)
+        let results = try await kit.transcribe(audioPath: audioURL.path, decodeOptions: options)
         
         if results.isEmpty {
             logger.warning("Transcription completed, but returned no results.")

@@ -2,6 +2,8 @@ import SwiftUI
 import KeyboardShortcuts
 
 public struct SettingsView: View {
+    @State private var modelManager = ModelManager.shared
+
     public init() {}
     
     public var body: some View {
@@ -58,9 +60,47 @@ public struct SettingsView: View {
             }
             .padding(.horizontal, 20)
             
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Transkriptionssprache")
+                    .font(.headline)
+                    .padding(.top, 15)
+                
+                Text("Wähle die Sprache aus, in der du diktierst, oder lass sie automatisch erkennen.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(nil)
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack {
+                        Text("Sprache:")
+                            .font(.body)
+                        
+                        Picker("", selection: $modelManager.selectedLanguage) {
+                            ForEach(TranscriptionLanguage.allCases) { language in
+                                Text(language.displayName).tag(language)
+                            }
+                        }
+                        .pickerStyle(.menu)
+                        .frame(width: 200)
+                        
+                        Spacer()
+                    }
+                }
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Color.gray.opacity(0.05))
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.gray.opacity(0.15), lineWidth: 1)
+                )
+            }
+            .padding(.horizontal, 20)
+            
             Spacer()
         }
-        .frame(width: 480, height: 260)
+        .frame(width: 480, height: 420)
         .background(Color(NSColor.windowBackgroundColor))
     }
 }
