@@ -180,6 +180,28 @@ public class ModelManager {
         return resolvedModelFolder(for: tier)
     }
     
+    /// Ensures selectedModel points to a model that is actually available on disk.
+    /// Falls back to any downloaded model. Returns false if none is available.
+    public func reconcileSelectedModel() -> Bool {
+        // 1. If currently selected model is already downloaded, it's valid
+        if isModelDownloaded(tier: selectedModel) {
+            return true
+        }
+        
+        // 2. Otherwise, check all cases and fall back to the first one available
+        for tier in ModelTier.allCases {
+            if isModelDownloaded(tier: tier) {
+                selectedModel = tier
+                logger.info("Reconciled selected model: fell back to \(tier.rawValue)")
+                return true
+            }
+        }
+        
+        // 3. No downloaded model is available
+        logger.warning("Reconcile failed: no models are downloaded on disk.")
+        return false
+    }
+    
     public func resetDownloadState() {
         downloadState = .idle
     }

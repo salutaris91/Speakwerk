@@ -55,10 +55,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
             updateUI()
             showOnboarding(mode: .fullOnboarding)
         } else {
-            state = .idle
-            updateUI()
-            setupGlobalHotkey()
-            transcriptionManager.preloadModel()
+            if ModelManager.shared.reconcileSelectedModel() {
+                state = .idle
+                updateUI()
+                setupGlobalHotkey()
+                transcriptionManager.preloadModel()
+            } else {
+                state = .error("Kein Modell installiert")
+                updateUI()
+                showOnboarding(mode: .fullOnboarding)
+            }
         }
     }
     
