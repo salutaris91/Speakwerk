@@ -14,6 +14,19 @@ Das Projekt ist kostenlos, Open Source (MIT-Lizenz) und speichert/verarbeitet al
 
 ## 📦 Installation (für Nutzer)
 
+### Empfohlen: Installation per Terminal
+
+Zwei Befehle laden die neueste Version herunter und installieren sie in den Programme-Ordner:
+
+```bash
+curl -L -o /tmp/Speakwerk.zip https://github.com/salutaris91/Speakwerk/releases/latest/download/Speakwerk-Dist.zip
+ditto -x -k /tmp/Speakwerk.zip /Applications
+```
+
+Danach lässt sich Speakwerk direkt aus dem Programme-Ordner starten — **ohne die unten beschriebene Sicherheitswarnung**, denn `curl` setzt (anders als der Browser) kein macOS-Quarantäne-Attribut.
+
+### Alternativ: Download per Browser
+
 1. Laden Sie die Datei `Speakwerk-Dist.zip` der neuesten Version von der [Releases-Seite](https://github.com/salutaris91/Speakwerk/releases) herunter.
 2. Entpacken Sie das Archiv und verschieben Sie `Speakwerk.app` in den Ordner **Programme**.
 3. **Wichtig — erster Start:** Folgen Sie der Anleitung im nächsten Abschnitt, da macOS die App beim ersten Öffnen blockiert.
