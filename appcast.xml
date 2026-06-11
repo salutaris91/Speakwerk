@@ -3,13 +3,13 @@
     <channel>
         <title>Speakwerk</title>
         <item>
-            <title>1.0.2</title>
-            <pubDate>Thu, 11 Jun 2026 16:54:22 +0200</pubDate>
-            <sparkle:version>3</sparkle:version>
-            <sparkle:shortVersionString>1.0.2</sparkle:shortVersionString>
+            <title>1.0.3</title>
+            <pubDate>Thu, 11 Jun 2026 18:06:16 +0200</pubDate>
+            <sparkle:version>4</sparkle:version>
+            <sparkle:shortVersionString>1.0.3</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <enclosure url="https://github.com/salutaris91/Speakwerk/releases/download/v1.0.2/Speakwerk-Dist.zip" length="3757358" type="application/octet-stream" sparkle:edSignature="66kCPylKaW3BHSqVvBDNt1gs5QzeL3WR6QvpnYeSS5l4/hLsbh0htgysTeuWMsEytTZGCR0aGIxCqeJrDArHBA=="/>
+            <enclosure url="https://github.com/salutaris91/Speakwerk/releases/download/v1.0.3/Speakwerk-Dist.zip" length="3757349" type="application/octet-stream" sparkle:edSignature="FzNzk5vQ/t1SaEQhFgKl5YYlhpFlx9sTJNKwymGunCHz8RqCcC0BNZgf9aVV4oWzshAiaT1zK/JJu9uH2NEHAQ=="/>
         </item>
     </channel>
 </rss>
