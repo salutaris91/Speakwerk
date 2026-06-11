@@ -79,9 +79,10 @@ Claude arbeitet ausschließlich im **Review-Modus**:
 
 ### Git und Commits
 
-- Niemals direkt auf `main` arbeiten — jedes Feature muss zwingend in einem eigenen, neuen Branch bearbeitet werden.
+- Niemals direkt auf `main` arbeiten — jedes Feature muss zwingend in einem eigenen, neuen Branch bearbeitet werden. Dieser Branch ist direkt zu Beginn einer neuen Session anzulegen.
 - Nach jedem abgeschlossenen Plan-Schritt nur die eigenen Dateien gezielt stagen und lokal committen: `git add <eigene-dateien> && git commit -m "<kurze Beschreibung>"` — das ist ohne Rückfrage erlaubt.
 - Pushen nur auf ausdrückliche Nachfrage.
+- Wenn ein Pull Request vorbereitet, erstellt oder ein Link dazu bereitgestellt wird, müssen immer auch ein passender Titel und eine detaillierte Beschreibung (in englischer Sprache) mitgeliefert werden.
 - Commit-Messages auf Englisch, knapp und im Imperativ (`add local transcription history`, nicht `added ...`).
 - Jede Commit-Message endet mit der tool-spezifischen Zeile für Claude:
   `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`
