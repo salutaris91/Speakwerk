@@ -48,23 +48,34 @@ public class ModelManager {
     
     private let downloadedModelsKey = "downloadedModels"
     private let selectedModelKey = "selectedModel"
+    private let selectedLanguageKey = "selectedLanguage"
     
-    private init() {
-        migrateLegacyPaths()
+    public var selectedModel: ModelTier = .base {
+        didSet {
+            defaults.set(selectedModel.rawValue, forKey: selectedModelKey)
+            logger.info("Selected model changed to: \(self.selectedModel.rawValue)")
+        }
     }
     
-    public var selectedModel: ModelTier {
-        get {
-            guard let raw = defaults.string(forKey: selectedModelKey),
-                  let tier = ModelTier(rawValue: raw) else {
-                return .base
-            }
-            return tier
+    public var selectedLanguage: TranscriptionLanguage = .auto {
+        didSet {
+            defaults.set(selectedLanguage.rawValue, forKey: selectedLanguageKey)
+            logger.info("Selected language changed to: \(self.selectedLanguage.rawValue)")
         }
-        set {
-            defaults.set(newValue.rawValue, forKey: selectedModelKey)
-            logger.info("Selected model changed to: \(newValue.rawValue)")
+    }
+    
+    private init() {
+        let rawModel = UserDefaults.standard.string(forKey: "selectedModel") ?? ""
+        if let tier = ModelTier(rawValue: rawModel) {
+            self.selectedModel = tier
         }
+        
+        let rawLang = UserDefaults.standard.string(forKey: "selectedLanguage") ?? ""
+        if let lang = TranscriptionLanguage(rawValue: rawLang) {
+            self.selectedLanguage = lang
+        }
+        
+        migrateLegacyPaths()
     }
     
     public var downloadedModels: [String: String] {
