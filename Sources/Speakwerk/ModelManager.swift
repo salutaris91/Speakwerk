@@ -80,19 +80,54 @@ public class ModelManager {
         return modelsDir
     }
     
-    public func isModelDownloaded(tier: ModelTier) -> Bool {
-        guard let folderName = downloadedModels[tier.rawValue] else {
-            return false
-        }
-        let folderURL = modelsDirectoryURL.appendingPathComponent(folderName, isDirectory: true)
-        
-        var isDir: ObjCBool = false
-        if fileManager.fileExists(atPath: folderURL.path, isDirectory: &isDir), isDir.boolValue {
-            if let files = try? fileManager.contentsOfDirectory(atPath: folderURL.path), !files.isEmpty {
-                return true
+    private func resolvedModelFolder(for tier: ModelTier) -> URL? {
+        if let storedValue = downloadedModels[tier.rawValue] {
+            // If it's an absolute path, verify if it exists and is not empty
+            if storedValue.hasPrefix("/") {
+                let folderURL = URL(fileURLWithPath: storedValue, isDirectory: true)
+                var isDir: ObjCBool = false
+                if fileManager.fileExists(atPath: folderURL.path, isDirectory: &isDir), isDir.boolValue {
+                    if let files = try? fileManager.contentsOfDirectory(atPath: folderURL.path), !files.isEmpty {
+                        return folderURL
+                    }
+                }
             }
         }
-        return false
+        
+        // Otherwise, perform recursive self-healing search under modelsDirectoryURL
+        let keys: [URLResourceKey] = [.isDirectoryKey]
+        guard let enumerator = fileManager.enumerator(
+            at: modelsDirectoryURL,
+            includingPropertiesForKeys: keys,
+            options: [.skipsHiddenFiles],
+            errorHandler: nil
+        ) else {
+            return nil
+        }
+        
+        for case let url as URL in enumerator {
+            guard let resourceValues = try? url.resourceValues(forKeys: Set(keys)),
+                  let isDirectory = resourceValues.isDirectory,
+                  isDirectory else {
+                continue
+            }
+            
+            if url.lastPathComponent == tier.rawValue {
+                if let files = try? fileManager.contentsOfDirectory(atPath: url.path), !files.isEmpty {
+                    var currentDownloaded = downloadedModels
+                    currentDownloaded[tier.rawValue] = url.path
+                    downloadedModels = currentDownloaded
+                    logger.info("Healed model path for \(tier.rawValue) to: \(url.path)")
+                    return url
+                }
+            }
+        }
+        
+        return nil
+    }
+    
+    public func isModelDownloaded(tier: ModelTier) -> Bool {
+        return resolvedModelFolder(for: tier) != nil
     }
     
     public func downloadModel(tier: ModelTier) async throws {
@@ -123,10 +158,10 @@ public class ModelManager {
                 }
             )
             
-            // Persist the association between the tier and the local folder name
-            let folderName = downloadedFolderURL.lastPathComponent
+            // Persist the association between the tier and the local folder absolute path
+            let folderPath = downloadedFolderURL.path
             var currentDownloaded = downloadedModels
-            currentDownloaded[tier.rawValue] = folderName
+            currentDownloaded[tier.rawValue] = folderPath
             downloadedModels = currentDownloaded
             
             downloadState = .completed
@@ -142,11 +177,7 @@ public class ModelManager {
     
     /// Returns the absolute local URL for the downloaded model folder, if it exists
     public func modelFolderURL(for tier: ModelTier) -> URL? {
-        guard isModelDownloaded(tier: tier),
-              let folderName = downloadedModels[tier.rawValue] else {
-            return nil
-        }
-        return modelsDirectoryURL.appendingPathComponent(folderName, isDirectory: true)
+        return resolvedModelFolder(for: tier)
     }
     
     public func resetDownloadState() {
