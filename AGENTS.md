@@ -78,7 +78,7 @@ Gemini arbeitet als **implementierender Entwickler**:
 
 ### Git und Commits
 
-- Niemals direkt auf `main` arbeiten — jedes Feature muss zwingend in einem eigenen, neuen Branch bearbeitet werden.
+- Niemals direkt auf `main` arbeiten — jedes Feature muss zwingend in einem eigenen, neuen Branch bearbeitet werden. Dieser Branch ist direkt zu Beginn einer neuen Session anzulegen.
 - Nach jedem abgeschlossenen Plan-Schritt nur die eigenen Dateien gezielt stagen und lokal committen: `git add <eigene-dateien> && git commit -m "<kurze Beschreibung>"` — das ist ohne Rückfrage erlaubt.
 - Pushen nur auf ausdrückliche Nachfrage.
 - Commit-Messages auf Englisch, knapp und im Imperativ (`add local transcription history`, nicht `added ...`).
