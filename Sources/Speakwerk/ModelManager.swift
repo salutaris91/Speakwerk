@@ -49,6 +49,10 @@ public class ModelManager {
     private let downloadedModelsKey = "downloadedModels"
     private let selectedModelKey = "selectedModel"
     
+    private init() {
+        migrateLegacyPaths()
+    }
+    
     public var selectedModel: ModelTier {
         get {
             guard let raw = defaults.string(forKey: selectedModelKey),
@@ -80,19 +84,91 @@ public class ModelManager {
         return modelsDir
     }
     
-    public func isModelDownloaded(tier: ModelTier) -> Bool {
-        guard let folderName = downloadedModels[tier.rawValue] else {
-            return false
+    private func resolvedModelFolder(for tier: ModelTier) -> URL? {
+        guard let storedValue = downloadedModels[tier.rawValue],
+              storedValue.hasPrefix("/") else {
+            return nil
         }
-        let folderURL = modelsDirectoryURL.appendingPathComponent(folderName, isDirectory: true)
         
+        let folderURL = URL(fileURLWithPath: storedValue, isDirectory: true)
         var isDir: ObjCBool = false
         if fileManager.fileExists(atPath: folderURL.path, isDirectory: &isDir), isDir.boolValue {
             if let files = try? fileManager.contentsOfDirectory(atPath: folderURL.path), !files.isEmpty {
-                return true
+                return folderURL
             }
         }
-        return false
+        
+        return nil
+    }
+    
+    /// Migrates any legacy relative paths in downloadedModels to absolute paths by performing a one-time recursive search.
+    public func migrateLegacyPaths() {
+        var updated = false
+        var currentDownloaded = downloadedModels
+        
+        for tier in ModelTier.allCases {
+            guard let storedValue = currentDownloaded[tier.rawValue] else {
+                continue
+            }
+            
+            // If it is already an absolute path and exists, no migration needed
+            if storedValue.hasPrefix("/") {
+                let folderURL = URL(fileURLWithPath: storedValue, isDirectory: true)
+                var isDir: ObjCBool = false
+                if fileManager.fileExists(atPath: folderURL.path, isDirectory: &isDir), isDir.boolValue {
+                    if let files = try? fileManager.contentsOfDirectory(atPath: folderURL.path), !files.isEmpty {
+                        continue
+                    }
+                }
+            }
+            
+            // Otherwise (relative leaf name or invalid path), search recursively once
+            logger.info("Migrating legacy path for tier: \(tier.rawValue) (stored: \(storedValue))")
+            
+            let keys: [URLResourceKey] = [.isDirectoryKey]
+            guard let enumerator = fileManager.enumerator(
+                at: modelsDirectoryURL,
+                includingPropertiesForKeys: keys,
+                options: [.skipsHiddenFiles],
+                errorHandler: nil
+            ) else {
+                continue
+            }
+            
+            var found = false
+            for case let url as URL in enumerator {
+                guard let resourceValues = try? url.resourceValues(forKeys: Set(keys)),
+                      let isDirectory = resourceValues.isDirectory,
+                      isDirectory else {
+                    continue
+                }
+                
+                if url.lastPathComponent == tier.rawValue {
+                    if let files = try? fileManager.contentsOfDirectory(atPath: url.path), !files.isEmpty {
+                        currentDownloaded[tier.rawValue] = url.path
+                        updated = true
+                        found = true
+                        logger.info("Successfully migrated \(tier.rawValue) to absolute path: \(url.path)")
+                        break
+                    }
+                }
+            }
+            
+            if !found {
+                // If the folder was not found, clear the invalid legacy entry to prevent future tree walks
+                currentDownloaded.removeValue(forKey: tier.rawValue)
+                updated = true
+                logger.warning("Cleared invalid legacy path for \(tier.rawValue) as no matching folder was found.")
+            }
+        }
+        
+        if updated {
+            downloadedModels = currentDownloaded
+        }
+    }
+    
+    public func isModelDownloaded(tier: ModelTier) -> Bool {
+        return resolvedModelFolder(for: tier) != nil
     }
     
     public func downloadModel(tier: ModelTier) async throws {
@@ -123,10 +199,10 @@ public class ModelManager {
                 }
             )
             
-            // Persist the association between the tier and the local folder name
-            let folderName = downloadedFolderURL.lastPathComponent
+            // Persist the association between the tier and the local folder absolute path
+            let folderPath = downloadedFolderURL.path
             var currentDownloaded = downloadedModels
-            currentDownloaded[tier.rawValue] = folderName
+            currentDownloaded[tier.rawValue] = folderPath
             downloadedModels = currentDownloaded
             
             downloadState = .completed
@@ -142,11 +218,29 @@ public class ModelManager {
     
     /// Returns the absolute local URL for the downloaded model folder, if it exists
     public func modelFolderURL(for tier: ModelTier) -> URL? {
-        guard isModelDownloaded(tier: tier),
-              let folderName = downloadedModels[tier.rawValue] else {
-            return nil
+        return resolvedModelFolder(for: tier)
+    }
+    
+    /// Ensures selectedModel points to a model that is actually available on disk.
+    /// Falls back to any downloaded model. Returns false if none is available.
+    public func reconcileSelectedModel() -> Bool {
+        // 1. If currently selected model is already downloaded, it's valid
+        if isModelDownloaded(tier: selectedModel) {
+            return true
         }
-        return modelsDirectoryURL.appendingPathComponent(folderName, isDirectory: true)
+        
+        // 2. Otherwise, check all cases and fall back to the first one available
+        for tier in ModelTier.allCases {
+            if isModelDownloaded(tier: tier) {
+                selectedModel = tier
+                logger.info("Reconciled selected model: fell back to \(tier.rawValue)")
+                return true
+            }
+        }
+        
+        // 3. No downloaded model is available
+        logger.warning("Reconcile failed: no models are downloaded on disk.")
+        return false
     }
     
     public func resetDownloadState() {

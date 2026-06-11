@@ -64,15 +64,6 @@ class TranscriptionManager {
     /// Transcribes the audio file at the specified URL.
     /// If the model is not yet loaded, it will wait (polling safely via Task.sleep) for the loading task to complete.
     func transcribe(audioURL: URL) async throws -> String {
-        // If preloading already failed, abort immediately to avoid long timeout loops
-        if loadingFailed {
-            throw NSError(
-                domain: "TranscriptionManager",
-                code: 2,
-                userInfo: [NSLocalizedDescriptionKey: "WhisperKit model failed to load during preloading. Please start a new recording to retry."]
-            )
-        }
-        
         // Trigger preloading if not already running
         preloadModel()
         

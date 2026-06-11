@@ -646,7 +646,7 @@
       "source_file": "",
       "source_location": "",
       "id": "sendable",
-      "community": 0,
+      "community": 15,
       "norm_label": "sendable"
     },
     {
@@ -655,7 +655,7 @@
       "source_file": "",
       "source_location": "",
       "id": "identifiable",
-      "community": 0,
+      "community": 15,
       "norm_label": "identifiable"
     },
     {
@@ -767,19 +767,46 @@
       "norm_label": "void"
     },
     {
+      "label": ".init()",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L52",
+      "id": "speakwerk_modelmanager_modelmanager_init",
+      "community": 15,
+      "norm_label": ".init()"
+    },
+    {
       "label": "URL",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L76",
+      "source_location": "L80",
       "id": "sources_speakwerk_modelmanager_swift_url",
       "community": 15,
       "norm_label": "url"
     },
     {
+      "label": ".resolvedModelFolder()",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L87",
+      "id": "speakwerk_modelmanager_modelmanager_resolvedmodelfolder",
+      "community": 15,
+      "norm_label": ".resolvedmodelfolder()"
+    },
+    {
+      "label": ".migrateLegacyPaths()",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L105",
+      "id": "speakwerk_modelmanager_modelmanager_migratelegacypaths",
+      "community": 15,
+      "norm_label": ".migratelegacypaths()"
+    },
+    {
       "label": ".isModelDownloaded()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L83",
+      "source_location": "L170",
       "id": "speakwerk_modelmanager_modelmanager_ismodeldownloaded",
       "community": 15,
       "norm_label": ".ismodeldownloaded()"
@@ -788,7 +815,7 @@
       "label": "Bool",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L83",
+      "source_location": "L170",
       "id": "sources_speakwerk_modelmanager_swift_bool",
       "community": 15,
       "norm_label": "bool"
@@ -797,7 +824,7 @@
       "label": ".downloadModel()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L98",
+      "source_location": "L174",
       "id": "speakwerk_modelmanager_modelmanager_downloadmodel",
       "community": 15,
       "norm_label": ".downloadmodel()"
@@ -806,16 +833,25 @@
       "label": ".modelFolderURL()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L144",
+      "source_location": "L220",
       "id": "speakwerk_modelmanager_modelmanager_modelfolderurl",
       "community": 15,
       "norm_label": ".modelfolderurl()"
     },
     {
+      "label": ".reconcileSelectedModel()",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L226",
+      "id": "speakwerk_modelmanager_modelmanager_reconcileselectedmodel",
+      "community": 15,
+      "norm_label": ".reconcileselectedmodel()"
+    },
+    {
       "label": ".resetDownloadState()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L152",
+      "source_location": "L246",
       "id": "speakwerk_modelmanager_modelmanager_resetdownloadstate",
       "community": 15,
       "norm_label": ".resetdownloadstate()"
@@ -941,7 +977,7 @@
       "label": ".updateUI()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L65",
+      "source_location": "L71",
       "id": "speakwerk_main_appdelegate_updateui",
       "community": 3,
       "norm_label": ".updateui()"
@@ -950,7 +986,7 @@
       "label": ".rebuildMenu()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L90",
+      "source_location": "L96",
       "id": "speakwerk_main_appdelegate_rebuildmenu",
       "community": 3,
       "norm_label": ".rebuildmenu()"
@@ -959,7 +995,7 @@
       "label": ".selectModelItem()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L219",
+      "source_location": "L225",
       "id": "speakwerk_main_appdelegate_selectmodelitem",
       "community": 3,
       "norm_label": ".selectmodelitem()"
@@ -968,7 +1004,7 @@
       "label": "NSMenuItem",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L219",
+      "source_location": "L225",
       "id": "nsmenuitem",
       "community": 3,
       "norm_label": "nsmenuitem"
@@ -977,7 +1013,7 @@
       "label": ".startOnboardingAction()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L237",
+      "source_location": "L243",
       "id": "speakwerk_main_appdelegate_startonboardingaction",
       "community": 3,
       "norm_label": ".startonboardingaction()"
@@ -986,7 +1022,7 @@
       "label": ".resetOnboardingAction()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L241",
+      "source_location": "L247",
       "id": "speakwerk_main_appdelegate_resetonboardingaction",
       "community": 3,
       "norm_label": ".resetonboardingaction()"
@@ -995,7 +1031,7 @@
       "label": ".showOnboarding()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L245",
+      "source_location": "L251",
       "id": "speakwerk_main_appdelegate_showonboarding",
       "community": 3,
       "norm_label": ".showonboarding()"
@@ -1004,7 +1040,7 @@
       "label": "OnboardingViewMode",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L245",
+      "source_location": "L251",
       "id": "onboardingviewmode",
       "community": 3,
       "norm_label": "onboardingviewmode"
@@ -1013,16 +1049,16 @@
       "label": ".showSettingsAction()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L295",
+      "source_location": "L301",
       "id": "speakwerk_main_appdelegate_showsettingsaction",
-      "community": 17,
+      "community": 3,
       "norm_label": ".showsettingsaction()"
     },
     {
       "label": ".showAboutAction()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L322",
+      "source_location": "L328",
       "id": "speakwerk_main_appdelegate_showaboutaction",
       "community": 3,
       "norm_label": ".showaboutaction()"
@@ -1031,7 +1067,7 @@
       "label": ".completeOnboardingFlow()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L349",
+      "source_location": "L355",
       "id": "speakwerk_main_appdelegate_completeonboardingflow",
       "community": 3,
       "norm_label": ".completeonboardingflow()"
@@ -1040,7 +1076,7 @@
       "label": ".setupGlobalHotkey()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L358",
+      "source_location": "L364",
       "id": "speakwerk_main_appdelegate_setupglobalhotkey",
       "community": 3,
       "norm_label": ".setupglobalhotkey()"
@@ -1049,7 +1085,7 @@
       "label": ".startRecordingProcess()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L365",
+      "source_location": "L371",
       "id": "speakwerk_main_appdelegate_startrecordingprocess",
       "community": 3,
       "norm_label": ".startrecordingprocess()"
@@ -1058,7 +1094,7 @@
       "label": ".setErrorState()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L383",
+      "source_location": "L389",
       "id": "speakwerk_main_appdelegate_seterrorstate",
       "community": 3,
       "norm_label": ".seterrorstate()"
@@ -1067,7 +1103,7 @@
       "label": "String",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L383",
+      "source_location": "L389",
       "id": "sources_speakwerk_main_swift_string",
       "community": 3,
       "norm_label": "string"
@@ -1076,7 +1112,7 @@
       "label": ".toggleRecording()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L399",
+      "source_location": "L405",
       "id": "speakwerk_main_appdelegate_togglerecording",
       "community": 3,
       "norm_label": ".togglerecording()"
@@ -1085,7 +1121,7 @@
       "label": ".quitApp()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L460",
+      "source_location": "L466",
       "id": "speakwerk_main_appdelegate_quitapp",
       "community": 3,
       "norm_label": ".quitapp()"
@@ -1094,7 +1130,7 @@
       "label": ".standardUserDriverWillShowModalAlert()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L469",
+      "source_location": "L475",
       "id": "speakwerk_main_appdelegate_standarduserdriverwillshowmodalalert",
       "community": 3,
       "norm_label": ".standarduserdriverwillshowmodalalert()"
@@ -1103,43 +1139,43 @@
       "label": ".standardUserDriverWillHandleShowingUpdate()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L475",
+      "source_location": "L481",
       "id": "speakwerk_main_appdelegate_standarduserdriverwillhandleshowingupdate",
-      "community": 3,
+      "community": 16,
       "norm_label": ".standarduserdriverwillhandleshowingupdate()"
     },
     {
       "label": "Bool",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L475",
+      "source_location": "L481",
       "id": "sources_speakwerk_main_swift_bool",
-      "community": 3,
+      "community": 16,
       "norm_label": "bool"
     },
     {
       "label": "SUAppcastItem",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L475",
+      "source_location": "L481",
       "id": "suappcastitem",
-      "community": 3,
+      "community": 16,
       "norm_label": "suappcastitem"
     },
     {
       "label": "SPUUserUpdateState",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L475",
+      "source_location": "L481",
       "id": "spuuserupdatestate",
-      "community": 3,
+      "community": 16,
       "norm_label": "spuuserupdatestate"
     },
     {
       "label": ".windowWillClose()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L485",
+      "source_location": "L491",
       "id": "speakwerk_main_appdelegate_windowwillclose",
       "community": 3,
       "norm_label": ".windowwillclose()"
@@ -3200,6 +3236,17 @@
       "target": "speakwerk_modelmanager_modeltier"
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L83",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "speakwerk_modelmanager_modelmanager_resolvedmodelfolder",
+      "target": "speakwerk_modelmanager_modeltier"
+    },
+    {
       "relation": "implements",
       "confidence": "EXTRACTED",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
@@ -3421,11 +3468,31 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "speakwerk_modelmanager_modelmanager",
+      "target": "speakwerk_modelmanager_modelmanager_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
       "source_location": "L82",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "speakwerk_modelmanager_modelmanager",
       "target": "speakwerk_modelmanager_modelmanager_ismodeldownloaded"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "speakwerk_modelmanager_modelmanager",
+      "target": "speakwerk_modelmanager_modelmanager_migratelegacypaths",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3441,11 +3508,42 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L185",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_modelmanager_modelmanager",
+      "target": "speakwerk_modelmanager_modelmanager_reconcileselectedmodel"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
       "source_location": "L149",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "speakwerk_modelmanager_modelmanager",
       "target": "speakwerk_modelmanager_modelmanager_resetdownloadstate"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L83",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_modelmanager_modelmanager",
+      "target": "speakwerk_modelmanager_modelmanager_resolvedmodelfolder"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "speakwerk_modelmanager_modelmanager_init",
+      "target": "speakwerk_modelmanager_modelmanager_migratelegacypaths",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -3457,6 +3555,39 @@
       "confidence_score": 1.0,
       "source": "speakwerk_modelmanager_modelmanager_modelfolderurl",
       "target": "sources_speakwerk_modelmanager_swift_url"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L83",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "speakwerk_modelmanager_modelmanager_resolvedmodelfolder",
+      "target": "sources_speakwerk_modelmanager_swift_url"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L130",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_modelmanager_modelmanager_ismodeldownloaded",
+      "target": "speakwerk_modelmanager_modelmanager_resolvedmodelfolder"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L180",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_modelmanager_modelmanager_modelfolderurl",
+      "target": "speakwerk_modelmanager_modelmanager_resolvedmodelfolder"
     },
     {
       "relation": "references",
@@ -3479,6 +3610,28 @@
       "confidence_score": 1.0,
       "source": "speakwerk_modelmanager_modelmanager_modelfolderurl",
       "target": "speakwerk_modelmanager_modelmanager_ismodeldownloaded"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L187",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_modelmanager_modelmanager_reconcileselectedmodel",
+      "target": "speakwerk_modelmanager_modelmanager_ismodeldownloaded"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L185",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "speakwerk_modelmanager_modelmanager_reconcileselectedmodel",
+      "target": "sources_speakwerk_modelmanager_swift_bool"
     },
     {
       "relation": "contains",
@@ -5644,5 +5797,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "aec7d8ef07110c94e4628129d1e22758f76bdf39"
+  "built_at_commit": "b420390836ffa3b080567a41383adbb465724e47"
 }
