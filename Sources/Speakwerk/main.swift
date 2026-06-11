@@ -1,5 +1,6 @@
 import Foundation
 import AppKit
+import AVFoundation
 import os
 import SwiftUI
 import KeyboardShortcuts
@@ -369,9 +370,55 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
     }
     
     private func startRecordingProcess() {
+        switch AVCaptureDevice.authorizationStatus(for: .audio) {
+        case .authorized:
+            beginRecording()
+        case .notDetermined:
+            logger.info("Microphone permission not determined yet. Requesting access...")
+            AVCaptureDevice.requestAccess(for: .audio) { granted in
+                Task { @MainActor in
+                    if granted {
+                        self.beginRecording()
+                    } else {
+                        self.handleMicrophoneAccessDenied()
+                    }
+                }
+            }
+        case .denied, .restricted:
+            handleMicrophoneAccessDenied()
+        @unknown default:
+            handleMicrophoneAccessDenied()
+        }
+    }
+
+    /// Shows an error state and an alert guiding the user to System Settings.
+    /// Without microphone permission, AVAudioRecorder silently records silence,
+    /// which Whisper then hallucinates into tags like "[Musik]".
+    private func handleMicrophoneAccessDenied() {
+        logger.error("Microphone access is denied or restricted. Recording aborted.")
+        setErrorState(message: "Kein Mikrofonzugriff")
+
+        let alert = NSAlert()
+        alert.messageText = "Speakwerk hat keinen Mikrofonzugriff"
+        alert.informativeText = "Ohne Mikrofonberechtigung kann keine Sprache aufgenommen werden. Bitte aktiviere Speakwerk unter Systemeinstellungen → Datenschutz & Sicherheit → Mikrofon."
+        alert.alertStyle = .warning
+        alert.addButton(withTitle: "Systemeinstellungen öffnen")
+        alert.addButton(withTitle: "Abbrechen")
+
+        NSApp.activate(ignoringOtherApps: true)
+        let response = alert.runModal()
+
+        if response == .alertFirstButtonReturn {
+            if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Microphone") {
+                NSWorkspace.shared.open(url)
+            }
+        }
+    }
+
+    private func beginRecording() {
         errorResetTimer?.invalidate()
         errorResetTimer = nil
-        
+
         do {
             let fileURL = try audioRecorder.startRecording()
             logger.info("Recording started and saving to: \(fileURL.path)")
