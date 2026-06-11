@@ -1841,7 +1841,7 @@
       "label": "Parallele Agents",
       "file_type": "document",
       "source_file": "AGENTS.md",
-      "source_location": "L88",
+      "source_location": "L89",
       "id": "speakwerk_agents_parallele_agents",
       "community": 1,
       "norm_label": "parallele agents"
@@ -1850,7 +1850,7 @@
       "label": "Aufgabenwechsel und \u00dcbergabe",
       "file_type": "document",
       "source_file": "AGENTS.md",
-      "source_location": "L100",
+      "source_location": "L101",
       "id": "speakwerk_agents_aufgabenwechsel_und_\u00fcbergabe",
       "community": 1,
       "norm_label": "aufgabenwechsel und ubergabe"
@@ -1859,7 +1859,7 @@
       "label": "Nach jedem Feature-Schritt (Pflicht-Updates)",
       "file_type": "document",
       "source_file": "AGENTS.md",
-      "source_location": "L109",
+      "source_location": "L110",
       "id": "speakwerk_agents_nach_jedem_feature_schritt_pflicht_updates",
       "community": 1,
       "norm_label": "nach jedem feature-schritt (pflicht-updates)"
@@ -1868,7 +1868,7 @@
       "label": "Deployment-Notizen",
       "file_type": "document",
       "source_file": "AGENTS.md",
-      "source_location": "L118",
+      "source_location": "L119",
       "id": "speakwerk_agents_deployment_notizen",
       "community": 1,
       "norm_label": "deployment-notizen"
@@ -1877,7 +1877,7 @@
       "label": "graphify",
       "file_type": "document",
       "source_file": "AGENTS.md",
-      "source_location": "L126",
+      "source_location": "L127",
       "id": "speakwerk_agents_graphify",
       "community": 1,
       "norm_label": "graphify"
@@ -1985,7 +1985,7 @@
       "label": "Parallele Agents",
       "file_type": "document",
       "source_file": "CLAUDE.md",
-      "source_location": "L89",
+      "source_location": "L90",
       "id": "speakwerk_claude_parallele_agents",
       "community": 2,
       "norm_label": "parallele agents"
@@ -1994,7 +1994,7 @@
       "label": "Aufgabenwechsel und \u00dcbergabe",
       "file_type": "document",
       "source_file": "CLAUDE.md",
-      "source_location": "L101",
+      "source_location": "L102",
       "id": "speakwerk_claude_aufgabenwechsel_und_\u00fcbergabe",
       "community": 2,
       "norm_label": "aufgabenwechsel und ubergabe"
@@ -2003,7 +2003,7 @@
       "label": "Nach jedem Feature-Schritt (Pflicht-Updates)",
       "file_type": "document",
       "source_file": "CLAUDE.md",
-      "source_location": "L110",
+      "source_location": "L111",
       "id": "speakwerk_claude_nach_jedem_feature_schritt_pflicht_updates",
       "community": 2,
       "norm_label": "nach jedem feature-schritt (pflicht-updates)"
@@ -2012,7 +2012,7 @@
       "label": "Deployment-Notizen",
       "file_type": "document",
       "source_file": "CLAUDE.md",
-      "source_location": "L119",
+      "source_location": "L120",
       "id": "speakwerk_claude_deployment_notizen",
       "community": 2,
       "norm_label": "deployment-notizen"
@@ -2021,7 +2021,7 @@
       "label": "graphify",
       "file_type": "document",
       "source_file": "CLAUDE.md",
-      "source_location": "L127",
+      "source_location": "L128",
       "id": "speakwerk_claude_graphify",
       "community": 2,
       "norm_label": "graphify"
@@ -2382,9 +2382,9 @@
       "source_file": "Sources/Speakwerk/AboutView.swift",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "sources_speakwerk_aboutview_swift",
-      "target": "speakwerk_aboutview_aboutview",
-      "confidence_score": 1.0
+      "target": "speakwerk_aboutview_aboutview"
     },
     {
       "relation": "references",
@@ -2393,9 +2393,9 @@
       "source_location": "L6",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "speakwerk_aboutview_aboutview",
-      "target": "sources_speakwerk_aboutview_swift_string",
-      "confidence_score": 1.0
+      "target": "sources_speakwerk_aboutview_swift_string"
     },
     {
       "relation": "method",
@@ -2403,9 +2403,9 @@
       "source_file": "Sources/Speakwerk/AboutView.swift",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_aboutview_aboutview",
-      "target": "speakwerk_aboutview_aboutview_init",
-      "confidence_score": 1.0
+      "target": "speakwerk_aboutview_aboutview_init"
     },
     {
       "relation": "references",
@@ -2414,9 +2414,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "speakwerk_aboutview_aboutview",
-      "target": "view",
-      "confidence_score": 1.0
+      "target": "view"
     },
     {
       "relation": "calls",
@@ -3681,9 +3681,9 @@
       "source_file": "Sources/Speakwerk/main.swift",
       "source_location": "L322",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_main_appdelegate",
-      "target": "speakwerk_main_appdelegate_showaboutaction",
-      "confidence_score": 1.0
+      "target": "speakwerk_main_appdelegate_showaboutaction"
     },
     {
       "relation": "method",
@@ -3835,9 +3835,9 @@
       "source_file": "Sources/Speakwerk/main.swift",
       "source_location": "L332",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_main_appdelegate_showaboutaction",
-      "target": "nswindow",
-      "confidence_score": 1.0
+      "target": "nswindow"
     },
     {
       "relation": "calls",
@@ -4515,9 +4515,9 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_onboardingview_onboardingstep",
-      "target": "speakwerk_onboardingview_onboardingstep_finished",
-      "confidence_score": 1.0
+      "target": "speakwerk_onboardingview_onboardingstep_finished"
     },
     {
       "relation": "case_of",
@@ -5644,5 +5644,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a91695f80a3e004aa426481c6154ed0d285bd58e"
+  "built_at_commit": "aec7d8ef07110c94e4628129d1e22758f76bdf39"
 }
