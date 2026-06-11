@@ -2,11 +2,30 @@
 
 Diese Anleitung beschreibt den vollständigen Veröffentlichungsprozess einer neuen Speakwerk-Version. Sie richtet sich ausschließlich an Maintainer — zum bloßen Bauen der App genügt die README.
 
-Der dokumentierte Weg ist der **Ad-hoc-Prozess ohne Apple Developer Account** (so wurde v1.0.0 veröffentlicht). Der notarisierte Weg ist am Ende als Ausblick beschrieben.
+Der dokumentierte Weg ist der **Prozess ohne Apple Developer Account** mit einem selbst-signierten Zertifikat (bis v1.0.3 wurde ad-hoc signiert). Der notarisierte Weg ist am Ende als Ausblick beschrieben.
 
 ---
 
 ## Voraussetzungen (einmalig)
+
+### Selbst-signiertes Code-Signing-Zertifikat
+
+macOS knüpft TCC-Berechtigungen (z. B. Mikrofonzugriff) an die Code-Identität der App. Bei Ad-hoc-Signaturen (`codesign --sign -`) ändert sich diese Identität mit **jedem Build** — nach jedem Update verliert die App ihre Mikrofonberechtigung. Ein selbst-signiertes Zertifikat hält die Identität über Releases hinweg stabil.
+
+Einmalig erstellen (GUI, benötigt Admin-Rechte):
+
+1. **Schlüsselbundverwaltung** öffnen → Menü *Schlüsselbundverwaltung* → *Zertifikatsassistent* → *Ein Zertifikat erstellen…*
+2. Name: `Speakwerk Signing` · Identitätstyp: *Selbst signiertes Root-Zertifikat* · Zertifikatstyp: **Code-Signierung**
+3. *Erstellen* klicken. Das Zertifikat landet im Login-Schlüsselbund.
+4. Beim ersten `codesign`-Aufruf fragt macOS nach Schlüsselbund-Zugriff → *Immer erlauben*.
+
+Prüfen, dass das Zertifikat gefunden wird:
+
+```bash
+security find-identity -p codesigning -v | grep "Speakwerk Signing"
+```
+
+**Hinweis:** Beim Wechsel von Ad-hoc auf dieses Zertifikat (bzw. falls das Zertifikat jemals neu erstellt wird) verlieren bestehende Installationen **einmalig** ihre Mikrofonberechtigung nach dem ersten Update mit der neuen Signatur. Danach bleibt sie über alle weiteren Updates erhalten.
 
 ### Sparkle Ed25519-Schlüsselpaar
 
@@ -23,7 +42,7 @@ Ein erneuter Aufruf von `generate_keys` zeigt den vorhandenen öffentlichen Schl
 
 ---
 
-## Release-Prozess (Ad-hoc, ohne Notarisierung)
+## Release-Prozess (selbst-signiert, ohne Notarisierung)
 
 Im Beispiel steht `<tag>` für den GitHub-Release-Tag, z. B. `v1.1.0`.
 
@@ -39,18 +58,21 @@ In `Resources/Info.plist` die Marketing-Version (`CFBundleShortVersionString`, z
 
 Ohne `.env` (bzw. ohne gesetztes `DEVELOPER_ID_APPLICATION`) läuft das Skript im **Trockentest-Modus**: Es kompiliert den Release-Build, erstellt `build/Speakwerk.app`, bettet Sparkle.framework ein und führt den Launch-Smoke-Test aus. **Achtung:** Im Trockentest-Modus erzeugt das Skript *kein* `Speakwerk-Dist.zip` — Signieren und Verpacken folgen manuell in den nächsten beiden Schritten.
 
-### 3. Ad-hoc signieren (inside-out)
+### 3. Signieren (inside-out, selbst-signiertes Zertifikat)
 
 ```bash
 APP="build/Speakwerk.app"
 SPARKLE="$APP/Contents/Frameworks/Sparkle.framework"
-codesign --force --sign - "$SPARKLE/Versions/B/Updater.app/Contents/MacOS/Updater"
-codesign --force --sign - "$SPARKLE/Versions/B/Updater.app"
-codesign --force --sign - "$SPARKLE"
-codesign --force --sign - --entitlements Resources/Speakwerk.entitlements "$APP/Contents/MacOS/Speakwerk"
-codesign --force --sign - --entitlements Resources/Speakwerk.entitlements "$APP"
+IDENTITY="Speakwerk Signing"
+codesign --force --sign "$IDENTITY" "$SPARKLE/Versions/B/Updater.app/Contents/MacOS/Updater"
+codesign --force --sign "$IDENTITY" "$SPARKLE/Versions/B/Updater.app"
+codesign --force --sign "$IDENTITY" "$SPARKLE"
+codesign --force --sign "$IDENTITY" --entitlements Resources/Speakwerk.entitlements "$APP/Contents/MacOS/Speakwerk"
+codesign --force --sign "$IDENTITY" --entitlements Resources/Speakwerk.entitlements "$APP"
 codesign --verify --deep --strict --verbose=2 "$APP"
 ```
+
+Nicht mehr ad-hoc (`--sign -`) signieren — siehe Voraussetzungen, sonst geht die Mikrofonberechtigung bei jedem Update verloren.
 
 ### 4. Distributions-Archiv erstellen
 
