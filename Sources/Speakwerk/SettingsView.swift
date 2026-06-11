@@ -98,9 +98,46 @@ public struct SettingsView: View {
             }
             .padding(.horizontal, 20)
             
+            // Support & Feedback Section
+            VStack(alignment: .leading, spacing: 10) {
+                Text("Support & Feedback")
+                    .font(.headline)
+                    .padding(.top, 10)
+                
+                HStack(spacing: 12) {
+                    Text("Hast du Fragen oder Feedback zu Speakwerk?")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        if let url = URL(string: "mailto:info@anderzlabs.de?subject=Speakwerk%20Support%20%26%20Feedback") {
+                            NSWorkspace.shared.open(url)
+                        }
+                    }) {
+                        HStack(spacing: 4) {
+                            Image(systemName: "envelope")
+                            Text("info@anderzlabs.de")
+                        }
+                    }
+                    .buttonStyle(.bordered)
+                }
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Color.gray.opacity(0.05))
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.gray.opacity(0.15), lineWidth: 1)
+                )
+            }
+            .padding(.horizontal, 20)
+            
             Spacer()
         }
-        .frame(width: 480, height: 420)
+        .frame(width: 480, height: 450)
         .background(Color(NSColor.windowBackgroundColor))
     }
 }

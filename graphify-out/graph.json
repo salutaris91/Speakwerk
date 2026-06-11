@@ -317,6 +317,132 @@
       "norm_label": "error"
     },
     {
+      "label": "TranscriptionLanguage.swift",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L1",
+      "id": "sources_speakwerk_transcriptionlanguage_swift",
+      "community": 15,
+      "norm_label": "transcriptionlanguage.swift"
+    },
+    {
+      "label": "TranscriptionLanguage",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L3",
+      "id": "speakwerk_transcriptionlanguage_transcriptionlanguage",
+      "community": 15,
+      "norm_label": "transcriptionlanguage"
+    },
+    {
+      "label": "String",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "string",
+      "community": 15,
+      "norm_label": "string"
+    },
+    {
+      "label": "CaseIterable",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "caseiterable",
+      "community": 15,
+      "norm_label": "caseiterable"
+    },
+    {
+      "label": "Identifiable",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "identifiable",
+      "community": 15,
+      "norm_label": "identifiable"
+    },
+    {
+      "label": "Sendable",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "sendable",
+      "community": 15,
+      "norm_label": "sendable"
+    },
+    {
+      "label": "auto",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L4",
+      "id": "speakwerk_transcriptionlanguage_transcriptionlanguage_auto",
+      "community": 15,
+      "norm_label": "auto"
+    },
+    {
+      "label": "de",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L5",
+      "id": "speakwerk_transcriptionlanguage_transcriptionlanguage_de",
+      "community": 15,
+      "norm_label": "de"
+    },
+    {
+      "label": "en",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L5",
+      "id": "speakwerk_transcriptionlanguage_transcriptionlanguage_en",
+      "community": 15,
+      "norm_label": "en"
+    },
+    {
+      "label": "es",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L5",
+      "id": "speakwerk_transcriptionlanguage_transcriptionlanguage_es",
+      "community": 15,
+      "norm_label": "es"
+    },
+    {
+      "label": "fr",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L5",
+      "id": "speakwerk_transcriptionlanguage_transcriptionlanguage_fr",
+      "community": 15,
+      "norm_label": "fr"
+    },
+    {
+      "label": "it",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L5",
+      "id": "speakwerk_transcriptionlanguage_transcriptionlanguage_it",
+      "community": 15,
+      "norm_label": "it"
+    },
+    {
+      "label": "pt",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L5",
+      "id": "speakwerk_transcriptionlanguage_transcriptionlanguage_pt",
+      "community": 15,
+      "norm_label": "pt"
+    },
+    {
+      "label": "nl",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L5",
+      "id": "speakwerk_transcriptionlanguage_transcriptionlanguage_nl",
+      "community": 15,
+      "norm_label": "nl"
+    },
+    {
       "label": "SettingsView.swift",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/SettingsView.swift",
@@ -338,7 +464,7 @@
       "label": ".init()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/SettingsView.swift",
-      "source_location": "L5",
+      "source_location": "L7",
       "id": "speakwerk_settingsview_settingsview_init",
       "community": 17,
       "norm_label": ".init()"
@@ -430,7 +556,7 @@
       "source_file": "Sources/Speakwerk/ClipboardManager.swift",
       "source_location": "L11",
       "id": "data",
-      "community": 0,
+      "community": 4,
       "norm_label": "data"
     },
     {
@@ -623,42 +749,6 @@
       "norm_label": "modeltier"
     },
     {
-      "label": "String",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "id": "string",
-      "community": 15,
-      "norm_label": "string"
-    },
-    {
-      "label": "CaseIterable",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "id": "caseiterable",
-      "community": 15,
-      "norm_label": "caseiterable"
-    },
-    {
-      "label": "Sendable",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "id": "sendable",
-      "community": 15,
-      "norm_label": "sendable"
-    },
-    {
-      "label": "Identifiable",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "id": "identifiable",
-      "community": 15,
-      "norm_label": "identifiable"
-    },
-    {
       "label": "base",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
@@ -767,10 +857,19 @@
       "norm_label": "void"
     },
     {
+      "label": "TranscriptionLanguage",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L60",
+      "id": "transcriptionlanguage",
+      "community": 15,
+      "norm_label": "transcriptionlanguage"
+    },
+    {
       "label": ".init()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L52",
+      "source_location": "L67",
       "id": "speakwerk_modelmanager_modelmanager_init",
       "community": 15,
       "norm_label": ".init()"
@@ -779,7 +878,7 @@
       "label": "URL",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L80",
+      "source_location": "L91",
       "id": "sources_speakwerk_modelmanager_swift_url",
       "community": 15,
       "norm_label": "url"
@@ -788,7 +887,7 @@
       "label": ".resolvedModelFolder()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L87",
+      "source_location": "L98",
       "id": "speakwerk_modelmanager_modelmanager_resolvedmodelfolder",
       "community": 15,
       "norm_label": ".resolvedmodelfolder()"
@@ -797,7 +896,7 @@
       "label": ".migrateLegacyPaths()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L105",
+      "source_location": "L116",
       "id": "speakwerk_modelmanager_modelmanager_migratelegacypaths",
       "community": 15,
       "norm_label": ".migratelegacypaths()"
@@ -806,7 +905,7 @@
       "label": ".isModelDownloaded()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L170",
+      "source_location": "L181",
       "id": "speakwerk_modelmanager_modelmanager_ismodeldownloaded",
       "community": 15,
       "norm_label": ".ismodeldownloaded()"
@@ -815,7 +914,7 @@
       "label": "Bool",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L170",
+      "source_location": "L181",
       "id": "sources_speakwerk_modelmanager_swift_bool",
       "community": 15,
       "norm_label": "bool"
@@ -824,7 +923,7 @@
       "label": ".downloadModel()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L174",
+      "source_location": "L185",
       "id": "speakwerk_modelmanager_modelmanager_downloadmodel",
       "community": 15,
       "norm_label": ".downloadmodel()"
@@ -833,7 +932,7 @@
       "label": ".modelFolderURL()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L220",
+      "source_location": "L231",
       "id": "speakwerk_modelmanager_modelmanager_modelfolderurl",
       "community": 15,
       "norm_label": ".modelfolderurl()"
@@ -842,7 +941,7 @@
       "label": ".reconcileSelectedModel()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L226",
+      "source_location": "L237",
       "id": "speakwerk_modelmanager_modelmanager_reconcileselectedmodel",
       "community": 15,
       "norm_label": ".reconcileselectedmodel()"
@@ -851,7 +950,7 @@
       "label": ".resetDownloadState()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L246",
+      "source_location": "L257",
       "id": "speakwerk_modelmanager_modelmanager_resetdownloadstate",
       "community": 15,
       "norm_label": ".resetdownloadstate()"
@@ -1051,7 +1150,7 @@
       "source_file": "Sources/Speakwerk/main.swift",
       "source_location": "L301",
       "id": "speakwerk_main_appdelegate_showsettingsaction",
-      "community": 3,
+      "community": 17,
       "norm_label": ".showsettingsaction()"
     },
     {
@@ -1141,7 +1240,7 @@
       "source_file": "Sources/Speakwerk/main.swift",
       "source_location": "L481",
       "id": "speakwerk_main_appdelegate_standarduserdriverwillhandleshowingupdate",
-      "community": 16,
+      "community": 3,
       "norm_label": ".standarduserdriverwillhandleshowingupdate()"
     },
     {
@@ -1150,7 +1249,7 @@
       "source_file": "Sources/Speakwerk/main.swift",
       "source_location": "L481",
       "id": "sources_speakwerk_main_swift_bool",
-      "community": 16,
+      "community": 3,
       "norm_label": "bool"
     },
     {
@@ -1159,7 +1258,7 @@
       "source_file": "Sources/Speakwerk/main.swift",
       "source_location": "L481",
       "id": "suappcastitem",
-      "community": 16,
+      "community": 3,
       "norm_label": "suappcastitem"
     },
     {
@@ -1168,7 +1267,7 @@
       "source_file": "Sources/Speakwerk/main.swift",
       "source_location": "L481",
       "id": "spuuserupdatestate",
-      "community": 16,
+      "community": 3,
       "norm_label": "spuuserupdatestate"
     },
     {
@@ -1697,16 +1796,43 @@
       "label": "Speakwerk",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L1",
+      "source_location": "L5",
       "id": "speakwerk_readme_speakwerk",
       "community": 10,
       "norm_label": "speakwerk"
     },
     {
+      "label": "\ud83d\udce6 Installation (f\u00fcr Nutzer)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L16",
+      "id": "speakwerk_readme_installation_f\u00fcr_nutzer",
+      "community": 10,
+      "norm_label": "\ud83d\udce6 installation (fur nutzer)"
+    },
+    {
+      "label": "Empfohlen: Installation per Terminal",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L18",
+      "id": "speakwerk_readme_empfohlen_installation_per_terminal",
+      "community": 10,
+      "norm_label": "empfohlen: installation per terminal"
+    },
+    {
+      "label": "Alternativ: Download per Browser",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L29",
+      "id": "speakwerk_readme_alternativ_download_per_browser",
+      "community": 10,
+      "norm_label": "alternativ: download per browser"
+    },
+    {
       "label": "Systemvoraussetzungen",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L7",
+      "source_location": "L53",
       "id": "speakwerk_readme_systemvoraussetzungen",
       "community": 10,
       "norm_label": "systemvoraussetzungen"
@@ -1715,64 +1841,46 @@
       "label": "Tech-Stack",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L12",
+      "source_location": "L58",
       "id": "speakwerk_readme_tech_stack",
       "community": 10,
       "norm_label": "tech-stack"
     },
     {
-      "label": "Installation & Build f\u00fcr Entwickler",
+      "label": "Bauen aus dem Quellcode (f\u00fcr Entwickler)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L23",
-      "id": "speakwerk_readme_installation_build_f\u00fcr_entwickler",
+      "source_location": "L69",
+      "id": "speakwerk_readme_bauen_aus_dem_quellcode_f\u00fcr_entwickler",
       "community": 10,
-      "norm_label": "installation & build fur entwickler"
+      "norm_label": "bauen aus dem quellcode (fur entwickler)"
     },
     {
       "label": "1. Lokales Bauen (Kompilierung)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L25",
+      "source_location": "L71",
       "id": "speakwerk_readme_1_lokales_bauen_kompilierung",
       "community": 10,
       "norm_label": "1. lokales bauen (kompilierung)"
     },
     {
-      "label": "2. App-Bundle erstellen und verpacken",
+      "label": "2. App-Bundle erstellen",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L31",
-      "id": "speakwerk_readme_2_app_bundle_erstellen_und_verpacken",
+      "source_location": "L77",
+      "id": "speakwerk_readme_2_app_bundle_erstellen",
       "community": 10,
-      "norm_label": "2. app-bundle erstellen und verpacken"
+      "norm_label": "2. app-bundle erstellen"
     },
     {
-      "label": "Auto-Update System (Sparkle 2.x)",
+      "label": "Releases ver\u00f6ffentlichen (Maintainer)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L39",
-      "id": "speakwerk_readme_auto_update_system_sparkle_2_x",
+      "source_location": "L83",
+      "id": "speakwerk_readme_releases_ver\u00f6ffentlichen_maintainer",
       "community": 10,
-      "norm_label": "auto-update system (sparkle 2.x)"
-    },
-    {
-      "label": "1. Ed25519-Schl\u00fcsselpaar generieren (einmalig)",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L43",
-      "id": "speakwerk_readme_1_ed25519_schl\u00fcsselpaar_generieren_einmalig",
-      "community": 10,
-      "norm_label": "1. ed25519-schlusselpaar generieren (einmalig)"
-    },
-    {
-      "label": "2. Update-Prozess & Verteilung",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L51",
-      "id": "speakwerk_readme_2_update_prozess_verteilung",
-      "community": 10,
-      "norm_label": "2. update-prozess & verteilung"
+      "norm_label": "releases veroffentlichen (maintainer)"
     },
     {
       "label": "AGENTS.md",
@@ -1874,10 +1982,19 @@
       "norm_label": "git und commits"
     },
     {
-      "label": "Parallele Agents",
+      "label": "Releases",
       "file_type": "document",
       "source_file": "AGENTS.md",
       "source_location": "L89",
+      "id": "speakwerk_agents_releases",
+      "community": 1,
+      "norm_label": "releases"
+    },
+    {
+      "label": "Parallele Agents",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L93",
       "id": "speakwerk_agents_parallele_agents",
       "community": 1,
       "norm_label": "parallele agents"
@@ -1886,7 +2003,7 @@
       "label": "Aufgabenwechsel und \u00dcbergabe",
       "file_type": "document",
       "source_file": "AGENTS.md",
-      "source_location": "L101",
+      "source_location": "L105",
       "id": "speakwerk_agents_aufgabenwechsel_und_\u00fcbergabe",
       "community": 1,
       "norm_label": "aufgabenwechsel und ubergabe"
@@ -1895,7 +2012,7 @@
       "label": "Nach jedem Feature-Schritt (Pflicht-Updates)",
       "file_type": "document",
       "source_file": "AGENTS.md",
-      "source_location": "L110",
+      "source_location": "L114",
       "id": "speakwerk_agents_nach_jedem_feature_schritt_pflicht_updates",
       "community": 1,
       "norm_label": "nach jedem feature-schritt (pflicht-updates)"
@@ -1904,7 +2021,7 @@
       "label": "Deployment-Notizen",
       "file_type": "document",
       "source_file": "AGENTS.md",
-      "source_location": "L119",
+      "source_location": "L123",
       "id": "speakwerk_agents_deployment_notizen",
       "community": 1,
       "norm_label": "deployment-notizen"
@@ -1913,7 +2030,7 @@
       "label": "graphify",
       "file_type": "document",
       "source_file": "AGENTS.md",
-      "source_location": "L127",
+      "source_location": "L131",
       "id": "speakwerk_agents_graphify",
       "community": 1,
       "norm_label": "graphify"
@@ -2018,10 +2135,19 @@
       "norm_label": "git und commits"
     },
     {
-      "label": "Parallele Agents",
+      "label": "Releases",
       "file_type": "document",
       "source_file": "CLAUDE.md",
       "source_location": "L90",
+      "id": "speakwerk_claude_releases",
+      "community": 2,
+      "norm_label": "releases"
+    },
+    {
+      "label": "Parallele Agents",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L94",
       "id": "speakwerk_claude_parallele_agents",
       "community": 2,
       "norm_label": "parallele agents"
@@ -2030,7 +2156,7 @@
       "label": "Aufgabenwechsel und \u00dcbergabe",
       "file_type": "document",
       "source_file": "CLAUDE.md",
-      "source_location": "L102",
+      "source_location": "L106",
       "id": "speakwerk_claude_aufgabenwechsel_und_\u00fcbergabe",
       "community": 2,
       "norm_label": "aufgabenwechsel und ubergabe"
@@ -2039,7 +2165,7 @@
       "label": "Nach jedem Feature-Schritt (Pflicht-Updates)",
       "file_type": "document",
       "source_file": "CLAUDE.md",
-      "source_location": "L111",
+      "source_location": "L115",
       "id": "speakwerk_claude_nach_jedem_feature_schritt_pflicht_updates",
       "community": 2,
       "norm_label": "nach jedem feature-schritt (pflicht-updates)"
@@ -2048,7 +2174,7 @@
       "label": "Deployment-Notizen",
       "file_type": "document",
       "source_file": "CLAUDE.md",
-      "source_location": "L120",
+      "source_location": "L124",
       "id": "speakwerk_claude_deployment_notizen",
       "community": 2,
       "norm_label": "deployment-notizen"
@@ -2057,10 +2183,244 @@
       "label": "graphify",
       "file_type": "document",
       "source_file": "CLAUDE.md",
-      "source_location": "L128",
+      "source_location": "L132",
       "id": "speakwerk_claude_graphify",
       "community": 2,
       "norm_label": "graphify"
+    },
+    {
+      "label": "RELEASING.md",
+      "file_type": "document",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L1",
+      "id": "docs_releasing_md",
+      "community": 16,
+      "norm_label": "releasing.md"
+    },
+    {
+      "label": "Release-Anleitung (Maintainer)",
+      "file_type": "document",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L1",
+      "id": "docs_releasing_release_anleitung_maintainer",
+      "community": 16,
+      "norm_label": "release-anleitung (maintainer)"
+    },
+    {
+      "label": "Voraussetzungen (einmalig)",
+      "file_type": "document",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L9",
+      "id": "docs_releasing_voraussetzungen_einmalig",
+      "community": 16,
+      "norm_label": "voraussetzungen (einmalig)"
+    },
+    {
+      "label": "Sparkle Ed25519-Schl\u00fcsselpaar",
+      "file_type": "document",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L11",
+      "id": "docs_releasing_sparkle_ed25519_schl\u00fcsselpaar",
+      "community": 16,
+      "norm_label": "sparkle ed25519-schlusselpaar"
+    },
+    {
+      "label": "Release-Prozess (Ad-hoc, ohne Notarisierung)",
+      "file_type": "document",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L26",
+      "id": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
+      "community": 16,
+      "norm_label": "release-prozess (ad-hoc, ohne notarisierung)"
+    },
+    {
+      "label": "1. Versionen erh\u00f6hen",
+      "file_type": "document",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L30",
+      "id": "docs_releasing_1_versionen_erh\u00f6hen",
+      "community": 16,
+      "norm_label": "1. versionen erhohen"
+    },
+    {
+      "label": "2. App-Bundle bauen",
+      "file_type": "document",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L34",
+      "id": "docs_releasing_2_app_bundle_bauen",
+      "community": 16,
+      "norm_label": "2. app-bundle bauen"
+    },
+    {
+      "label": "3. Ad-hoc signieren (inside-out)",
+      "file_type": "document",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L42",
+      "id": "docs_releasing_3_ad_hoc_signieren_inside_out",
+      "community": 16,
+      "norm_label": "3. ad-hoc signieren (inside-out)"
+    },
+    {
+      "label": "4. Distributions-Archiv erstellen",
+      "file_type": "document",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L55",
+      "id": "docs_releasing_4_distributions_archiv_erstellen",
+      "community": 16,
+      "norm_label": "4. distributions-archiv erstellen"
+    },
+    {
+      "label": "5. Appcast generieren",
+      "file_type": "document",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L63",
+      "id": "docs_releasing_5_appcast_generieren",
+      "community": 16,
+      "norm_label": "5. appcast generieren"
+    },
+    {
+      "label": "6. Appcast committen und nach `main` bringen",
+      "file_type": "document",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L75",
+      "id": "docs_releasing_6_appcast_committen_und_nach_main_bringen",
+      "community": 16,
+      "norm_label": "6. appcast committen und nach `main` bringen"
+    },
+    {
+      "label": "7. GitHub-Release erstellen",
+      "file_type": "document",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L85",
+      "id": "docs_releasing_7_github_release_erstellen",
+      "community": 16,
+      "norm_label": "7. github-release erstellen"
+    },
+    {
+      "label": "8. Verifizieren",
+      "file_type": "document",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L95",
+      "id": "docs_releasing_8_verifizieren",
+      "community": 16,
+      "norm_label": "8. verifizieren"
+    },
+    {
+      "label": "9. Produktseite aktualisieren",
+      "file_type": "document",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L104",
+      "id": "docs_releasing_9_produktseite_aktualisieren",
+      "community": 16,
+      "norm_label": "9. produktseite aktualisieren"
+    },
+    {
+      "label": "Ausblick: Notarisiertes Release (mit Apple Developer Account)",
+      "file_type": "document",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L110",
+      "id": "docs_releasing_ausblick_notarisiertes_release_mit_apple_developer_account",
+      "community": 16,
+      "norm_label": "ausblick: notarisiertes release (mit apple developer account)"
+    },
+    {
+      "label": "ROADMAP.md",
+      "file_type": "document",
+      "source_file": "docs/ROADMAP.md",
+      "source_location": "L1",
+      "id": "docs_roadmap_md",
+      "community": 18,
+      "norm_label": "roadmap.md"
+    },
+    {
+      "label": "Roadmap",
+      "file_type": "document",
+      "source_file": "docs/ROADMAP.md",
+      "source_location": "L1",
+      "id": "docs_roadmap_roadmap",
+      "community": 18,
+      "norm_label": "roadmap"
+    },
+    {
+      "label": "v1.1 \u2014 Bedienkomfort",
+      "file_type": "document",
+      "source_file": "docs/ROADMAP.md",
+      "source_location": "L5",
+      "id": "docs_roadmap_v1_1_bedienkomfort",
+      "community": 18,
+      "norm_label": "v1.1 \u2014 bedienkomfort"
+    },
+    {
+      "label": "v1.2 \u2014 Eigenes Vokabular",
+      "file_type": "document",
+      "source_file": "docs/ROADMAP.md",
+      "source_location": "L11",
+      "id": "docs_roadmap_v1_2_eigenes_vokabular",
+      "community": 18,
+      "norm_label": "v1.2 \u2014 eigenes vokabular"
+    },
+    {
+      "label": "v2.0 \u2014 Intelligente Nachbearbeitung",
+      "file_type": "document",
+      "source_file": "docs/ROADMAP.md",
+      "source_location": "L15",
+      "id": "docs_roadmap_v2_0_intelligente_nachbearbeitung",
+      "community": 18,
+      "norm_label": "v2.0 \u2014 intelligente nachbearbeitung"
+    },
+    {
+      "label": "In Evaluation (kein Versionsziel)",
+      "file_type": "document",
+      "source_file": "docs/ROADMAP.md",
+      "source_location": "L20",
+      "id": "docs_roadmap_in_evaluation_kein_versionsziel",
+      "community": 18,
+      "norm_label": "in evaluation (kein versionsziel)"
+    },
+    {
+      "label": "Installation & Build f\u00fcr Entwickler",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L23",
+      "community": 10,
+      "norm_label": "installation & build fur entwickler",
+      "id": "speakwerk_readme_installation_build_f\u00fcr_entwickler"
+    },
+    {
+      "label": "2. App-Bundle erstellen und verpacken",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L31",
+      "community": 10,
+      "norm_label": "2. app-bundle erstellen und verpacken",
+      "id": "speakwerk_readme_2_app_bundle_erstellen_und_verpacken"
+    },
+    {
+      "label": "Auto-Update System (Sparkle 2.x)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L39",
+      "community": 10,
+      "norm_label": "auto-update system (sparkle 2.x)",
+      "id": "speakwerk_readme_auto_update_system_sparkle_2_x"
+    },
+    {
+      "label": "1. Ed25519-Schl\u00fcsselpaar generieren (einmalig)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L43",
+      "community": 10,
+      "norm_label": "1. ed25519-schlusselpaar generieren (einmalig)",
+      "id": "speakwerk_readme_1_ed25519_schl\u00fcsselpaar_generieren_einmalig"
+    },
+    {
+      "label": "2. Update-Prozess & Verteilung",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L51",
+      "community": 10,
+      "norm_label": "2. update-prozess & verteilung",
+      "id": "speakwerk_readme_2_update_prozess_verteilung"
     },
     {
       "label": ".setStatusItem()",
@@ -2598,6 +2958,220 @@
       "confidence_score": 1.0,
       "source": "speakwerk_modelmanager_downloadstate",
       "target": "equatable"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "sources_speakwerk_transcriptionlanguage_swift",
+      "target": "speakwerk_transcriptionlanguage_transcriptionlanguage"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_transcriptionlanguage_transcriptionlanguage",
+      "target": "caseiterable"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_transcriptionlanguage_transcriptionlanguage",
+      "target": "identifiable"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_transcriptionlanguage_transcriptionlanguage",
+      "target": "sendable"
+    },
+    {
+      "relation": "case_of",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_transcriptionlanguage_transcriptionlanguage",
+      "target": "speakwerk_transcriptionlanguage_transcriptionlanguage_auto"
+    },
+    {
+      "relation": "case_of",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_transcriptionlanguage_transcriptionlanguage",
+      "target": "speakwerk_transcriptionlanguage_transcriptionlanguage_de"
+    },
+    {
+      "relation": "case_of",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_transcriptionlanguage_transcriptionlanguage",
+      "target": "speakwerk_transcriptionlanguage_transcriptionlanguage_en"
+    },
+    {
+      "relation": "case_of",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_transcriptionlanguage_transcriptionlanguage",
+      "target": "speakwerk_transcriptionlanguage_transcriptionlanguage_es"
+    },
+    {
+      "relation": "case_of",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_transcriptionlanguage_transcriptionlanguage",
+      "target": "speakwerk_transcriptionlanguage_transcriptionlanguage_fr"
+    },
+    {
+      "relation": "case_of",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_transcriptionlanguage_transcriptionlanguage",
+      "target": "speakwerk_transcriptionlanguage_transcriptionlanguage_it"
+    },
+    {
+      "relation": "case_of",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_transcriptionlanguage_transcriptionlanguage",
+      "target": "speakwerk_transcriptionlanguage_transcriptionlanguage_nl"
+    },
+    {
+      "relation": "case_of",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_transcriptionlanguage_transcriptionlanguage",
+      "target": "speakwerk_transcriptionlanguage_transcriptionlanguage_pt"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
+      "source_location": "L12",
+      "weight": 1.0,
+      "context": "field",
+      "confidence_score": 1.0,
+      "source": "speakwerk_transcriptionlanguage_transcriptionlanguage",
+      "target": "string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L65",
+      "weight": 1.0,
+      "context": "field",
+      "confidence_score": 1.0,
+      "source": "speakwerk_modelmanager_modelmanager",
+      "target": "string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L21",
+      "weight": 1.0,
+      "context": "field",
+      "confidence_score": 1.0,
+      "source": "speakwerk_modelmanager_modeltier",
+      "target": "string"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_modelmanager_modeltier",
+      "target": "caseiterable"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/HistoryManager.swift",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_historymanager_transcriptionentry",
+      "target": "identifiable"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_modelmanager_modeltier",
+      "target": "identifiable"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/HistoryManager.swift",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_historymanager_transcriptionentry",
+      "target": "sendable"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L44",
+      "weight": 1.0,
+      "context": "field",
+      "confidence_score": 1.0,
+      "source": "speakwerk_modelmanager_modelmanager",
+      "target": "sendable"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_modelmanager_modeltier",
+      "target": "sendable"
     },
     {
       "relation": "contains",
@@ -3214,6 +3788,17 @@
       "target": "speakwerk_modelmanager_modeltier"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L69",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_modelmanager_modelmanager_init",
+      "target": "speakwerk_modelmanager_modeltier"
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
@@ -3247,36 +3832,6 @@
       "target": "speakwerk_modelmanager_modeltier"
     },
     {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "speakwerk_modelmanager_modeltier",
-      "target": "caseiterable"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "speakwerk_modelmanager_modeltier",
-      "target": "identifiable"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "speakwerk_modelmanager_modeltier",
-      "target": "sendable"
-    },
-    {
       "relation": "case_of",
       "confidence": "EXTRACTED",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
@@ -3305,59 +3860,6 @@
       "confidence_score": 1.0,
       "source": "speakwerk_modelmanager_modeltier",
       "target": "speakwerk_modelmanager_modeltier_small"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L21",
-      "weight": 1.0,
-      "context": "field",
-      "confidence_score": 1.0,
-      "source": "speakwerk_modelmanager_modeltier",
-      "target": "string"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L65",
-      "weight": 1.0,
-      "context": "field",
-      "confidence_score": 1.0,
-      "source": "speakwerk_modelmanager_modelmanager",
-      "target": "string"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "source_file": "Sources/Speakwerk/HistoryManager.swift",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "speakwerk_historymanager_transcriptionentry",
-      "target": "sendable"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "Sources/Speakwerk/ModelManager.swift",
-      "source_location": "L44",
-      "weight": 1.0,
-      "context": "field",
-      "confidence_score": 1.0,
-      "source": "speakwerk_modelmanager_modelmanager",
-      "target": "sendable"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "source_file": "Sources/Speakwerk/HistoryManager.swift",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "speakwerk_historymanager_transcriptionentry",
-      "target": "identifiable"
     },
     {
       "relation": "case_of",
@@ -3470,9 +3972,9 @@
       "source_file": "Sources/Speakwerk/ModelManager.swift",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_modelmanager_modelmanager",
-      "target": "speakwerk_modelmanager_modelmanager_init",
-      "confidence_score": 1.0
+      "target": "speakwerk_modelmanager_modelmanager_init"
     },
     {
       "relation": "method",
@@ -3490,9 +3992,9 @@
       "source_file": "Sources/Speakwerk/ModelManager.swift",
       "source_location": "L105",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_modelmanager_modelmanager",
-      "target": "speakwerk_modelmanager_modelmanager_migratelegacypaths",
-      "confidence_score": 1.0
+      "target": "speakwerk_modelmanager_modelmanager_migratelegacypaths"
     },
     {
       "relation": "method",
@@ -3535,15 +4037,37 @@
       "target": "speakwerk_modelmanager_modelmanager_resolvedmodelfolder"
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L71",
+      "weight": 1.0,
+      "context": "field",
+      "confidence_score": 1.0,
+      "source": "speakwerk_modelmanager_modelmanager",
+      "target": "transcriptionlanguage"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/ModelManager.swift",
+      "source_location": "L74",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_modelmanager_modelmanager_init",
+      "target": "transcriptionlanguage"
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_modelmanager_modelmanager_init",
-      "target": "speakwerk_modelmanager_modelmanager_migratelegacypaths",
-      "confidence_score": 1.0
+      "target": "speakwerk_modelmanager_modelmanager_migratelegacypaths"
     },
     {
       "relation": "references",
@@ -5341,11 +5865,31 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "speakwerk_readme_speakwerk",
+      "target": "speakwerk_readme_bauen_aus_dem_quellcode_f\u00fcr_entwickler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
       "source_location": "L23",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "speakwerk_readme_speakwerk",
       "target": "speakwerk_readme_installation_build_f\u00fcr_entwickler"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "speakwerk_readme_speakwerk",
+      "target": "speakwerk_readme_installation_f\u00fcr_nutzer",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -5371,41 +5915,61 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "speakwerk_readme_installation_f\u00fcr_nutzer",
+      "target": "speakwerk_readme_alternativ_download_per_browser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "speakwerk_readme_installation_f\u00fcr_nutzer",
+      "target": "speakwerk_readme_empfohlen_installation_per_terminal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "speakwerk_readme_bauen_aus_dem_quellcode_f\u00fcr_entwickler",
+      "target": "speakwerk_readme_1_lokales_bauen_kompilierung",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "speakwerk_readme_bauen_aus_dem_quellcode_f\u00fcr_entwickler",
+      "target": "speakwerk_readme_2_app_bundle_erstellen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "speakwerk_readme_bauen_aus_dem_quellcode_f\u00fcr_entwickler",
+      "target": "speakwerk_readme_releases_ver\u00f6ffentlichen_maintainer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
       "source_location": "L25",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "speakwerk_readme_installation_build_f\u00fcr_entwickler",
       "target": "speakwerk_readme_1_lokales_bauen_kompilierung"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L31",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "speakwerk_readme_installation_build_f\u00fcr_entwickler",
-      "target": "speakwerk_readme_2_app_bundle_erstellen_und_verpacken"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L43",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "speakwerk_readme_auto_update_system_sparkle_2_x",
-      "target": "speakwerk_readme_1_ed25519_schl\u00fcsselpaar_generieren_einmalig"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L51",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "speakwerk_readme_auto_update_system_sparkle_2_x",
-      "target": "speakwerk_readme_2_update_prozess_verteilung"
     },
     {
       "relation": "contains",
@@ -5560,6 +6124,16 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "speakwerk_agents_planung_und_workflow",
+      "target": "speakwerk_agents_releases",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "CLAUDE.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -5708,6 +6282,236 @@
       "target": "speakwerk_claude_parallele_agents"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "speakwerk_claude_planung_und_workflow",
+      "target": "speakwerk_claude_releases",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "docs_releasing_md",
+      "target": "docs_releasing_release_anleitung_maintainer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L110",
+      "weight": 1.0,
+      "source": "docs_releasing_release_anleitung_maintainer",
+      "target": "docs_releasing_ausblick_notarisiertes_release_mit_apple_developer_account",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "docs_releasing_release_anleitung_maintainer",
+      "target": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "docs_releasing_release_anleitung_maintainer",
+      "target": "docs_releasing_voraussetzungen_einmalig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "docs_releasing_voraussetzungen_einmalig",
+      "target": "docs_releasing_sparkle_ed25519_schl\u00fcsselpaar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
+      "target": "docs_releasing_1_versionen_erh\u00f6hen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
+      "target": "docs_releasing_2_app_bundle_bauen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
+      "target": "docs_releasing_3_ad_hoc_signieren_inside_out",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
+      "target": "docs_releasing_4_distributions_archiv_erstellen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
+      "target": "docs_releasing_5_appcast_generieren",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
+      "target": "docs_releasing_6_appcast_committen_und_nach_main_bringen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
+      "target": "docs_releasing_7_github_release_erstellen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
+      "target": "docs_releasing_8_verifizieren",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L104",
+      "weight": 1.0,
+      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
+      "target": "docs_releasing_9_produktseite_aktualisieren",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ROADMAP.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "docs_roadmap_md",
+      "target": "docs_roadmap_roadmap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ROADMAP.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "docs_roadmap_roadmap",
+      "target": "docs_roadmap_in_evaluation_kein_versionsziel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ROADMAP.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "docs_roadmap_roadmap",
+      "target": "docs_roadmap_v1_1_bedienkomfort",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ROADMAP.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "docs_roadmap_roadmap",
+      "target": "docs_roadmap_v1_2_eigenes_vokabular",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/ROADMAP.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "docs_roadmap_roadmap",
+      "target": "docs_roadmap_v2_0_intelligente_nachbearbeitung",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_readme_installation_build_f\u00fcr_entwickler",
+      "target": "speakwerk_readme_2_app_bundle_erstellen_und_verpacken"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_readme_auto_update_system_sparkle_2_x",
+      "target": "speakwerk_readme_1_ed25519_schl\u00fcsselpaar_generieren_einmalig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L51",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_readme_auto_update_system_sparkle_2_x",
+      "target": "speakwerk_readme_2_update_prozess_verteilung"
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -5797,5 +6601,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "b420390836ffa3b080567a41383adbb465724e47"
+  "built_at_commit": "da5e4c0d519f0289927a1cf613fbd328747b353a"
 }
