@@ -6,7 +6,7 @@ import os
 public enum ModelTier: String, CaseIterable, Sendable, Identifiable {
     case base = "openai_whisper-base"
     case small = "openai_whisper-small"
-    case largeV3Turbo = "openai_whisper-large-v3-turbo"
+    case largeV3Turbo = "openai_whisper-large-v3_turbo"
     
     public var id: String { rawValue }
     
