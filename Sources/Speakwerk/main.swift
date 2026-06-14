@@ -497,8 +497,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
                 audioRecorder.deleteRecording()
                 
                 if let text = textToInsert {
+                    let finalInsertText = DictationManager.shared.appendTrailingSpace ? text + " " : text
                     do {
-                        try await ClipboardManager.shared.insert(text)
+                        try await ClipboardManager.shared.insert(finalInsertText)
                         self.state = .idle
                         self.updateUI()
                     } catch {

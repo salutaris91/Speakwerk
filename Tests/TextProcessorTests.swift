@@ -86,6 +86,14 @@ final class TextProcessorTests: XCTestCase {
         XCTAssertEqual(TextProcessor.process("Er sagte \" Hallo \" zu mir", with: rules), "Er sagte \"Hallo\" zu mir")
         XCTAssertEqual(TextProcessor.process("Sie sagte „ Hallo “ zu mir", with: rules), "Sie sagte „Hallo“ zu mir")
         XCTAssertEqual(TextProcessor.process("Oder auch « Hallo »", with: rules), "Oder auch «Hallo»")
+        
+        // Test comma before opening parenthesis (absorbing surrounding spaces)
+        XCTAssertEqual(TextProcessor.process("Test, (", with: rules), "Test (")
+        XCTAssertEqual(TextProcessor.process("Test ,(", with: rules), "Test (")
+        XCTAssertEqual(TextProcessor.process("Test,(", with: rules), "Test (")
+        XCTAssertEqual(TextProcessor.process("Test,  (", with: rules), "Test (")
+        XCTAssertEqual(TextProcessor.process("Test, [", with: rules), "Test [")
+        XCTAssertEqual(TextProcessor.process("Test ,{", with: rules), "Test {")
     }
     
     // Test DictationManager logic

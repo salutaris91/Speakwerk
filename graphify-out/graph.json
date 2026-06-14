@@ -88,7 +88,7 @@
       "label": ".testDictationManagerRules()",
       "file_type": "code",
       "source_file": "Tests/TextProcessorTests.swift",
-      "source_location": "L92",
+      "source_location": "L100",
       "id": "tests_textprocessortests_textprocessortests_testdictationmanagerrules",
       "community": 17,
       "norm_label": ".testdictationmanagerrules()"
@@ -394,7 +394,7 @@
       "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
       "source_location": "L1",
       "id": "sources_speakwerk_transcriptionlanguage_swift",
-      "community": 15,
+      "community": 7,
       "norm_label": "transcriptionlanguage.swift"
     },
     {
@@ -403,7 +403,7 @@
       "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
       "source_location": "L3",
       "id": "speakwerk_transcriptionlanguage_transcriptionlanguage",
-      "community": 15,
+      "community": 7,
       "norm_label": "transcriptionlanguage"
     },
     {
@@ -421,7 +421,7 @@
       "source_file": "",
       "source_location": "",
       "id": "caseiterable",
-      "community": 15,
+      "community": 7,
       "norm_label": "caseiterable"
     },
     {
@@ -430,7 +430,7 @@
       "source_file": "",
       "source_location": "",
       "id": "identifiable",
-      "community": 15,
+      "community": 7,
       "norm_label": "identifiable"
     },
     {
@@ -439,7 +439,7 @@
       "source_file": "",
       "source_location": "",
       "id": "sendable",
-      "community": 15,
+      "community": 7,
       "norm_label": "sendable"
     },
     {
@@ -448,7 +448,7 @@
       "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
       "source_location": "L4",
       "id": "speakwerk_transcriptionlanguage_transcriptionlanguage_auto",
-      "community": 15,
+      "community": 7,
       "norm_label": "auto"
     },
     {
@@ -457,7 +457,7 @@
       "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
       "source_location": "L5",
       "id": "speakwerk_transcriptionlanguage_transcriptionlanguage_de",
-      "community": 15,
+      "community": 7,
       "norm_label": "de"
     },
     {
@@ -466,7 +466,7 @@
       "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
       "source_location": "L5",
       "id": "speakwerk_transcriptionlanguage_transcriptionlanguage_en",
-      "community": 15,
+      "community": 7,
       "norm_label": "en"
     },
     {
@@ -475,7 +475,7 @@
       "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
       "source_location": "L5",
       "id": "speakwerk_transcriptionlanguage_transcriptionlanguage_es",
-      "community": 15,
+      "community": 7,
       "norm_label": "es"
     },
     {
@@ -484,7 +484,7 @@
       "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
       "source_location": "L5",
       "id": "speakwerk_transcriptionlanguage_transcriptionlanguage_fr",
-      "community": 15,
+      "community": 7,
       "norm_label": "fr"
     },
     {
@@ -493,7 +493,7 @@
       "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
       "source_location": "L5",
       "id": "speakwerk_transcriptionlanguage_transcriptionlanguage_it",
-      "community": 15,
+      "community": 7,
       "norm_label": "it"
     },
     {
@@ -502,7 +502,7 @@
       "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
       "source_location": "L5",
       "id": "speakwerk_transcriptionlanguage_transcriptionlanguage_pt",
-      "community": 15,
+      "community": 7,
       "norm_label": "pt"
     },
     {
@@ -511,7 +511,7 @@
       "source_file": "Sources/Speakwerk/TranscriptionLanguage.swift",
       "source_location": "L5",
       "id": "speakwerk_transcriptionlanguage_transcriptionlanguage_nl",
-      "community": 15,
+      "community": 7,
       "norm_label": "nl"
     },
     {
@@ -554,7 +554,7 @@
       "label": ".validateAndAddRule()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/SettingsView.swift",
-      "source_location": "L257",
+      "source_location": "L289",
       "id": "speakwerk_settingsview_settingsview_validateandaddrule",
       "community": 14,
       "norm_label": ".validateandaddrule()"
@@ -646,7 +646,7 @@
       "source_file": "Sources/Speakwerk/ClipboardManager.swift",
       "source_location": "L11",
       "id": "data",
-      "community": 4,
+      "community": 0,
       "norm_label": "data"
     },
     {
@@ -866,10 +866,37 @@
       "norm_label": "dictationrule"
     },
     {
-      "label": ".cleanUpWhitespace()",
+      "label": "TypographyRule",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/TextProcessor.swift",
       "source_location": "L43",
+      "id": "speakwerk_textprocessor_typographyrule",
+      "community": 20,
+      "norm_label": "typographyrule"
+    },
+    {
+      "label": "Regex",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L46",
+      "id": "regex",
+      "community": 20,
+      "norm_label": "regex"
+    },
+    {
+      "label": "AnyRegexOutput",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L46",
+      "id": "anyregexoutput",
+      "community": 20,
+      "norm_label": "anyregexoutput"
+    },
+    {
+      "label": ".cleanUpWhitespace()",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L96",
       "id": "speakwerk_textprocessor_textprocessor_cleanupwhitespace",
       "community": 20,
       "norm_label": ".cleanupwhitespace()"
@@ -959,7 +986,7 @@
       "label": ".init()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/DictationManager.swift",
-      "source_location": "L46",
+      "source_location": "L55",
       "id": "speakwerk_dictationmanager_dictationmanager_init",
       "community": 7,
       "norm_label": ".init()"
@@ -968,7 +995,7 @@
       "label": ".loadRules()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/DictationManager.swift",
-      "source_location": "L51",
+      "source_location": "L61",
       "id": "speakwerk_dictationmanager_dictationmanager_loadrules",
       "community": 7,
       "norm_label": ".loadrules()"
@@ -977,7 +1004,7 @@
       "label": ".saveRules()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/DictationManager.swift",
-      "source_location": "L62",
+      "source_location": "L72",
       "id": "speakwerk_dictationmanager_dictationmanager_saverules",
       "community": 7,
       "norm_label": ".saverules()"
@@ -986,7 +1013,7 @@
       "label": ".addRule()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/DictationManager.swift",
-      "source_location": "L73",
+      "source_location": "L83",
       "id": "speakwerk_dictationmanager_dictationmanager_addrule",
       "community": 7,
       "norm_label": ".addrule()"
@@ -995,7 +1022,7 @@
       "label": ".removeRule()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/DictationManager.swift",
-      "source_location": "L93",
+      "source_location": "L103",
       "id": "speakwerk_dictationmanager_dictationmanager_removerule",
       "community": 7,
       "norm_label": ".removerule()"
@@ -1508,7 +1535,7 @@
       "label": ".quitApp()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L519",
+      "source_location": "L520",
       "id": "speakwerk_main_appdelegate_quitapp",
       "community": 3,
       "norm_label": ".quitapp()"
@@ -1517,7 +1544,7 @@
       "label": ".standardUserDriverWillShowModalAlert()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L528",
+      "source_location": "L529",
       "id": "speakwerk_main_appdelegate_standarduserdriverwillshowmodalalert",
       "community": 3,
       "norm_label": ".standarduserdriverwillshowmodalalert()"
@@ -1526,7 +1553,7 @@
       "label": ".standardUserDriverWillHandleShowingUpdate()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L534",
+      "source_location": "L535",
       "id": "speakwerk_main_appdelegate_standarduserdriverwillhandleshowingupdate",
       "community": 3,
       "norm_label": ".standarduserdriverwillhandleshowingupdate()"
@@ -1535,7 +1562,7 @@
       "label": "Bool",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L534",
+      "source_location": "L535",
       "id": "sources_speakwerk_main_swift_bool",
       "community": 3,
       "norm_label": "bool"
@@ -1544,7 +1571,7 @@
       "label": "SUAppcastItem",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L534",
+      "source_location": "L535",
       "id": "suappcastitem",
       "community": 3,
       "norm_label": "suappcastitem"
@@ -1553,7 +1580,7 @@
       "label": "SPUUserUpdateState",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L534",
+      "source_location": "L535",
       "id": "spuuserupdatestate",
       "community": 3,
       "norm_label": "spuuserupdatestate"
@@ -1562,7 +1589,7 @@
       "label": ".windowWillClose()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L544",
+      "source_location": "L545",
       "id": "speakwerk_main_appdelegate_windowwillclose",
       "community": 3,
       "norm_label": ".windowwillclose()"
@@ -3598,6 +3625,17 @@
       "target": "sendable"
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L46",
+      "weight": 1.0,
+      "context": "field",
+      "confidence_score": 1.0,
+      "source": "speakwerk_textprocessor_typographyrule",
+      "target": "sendable"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Sources/Speakwerk/SettingsView.swift",
@@ -4191,6 +4229,16 @@
       "target": "speakwerk_textprocessor_textprocessor"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "sources_speakwerk_textprocessor_swift",
+      "target": "speakwerk_textprocessor_typographyrule"
+    },
+    {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "Sources/Speakwerk/TextProcessor.swift",
@@ -4214,12 +4262,34 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L49",
+      "weight": 1.0,
+      "context": "field",
+      "confidence_score": 1.0,
+      "source": "speakwerk_textprocessor_textprocessor",
+      "target": "speakwerk_textprocessor_typographyrule"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
       "source_location": "L12",
       "weight": 1.0,
       "context": "parameter_type",
       "confidence_score": 1.0,
       "source": "speakwerk_textprocessor_textprocessor_process",
       "target": "dictationrule"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_textprocessor_textprocessor_process",
+      "target": "regex"
     },
     {
       "relation": "references",
@@ -4253,6 +4323,50 @@
       "confidence_score": 1.0,
       "source": "speakwerk_textprocessor_textprocessor_cleanupwhitespace",
       "target": "sources_speakwerk_textprocessor_swift_string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L46",
+      "weight": 1.0,
+      "context": "field",
+      "confidence_score": 1.0,
+      "source": "speakwerk_textprocessor_typographyrule",
+      "target": "sources_speakwerk_textprocessor_swift_string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L46",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "confidence_score": 1.0,
+      "source": "speakwerk_textprocessor_typographyrule",
+      "target": "anyregexoutput"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L46",
+      "weight": 1.0,
+      "context": "field",
+      "confidence_score": 1.0,
+      "source": "speakwerk_textprocessor_typographyrule",
+      "target": "regex"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L100",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_textprocessor_textprocessor_cleanupwhitespace",
+      "target": "regex"
     },
     {
       "relation": "contains",
@@ -7580,5 +7694,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "29e54673e9c5e3de070bf1c261701f4daefe97f2"
+  "built_at_commit": "09d1b7f15060f7641c78967af7f4d0db2b981340"
 }

@@ -50,8 +50,8 @@
     "semantic_hash": ""
   },
   "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Sources/Speakwerk/main.swift": {
-    "mtime": 1781436054.026415,
-    "ast_hash": "5cd4e2e3bc4e28bb8439024842fbcdb0",
+    "mtime": 1781441084.7625144,
+    "ast_hash": "f007c74a3c6a05ad6b8a0b723075106b",
     "semantic_hash": ""
   },
   "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Sources/Speakwerk/AudioRecorder.swift": {
@@ -65,7 +65,7 @@
     "semantic_hash": ""
   },
   "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/README.md": {
-    "mtime": 1781432812.7131846,
+    "mtime": 1781436150.2594635,
     "ast_hash": "a037066528ea8c02b9634ee661cafe5e",
     "semantic_hash": ""
   },
@@ -90,8 +90,8 @@
     "semantic_hash": ""
   },
   "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Sources/Speakwerk/SettingsView.swift": {
-    "mtime": 1781436047.5721264,
-    "ast_hash": "8b07720fa6222bbf3c1ef64d7bcfcec6",
+    "mtime": 1781441128.60982,
+    "ast_hash": "eb40718e8e267d69ea2861f502736c35",
     "semantic_hash": ""
   },
   "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Sources/Speakwerk/AboutView.swift": {
@@ -110,8 +110,8 @@
     "semantic_hash": ""
   },
   "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/docs/ROADMAP.md": {
-    "mtime": 1781164877.9148223,
-    "ast_hash": "5304d4f2bba2ea2f08c8cb1685b30465",
+    "mtime": 1781436449.7815206,
+    "ast_hash": "e3058652f1d4ad134a638f7a79d1fdc2",
     "semantic_hash": ""
   },
   "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/docs/images/icon.png": {
@@ -125,18 +125,18 @@
     "semantic_hash": ""
   },
   "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Tests/TextProcessorTests.swift": {
-    "mtime": 1781433147.7998195,
-    "ast_hash": "f23b2b16019dd7affdb5732424d8e20d",
+    "mtime": 1781441077.0409875,
+    "ast_hash": "89c4a917ceb5766de224346e0708508a",
     "semantic_hash": ""
   },
   "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Sources/Speakwerk/TextProcessor.swift": {
-    "mtime": 1781433140.8433416,
-    "ast_hash": "cf6fa298d653ba4313aa7c152e252920",
+    "mtime": 1781441077.039032,
+    "ast_hash": "2bc5f42812c99c1f8ca3d6c47297352a",
     "semantic_hash": ""
   },
   "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Sources/Speakwerk/DictationManager.swift": {
-    "mtime": 1781435982.933851,
-    "ast_hash": "0480a4f238d743b3f0724c4f2213bfc0",
+    "mtime": 1781440441.2313535,
+    "ast_hash": "8edf267c0d4a2419d96b3a91a452100f",
     "semantic_hash": ""
   }
 }
