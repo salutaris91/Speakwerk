@@ -1,7 +1,7 @@
 # Graph Report - Speakwerk  (2026-06-14)
 
 ## Corpus Check
-- 26 files · ~49,862 words
+- 26 files · ~50,036 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `14529c91`
+- Built from commit: `29e54673`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 

@@ -43,42 +43,64 @@ public enum TextProcessor {
     private static func cleanUpWhitespace(_ text: String) -> String {
         var result = text
         
-        // 1. Remove space before punctuation: . , ? ! : ; )
+        // 1. Remove space before punctuation: . , ? ! : ; ) ] }
         // Example: "Hello ." -> "Hello."
         do {
-            let spaceBeforePunctuation = try Regex("\\s+([.,!?:;)])")
+            let spaceBeforePunctuation = try Regex("\\s+([.,!?:;\\]\\}\\)])")
             result = result.replacing(spaceBeforePunctuation, with: { match in
                 let punctuation = match.output[1].substring ?? ""
                 return String(punctuation)
             })
         } catch {}
         
-        // 2. Remove space after opening parenthesis: (
+        // 2. Remove space after opening parenthesis: ( [ {
         // Example: "( Hello" -> "(Hello"
         do {
-            let spaceAfterParen = try Regex("(\\()\\s+")
+            let spaceAfterParen = try Regex("([\\(\\[\\{])\\s+")
             result = result.replacing(spaceAfterParen, with: { match in
                 let paren = match.output[1].substring ?? ""
                 return String(paren)
             })
         } catch {}
         
-        // 3. Remove spacing inside quotes: "
+        // 2.5 Remove punctuation (comma, colon, semicolon) right after opening parenthesis
+        // Example: "(, Hello" -> "(Hello"
+        do {
+            let punctAfterParen = try Regex("([\\(\\[\\{])\\s*[,;:]\\s*")
+            result = result.replacing(punctAfterParen, with: { match in
+                let paren = match.output[1].substring ?? ""
+                return String(paren)
+            })
+        } catch {}
+        
+        // 2.6 Remove comma/colon/semicolon right before closing parenthesis
+        // Example: "Hello ,)" -> "Hello)"
+        do {
+            let punctBeforeParen = try Regex("\\s*[,;:]\\s*([\\)\\]\\}])")
+            result = result.replacing(punctBeforeParen, with: { match in
+                let paren = match.output[1].substring ?? ""
+                return String(paren)
+            })
+        } catch {}
+        
+        // 3. Remove spacing inside quotes: " “” „ « »
         // Remove space after opening quote: " Hello -> "Hello
         do {
-            let spaceAfterQuote = try Regex("\"\\s+(\\w)")
+            let spaceAfterQuote = try Regex("([\"“”„«»])\\s+(\\w)")
             result = result.replacing(spaceAfterQuote, with: { match in
-                let wordChar = match.output[1].substring ?? ""
-                return "\"" + String(wordChar)
+                let quote = match.output[1].substring ?? ""
+                let wordChar = match.output[2].substring ?? ""
+                return String(quote) + String(wordChar)
             })
         } catch {}
         
         // Remove space before closing quote: Hello " -> Hello"
         do {
-            let spaceBeforeQuote = try Regex("(\\w)\\s+\"")
+            let spaceBeforeQuote = try Regex("(\\w)\\s+([\"“”„«»])")
             result = result.replacing(spaceBeforeQuote, with: { match in
                 let wordChar = match.output[1].substring ?? ""
-                return String(wordChar) + "\""
+                let quote = match.output[2].substring ?? ""
+                return String(wordChar) + String(quote)
             })
         } catch {}
         

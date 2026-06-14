@@ -105,6 +105,10 @@ public class DictationManager {
         DictationRule(trigger: "bindestrich", replacement: "-"),
         DictationRule(trigger: "klammer auf", replacement: "("),
         DictationRule(trigger: "klammer zu", replacement: ")"),
+        DictationRule(trigger: "eckige klammer auf", replacement: "["),
+        DictationRule(trigger: "eckige klammer zu", replacement: "]"),
+        DictationRule(trigger: "geschweifte klammer auf", replacement: "{"),
+        DictationRule(trigger: "geschweifte klammer zu", replacement: "}"),
         DictationRule(trigger: "anführungszeichen", replacement: "\""),
         DictationRule(trigger: "neue zeile", replacement: "\n"),
         DictationRule(trigger: "neuer absatz", replacement: "\n\n")
