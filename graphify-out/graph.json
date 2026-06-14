@@ -88,7 +88,7 @@
       "label": ".testDictationManagerRules()",
       "file_type": "code",
       "source_file": "Tests/TextProcessorTests.swift",
-      "source_location": "L98",
+      "source_location": "L100",
       "id": "tests_textprocessortests_textprocessortests_testdictationmanagerrules",
       "community": 17,
       "norm_label": ".testdictationmanagerrules()"
@@ -554,7 +554,7 @@
       "label": ".validateAndAddRule()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/SettingsView.swift",
-      "source_location": "L283",
+      "source_location": "L289",
       "id": "speakwerk_settingsview_settingsview_validateandaddrule",
       "community": 14,
       "norm_label": ".validateandaddrule()"
@@ -896,7 +896,7 @@
       "label": ".cleanUpWhitespace()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/TextProcessor.swift",
-      "source_location": "L95",
+      "source_location": "L96",
       "id": "speakwerk_textprocessor_textprocessor_cleanupwhitespace",
       "community": 20,
       "norm_label": ".cleanupwhitespace()"
@@ -3631,9 +3631,9 @@
       "source_location": "L46",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "speakwerk_textprocessor_typographyrule",
-      "target": "sendable",
-      "confidence_score": 1.0
+      "target": "sendable"
     },
     {
       "relation": "contains",
@@ -4234,9 +4234,9 @@
       "source_file": "Sources/Speakwerk/TextProcessor.swift",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "sources_speakwerk_textprocessor_swift",
-      "target": "speakwerk_textprocessor_typographyrule",
-      "confidence_score": 1.0
+      "target": "speakwerk_textprocessor_typographyrule"
     },
     {
       "relation": "method",
@@ -4265,9 +4265,9 @@
       "source_location": "L49",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "speakwerk_textprocessor_textprocessor",
-      "target": "speakwerk_textprocessor_typographyrule",
-      "confidence_score": 1.0
+      "target": "speakwerk_textprocessor_typographyrule"
     },
     {
       "relation": "references",
@@ -4287,9 +4287,9 @@
       "source_file": "Sources/Speakwerk/TextProcessor.swift",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_textprocessor_textprocessor_process",
-      "target": "regex",
-      "confidence_score": 1.0
+      "target": "regex"
     },
     {
       "relation": "references",
@@ -4331,9 +4331,9 @@
       "source_location": "L46",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "speakwerk_textprocessor_typographyrule",
-      "target": "sources_speakwerk_textprocessor_swift_string",
-      "confidence_score": 1.0
+      "target": "sources_speakwerk_textprocessor_swift_string"
     },
     {
       "relation": "references",
@@ -4342,9 +4342,9 @@
       "source_location": "L46",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "speakwerk_textprocessor_typographyrule",
-      "target": "anyregexoutput",
-      "confidence_score": 1.0
+      "target": "anyregexoutput"
     },
     {
       "relation": "references",
@@ -4353,9 +4353,9 @@
       "source_location": "L46",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "speakwerk_textprocessor_typographyrule",
-      "target": "regex",
-      "confidence_score": 1.0
+      "target": "regex"
     },
     {
       "relation": "calls",
@@ -4364,9 +4364,9 @@
       "source_file": "Sources/Speakwerk/TextProcessor.swift",
       "source_location": "L100",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_textprocessor_textprocessor_cleanupwhitespace",
-      "target": "regex",
-      "confidence_score": 1.0
+      "target": "regex"
     },
     {
       "relation": "contains",
@@ -7694,5 +7694,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "938e1e1ce5c899fc21c67b79e480505a9e1249c5"
+  "built_at_commit": "09d1b7f15060f7641c78967af7f4d0db2b981340"
 }

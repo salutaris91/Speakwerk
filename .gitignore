@@ -10,5 +10,5 @@ DerivedData/
 *.dSYM
 scratch/
 build/
-
+graphify-out/cache/
 

@@ -85,9 +85,10 @@ public enum TextProcessor {
             return String(wordChar) + String(quote)
         },
         
-        // 7. Remove comma before opening parenthesis, absorbing surrounding spaces
-        TypographyRule(name: "Remove comma before opening parenthesis", pattern: "\\s*,\\s*\\(") { _ in
-            return " ("
+        // 7. Remove comma before opening parenthesis/bracket, absorbing surrounding spaces
+        TypographyRule(name: "Remove comma before opening bracket", pattern: "\\s*,\\s*([\\(\\[\\{])") { match in
+            let paren = match.output[1].substring ?? ""
+            return " " + String(paren)
         }
     ]
 
@@ -104,6 +105,6 @@ public enum TextProcessor {
             }
         }
         
-        return result
+        return result.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }

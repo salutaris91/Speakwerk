@@ -92,6 +92,8 @@ final class TextProcessorTests: XCTestCase {
         XCTAssertEqual(TextProcessor.process("Test ,(", with: rules), "Test (")
         XCTAssertEqual(TextProcessor.process("Test,(", with: rules), "Test (")
         XCTAssertEqual(TextProcessor.process("Test,  (", with: rules), "Test (")
+        XCTAssertEqual(TextProcessor.process("Test, [", with: rules), "Test [")
+        XCTAssertEqual(TextProcessor.process("Test ,{", with: rules), "Test {")
     }
     
     // Test DictationManager logic

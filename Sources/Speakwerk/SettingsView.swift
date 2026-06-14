@@ -31,7 +31,9 @@ public struct SettingsView: View {
             
             Divider()
             
-            VStack(alignment: .leading, spacing: 12) {
+            ScrollView {
+                VStack(spacing: 0) {
+                    VStack(alignment: .leading, spacing: 12) {
                 Text("Tastatur-Kurzbefehl")
                     .font(.headline)
                     .padding(.top, 15)
@@ -273,10 +275,14 @@ public struct SettingsView: View {
                 )
             }
             .padding(.horizontal, 20)
+            .padding(.bottom, 20)
             
-            Spacer()
+                }
+            }
+            
+            Spacer(minLength: 0)
         }
-        .frame(width: 520, height: 780)
+        .frame(width: 520, height: 680)
         .background(Color(NSColor.windowBackgroundColor))
     }
     
