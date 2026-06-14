@@ -22,3 +22,5 @@ Stand: Juni 2026, nach Release v1.0.1. Die Roadmap ist eine Absichtserklärung, 
 - **Intel-Support**: Abhängig von Nachfrage und WhisperKit-Performance auf Intel-Macs.
 - **Screen-Kontext-Erfassung**: Transkription mit Kontextwissen über die aktive App — nur, wenn es ohne Aufweichung der Datenschutz-Prinzipien möglich ist.
 - **Apple-Notarisierung**: Entfall der Gatekeeper-Hürde, sobald ein Apple Developer Account vorhanden ist (`docs/RELEASING.md` beschreibt den Umstieg).
+- **Satz-Spacing bei Folgeaufnahmen**: Untersuchung, wie fehlende Leerzeichen zwischen mehreren aufeinanderfolgenden Aufnahmen (z.B. nach einem Punkt) am elegantesten vermieden werden können.
+- **Intelligente Grammatik-Typografie (Deutsch)**: Automatische Bereinigung von grammatikalisch störenden Kommata vor öffnenden Klammern (z.B. Umformung von *„Ich hoffe, (und nicht nur ich), dass…"* zu *„Ich hoffe (und nicht nur ich), dass…"*).
