@@ -310,7 +310,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
         let settingsView = SettingsView()
         
         let window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 520, height: 680),
+            contentRect: NSRect(x: 0, y: 0, width: 520, height: 780),
             styleMask: [.titled, .closable],
             backing: .buffered,
             defer: false
@@ -497,8 +497,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
                 audioRecorder.deleteRecording()
                 
                 if let text = textToInsert {
+                    let finalInsertText = DictationManager.shared.appendTrailingSpace ? text + " " : text
                     do {
-                        try await ClipboardManager.shared.insert(text)
+                        try await ClipboardManager.shared.insert(finalInsertText)
                         self.state = .idle
                         self.updateUI()
                     } catch {

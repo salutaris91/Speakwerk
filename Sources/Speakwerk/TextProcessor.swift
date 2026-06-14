@@ -39,70 +39,70 @@ public enum TextProcessor {
         return processedText
     }
     
+    /// Represents a declarative typography cleanup rule.
+    private struct TypographyRule: Sendable {
+        let name: String
+        let pattern: String
+        let replacement: @Sendable (Regex<AnyRegexOutput>.Match) -> String
+    }
+    
+    private static let typographyRules: [TypographyRule] = [
+        // 1. Remove space before punctuation: . , ? ! : ; ) ] }
+        TypographyRule(name: "Remove space before punctuation", pattern: "\\s+([.,!?:;\\]\\}\\)])") { match in
+            let punctuation = match.output[1].substring ?? ""
+            return String(punctuation)
+        },
+        
+        // 2. Remove space after opening parenthesis: ( [ {
+        TypographyRule(name: "Remove space after opening parenthesis", pattern: "([\\(\\[\\{])\\s+") { match in
+            let paren = match.output[1].substring ?? ""
+            return String(paren)
+        },
+        
+        // 3. Remove punctuation (comma, colon, semicolon) right after opening parenthesis
+        TypographyRule(name: "Remove punctuation right after opening parenthesis", pattern: "([\\(\\[\\{])\\s*[,;:]\\s*") { match in
+            let paren = match.output[1].substring ?? ""
+            return String(paren)
+        },
+        
+        // 4. Remove comma/colon/semicolon right before closing parenthesis
+        TypographyRule(name: "Remove punctuation right before closing parenthesis", pattern: "\\s*[,;:]\\s*([\\)\\]\\}])") { match in
+            let paren = match.output[1].substring ?? ""
+            return String(paren)
+        },
+        
+        // 5. Remove space after opening quote: " Hello -> "Hello
+        TypographyRule(name: "Remove space after opening quote", pattern: "([\"“”„«»])\\s+(\\w)") { match in
+            let quote = match.output[1].substring ?? ""
+            let wordChar = match.output[2].substring ?? ""
+            return String(quote) + String(wordChar)
+        },
+        
+        // 6. Remove space before closing quote: Hello " -> Hello"
+        TypographyRule(name: "Remove space before closing quote", pattern: "(\\w)\\s+([\"“”„«»])") { match in
+            let wordChar = match.output[1].substring ?? ""
+            let quote = match.output[2].substring ?? ""
+            return String(wordChar) + String(quote)
+        },
+        
+        // 7. Remove comma before opening parenthesis, absorbing surrounding spaces
+        TypographyRule(name: "Remove comma before opening parenthesis", pattern: "\\s*,\\s*\\(") { _ in
+            return " ("
+        }
+    ]
+
     /// Cleans up typical Whisper whitespace anomalies around punctuation, parentheses, and quotes.
     private static func cleanUpWhitespace(_ text: String) -> String {
         var result = text
         
-        // 1. Remove space before punctuation: . , ? ! : ; ) ] }
-        // Example: "Hello ." -> "Hello."
-        do {
-            let spaceBeforePunctuation = try Regex("\\s+([.,!?:;\\]\\}\\)])")
-            result = result.replacing(spaceBeforePunctuation, with: { match in
-                let punctuation = match.output[1].substring ?? ""
-                return String(punctuation)
-            })
-        } catch {}
-        
-        // 2. Remove space after opening parenthesis: ( [ {
-        // Example: "( Hello" -> "(Hello"
-        do {
-            let spaceAfterParen = try Regex("([\\(\\[\\{])\\s+")
-            result = result.replacing(spaceAfterParen, with: { match in
-                let paren = match.output[1].substring ?? ""
-                return String(paren)
-            })
-        } catch {}
-        
-        // 2.5 Remove punctuation (comma, colon, semicolon) right after opening parenthesis
-        // Example: "(, Hello" -> "(Hello"
-        do {
-            let punctAfterParen = try Regex("([\\(\\[\\{])\\s*[,;:]\\s*")
-            result = result.replacing(punctAfterParen, with: { match in
-                let paren = match.output[1].substring ?? ""
-                return String(paren)
-            })
-        } catch {}
-        
-        // 2.6 Remove comma/colon/semicolon right before closing parenthesis
-        // Example: "Hello ,)" -> "Hello)"
-        do {
-            let punctBeforeParen = try Regex("\\s*[,;:]\\s*([\\)\\]\\}])")
-            result = result.replacing(punctBeforeParen, with: { match in
-                let paren = match.output[1].substring ?? ""
-                return String(paren)
-            })
-        } catch {}
-        
-        // 3. Remove spacing inside quotes: " “” „ « »
-        // Remove space after opening quote: " Hello -> "Hello
-        do {
-            let spaceAfterQuote = try Regex("([\"“”„«»])\\s+(\\w)")
-            result = result.replacing(spaceAfterQuote, with: { match in
-                let quote = match.output[1].substring ?? ""
-                let wordChar = match.output[2].substring ?? ""
-                return String(quote) + String(wordChar)
-            })
-        } catch {}
-        
-        // Remove space before closing quote: Hello " -> Hello"
-        do {
-            let spaceBeforeQuote = try Regex("(\\w)\\s+([\"“”„«»])")
-            result = result.replacing(spaceBeforeQuote, with: { match in
-                let wordChar = match.output[1].substring ?? ""
-                let quote = match.output[2].substring ?? ""
-                return String(wordChar) + String(quote)
-            })
-        } catch {}
+        for rule in typographyRules {
+            do {
+                let regex = try Regex(rule.pattern)
+                result = result.replacing(regex, with: rule.replacement)
+            } catch {
+                continue
+            }
+        }
         
         return result
     }

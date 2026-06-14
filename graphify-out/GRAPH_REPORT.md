@@ -1,16 +1,16 @@
 # Graph Report - Speakwerk  (2026-06-14)
 
 ## Corpus Check
-- 26 files · ~50,036 words
+- 26 files · ~50,276 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 320 nodes · 448 edges · 21 communities (18 shown, 3 thin omitted)
+- 323 nodes · 456 edges · 21 communities (18 shown, 3 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 10 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `29e54673`
+- Built from commit: `938e1e1c`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -55,10 +55,10 @@
   Sources/Speakwerk/HistoryManager.swift →   _Bridges community 19 → community 0_
 - `DownloadState` --implements--> `Equatable`  [EXTRACTED]
   Sources/Speakwerk/ModelManager.swift →   _Bridges community 19 → community 15_
-- `DictationRule` --implements--> `Identifiable`  [EXTRACTED]
-  Sources/Speakwerk/DictationManager.swift →   _Bridges community 15 → community 7_
+- `TranscriptionLanguage` --references--> `String`  [EXTRACTED]
+  Sources/Speakwerk/TranscriptionLanguage.swift →   _Bridges community 7 → community 15_
 - `TranscriptionEntry` --implements--> `Identifiable`  [EXTRACTED]
-  Sources/Speakwerk/HistoryManager.swift →   _Bridges community 15 → community 0_
+  Sources/Speakwerk/HistoryManager.swift →   _Bridges community 7 → community 0_
 
 ## Import Cycles
 - None detected.
@@ -66,8 +66,8 @@
 ## Communities (21 total, 3 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.15
-Nodes (10): Date, Int, String, URL, UUID, HistoryManager, TranscriptionEntry, HistoryManagerTests (+2 more)
+Cohesion: 0.14
+Nodes (11): Data, Date, Int, String, URL, UUID, HistoryManager, TranscriptionEntry (+3 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.12
@@ -82,8 +82,8 @@ Cohesion: 0.10
 Nodes (18): AppState, Notification, NSApplicationDelegate, NSMenuItem, NSStatusItem, NSWindow, NSWindowDelegate, OnboardingViewMode (+10 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.19
-Nodes (8): Data, NSPasteboard, Bool, Int, String, BackupItem, ClipboardManager, PasteboardBackup
+Cohesion: 0.21
+Nodes (7): NSPasteboard, Bool, Int, String, BackupItem, ClipboardManager, PasteboardBackup
 
 ### Community 5 - "Community 5"
 Cohesion: 0.21
@@ -94,8 +94,8 @@ Cohesion: 0.15
 Nodes (12): EventHandlerRef, EventHotKeyRef, FourCharCode, MainActor, Bool, MainActor, String, Void (+4 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.25
-Nodes (7): Codable, Hashable, Bool, String, UUID, DictationManager, DictationRule
+Cohesion: 0.11
+Nodes (19): CaseIterable, Codable, Hashable, Identifiable, Sendable, Bool, String, UUID (+11 more)
 
 ### Community 8 - "Community 8"
 Cohesion: 0.33
@@ -110,8 +110,8 @@ Cohesion: 0.07
 Nodes (22): AVAuthorizationStatus, String, Bool, ModelTier, String, Timer, Void, String (+14 more)
 
 ### Community 15 - "Community 15"
-Cohesion: 0.08
-Nodes (29): CaseIterable, Double, Identifiable, Sendable, Bool, MainActor, URL, Void (+21 more)
+Cohesion: 0.13
+Nodes (17): Double, Bool, MainActor, URL, Void, DownloadState, completed, downloading (+9 more)
 
 ### Community 16 - "Community 16"
 Cohesion: 0.16
@@ -130,11 +130,11 @@ Cohesion: 0.25
 Nodes (7): Equatable, AppState, downloadingModel, error, idle, recording, transcribing
 
 ### Community 20 - "Community 20"
-Cohesion: 0.47
-Nodes (3): DictationRule, String, TextProcessor
+Cohesion: 0.39
+Nodes (6): AnyRegexOutput, DictationRule, Regex, String, TextProcessor, TypographyRule
 
 ## Knowledge Gaps
-- **112 isolated node(s):** `URL`, `allow`, `refresh_graphify.sh script`, `build.sh script`, `String` (+107 more)
+- **113 isolated node(s):** `URL`, `allow`, `refresh_graphify.sh script`, `build.sh script`, `String` (+108 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -142,16 +142,16 @@ Nodes (3): DictationRule, String, TextProcessor
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `WhisperKit` connect `Community 8` to `Community 14`, `Community 15`?**
-  _High betweenness centrality (0.278) - this node is a cross-community bridge._
+  _High betweenness centrality (0.293) - this node is a cross-community bridge._
 - **Why does `OnboardingView` connect `Community 14` to `Community 3`?**
-  _High betweenness centrality (0.254) - this node is a cross-community bridge._
-- **Why does `TranscriptionEntry` connect `Community 0` to `Community 19`, `Community 15`, `Community 7`?**
-  _High betweenness centrality (0.188) - this node is a cross-community bridge._
+  _High betweenness centrality (0.265) - this node is a cross-community bridge._
+- **Why does `TranscriptionEntry` connect `Community 0` to `Community 19`, `Community 7`?**
+  _High betweenness centrality (0.194) - this node is a cross-community bridge._
 - **What connects `URL`, `allow`, `refresh_graphify.sh script` to the rest of the system?**
-  _112 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _113 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `Community 0` be split into smaller, more focused modules?**
+  _Cohesion score 0.14333333333333334 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
-- **Should `Community 3` be split into smaller, more focused modules?**
-  _Cohesion score 0.09878048780487805 - nodes in this community are weakly interconnected._

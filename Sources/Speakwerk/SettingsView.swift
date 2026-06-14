@@ -211,6 +211,32 @@ public struct SettingsView: View {
             }
             .padding(.horizontal, 20)
             
+            // Einfügen & Spacing
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Einfügen & Spacing")
+                    .font(.headline)
+                    .padding(.top, 15)
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    Toggle("Nach dem Einfügen ein Leerzeichen anfügen", isOn: $dictationManager.appendTrailingSpace)
+                    
+                    Text("Hilft bei aufeinanderfolgenden Diktaten, damit Wörter nicht zusammenkleben (z. B. nach einem Punkt).")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Color.gray.opacity(0.05))
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.gray.opacity(0.15), lineWidth: 1)
+                )
+            }
+            .padding(.horizontal, 20)
+            
             // Support & Feedback Section
             VStack(alignment: .leading, spacing: 10) {
                 Text("Support & Feedback")
@@ -250,7 +276,7 @@ public struct SettingsView: View {
             
             Spacer()
         }
-        .frame(width: 520, height: 680)
+        .frame(width: 520, height: 780)
         .background(Color(NSColor.windowBackgroundColor))
     }
     

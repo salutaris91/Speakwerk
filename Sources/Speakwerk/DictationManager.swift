@@ -27,12 +27,21 @@ public class DictationManager {
     
     private let dictationRulesKey = "dictationRules"
     private let dictationCommandsEnabledKey = "dictationCommandsEnabled"
+    private let appendTrailingSpaceKey = "appendTrailingSpace"
     
     /// Global toggle to enable or disable all dictation replacements.
     public var dictationCommandsEnabled: Bool {
         didSet {
             defaults.set(dictationCommandsEnabled, forKey: dictationCommandsEnabledKey)
             logger.info("Dictation commands enabled changed to: \(self.dictationCommandsEnabled)")
+        }
+    }
+    
+    /// Global toggle to append a trailing space after pasting the transcribed text.
+    public var appendTrailingSpace: Bool {
+        didSet {
+            defaults.set(appendTrailingSpace, forKey: appendTrailingSpaceKey)
+            logger.info("Append trailing space changed to: \(self.appendTrailingSpace)")
         }
     }
     
@@ -45,6 +54,7 @@ public class DictationManager {
     
     private init() {
         self.dictationCommandsEnabled = UserDefaults.standard.object(forKey: dictationCommandsEnabledKey) as? Bool ?? true
+        self.appendTrailingSpace = UserDefaults.standard.object(forKey: appendTrailingSpaceKey) as? Bool ?? false
         loadRules()
     }
     
