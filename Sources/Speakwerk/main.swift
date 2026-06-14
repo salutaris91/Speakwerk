@@ -475,10 +475,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
                     logger.info("Transcription result: \(result)")
                     
                     if !result.isEmpty {
-                        textToInsert = result
+                        var processedText = result
+                        if DictationManager.shared.dictationCommandsEnabled {
+                            processedText = TextProcessor.process(result, with: DictationManager.shared.dictationRules)
+                            logger.info("Processed transcription result: \(processedText)")
+                        }
+                        
+                        textToInsert = processedText
                         do {
                             let activeModelName = ModelManager.shared.selectedModel.rawValue
-                            _ = try await historyManager.addEntry(text: result, modelName: activeModelName)
+                            _ = try await historyManager.addEntry(text: processedText, modelName: activeModelName)
                         } catch {
                             logger.error("Failed to save to history: \(error.localizedDescription)")
                         }
