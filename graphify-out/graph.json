@@ -13,12 +13,93 @@
       "norm_label": "package.swift"
     },
     {
+      "label": "TextProcessorTests.swift",
+      "file_type": "code",
+      "source_file": "Tests/TextProcessorTests.swift",
+      "source_location": "L1",
+      "id": "tests_textprocessortests_swift",
+      "community": 17,
+      "norm_label": "textprocessortests.swift"
+    },
+    {
+      "label": "TextProcessorTests",
+      "file_type": "code",
+      "source_file": "Tests/TextProcessorTests.swift",
+      "source_location": "L4",
+      "id": "tests_textprocessortests_textprocessortests",
+      "community": 17,
+      "norm_label": "textprocessortests"
+    },
+    {
+      "label": "XCTestCase",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "xctestcase",
+      "community": 17,
+      "norm_label": "xctestcase"
+    },
+    {
+      "label": ".testBaseDictationCommands()",
+      "file_type": "code",
+      "source_file": "Tests/TextProcessorTests.swift",
+      "source_location": "L7",
+      "id": "tests_textprocessortests_textprocessortests_testbasedictationcommands",
+      "community": 17,
+      "norm_label": ".testbasedictationcommands()"
+    },
+    {
+      "label": ".testWordBoundaries()",
+      "file_type": "code",
+      "source_file": "Tests/TextProcessorTests.swift",
+      "source_location": "L25",
+      "id": "tests_textprocessortests_textprocessortests_testwordboundaries",
+      "community": 17,
+      "norm_label": ".testwordboundaries()"
+    },
+    {
+      "label": ".testTriggerLengthSorting()",
+      "file_type": "code",
+      "source_file": "Tests/TextProcessorTests.swift",
+      "source_location": "L40",
+      "id": "tests_textprocessortests_textprocessortests_testtriggerlengthsorting",
+      "community": 17,
+      "norm_label": ".testtriggerlengthsorting()"
+    },
+    {
+      "label": ".testCaseInsensitivity()",
+      "file_type": "code",
+      "source_file": "Tests/TextProcessorTests.swift",
+      "source_location": "L54",
+      "id": "tests_textprocessortests_textprocessortests_testcaseinsensitivity",
+      "community": 17,
+      "norm_label": ".testcaseinsensitivity()"
+    },
+    {
+      "label": ".testWhitespaceCleanup()",
+      "file_type": "code",
+      "source_file": "Tests/TextProcessorTests.swift",
+      "source_location": "L67",
+      "id": "tests_textprocessortests_textprocessortests_testwhitespacecleanup",
+      "community": 17,
+      "norm_label": ".testwhitespacecleanup()"
+    },
+    {
+      "label": ".testDictationManagerRules()",
+      "file_type": "code",
+      "source_file": "Tests/TextProcessorTests.swift",
+      "source_location": "L84",
+      "id": "tests_textprocessortests_textprocessortests_testdictationmanagerrules",
+      "community": 17,
+      "norm_label": ".testdictationmanagerrules()"
+    },
+    {
       "label": "SpeakwerkTests.swift",
       "file_type": "code",
       "source_file": "Tests/SpeakwerkTests.swift",
       "source_location": "L1",
       "id": "tests_speakwerktests_swift",
-      "community": 0,
+      "community": 17,
       "norm_label": "speakwerktests.swift"
     },
     {
@@ -27,17 +108,8 @@
       "source_file": "Tests/SpeakwerkTests.swift",
       "source_location": "L4",
       "id": "tests_speakwerktests_speakwerktests",
-      "community": 0,
+      "community": 17,
       "norm_label": "speakwerktests"
-    },
-    {
-      "label": "XCTestCase",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "id": "xctestcase",
-      "community": 0,
-      "norm_label": "xctestcase"
     },
     {
       "label": ".testExample()",
@@ -45,7 +117,7 @@
       "source_file": "Tests/SpeakwerkTests.swift",
       "source_location": "L5",
       "id": "tests_speakwerktests_speakwerktests_testexample",
-      "community": 0,
+      "community": 17,
       "norm_label": ".testexample()"
     },
     {
@@ -205,7 +277,7 @@
       "source_file": "Sources/Speakwerk/AboutView.swift",
       "source_location": "L1",
       "id": "sources_speakwerk_aboutview_swift",
-      "community": 17,
+      "community": 14,
       "norm_label": "aboutview.swift"
     },
     {
@@ -214,7 +286,7 @@
       "source_file": "Sources/Speakwerk/AboutView.swift",
       "source_location": "L3",
       "id": "speakwerk_aboutview_aboutview",
-      "community": 17,
+      "community": 14,
       "norm_label": "aboutview"
     },
     {
@@ -223,7 +295,7 @@
       "source_file": "",
       "source_location": "",
       "id": "view",
-      "community": 17,
+      "community": 14,
       "norm_label": "view"
     },
     {
@@ -232,7 +304,7 @@
       "source_file": "Sources/Speakwerk/AboutView.swift",
       "source_location": "L4",
       "id": "speakwerk_aboutview_aboutview_init",
-      "community": 17,
+      "community": 14,
       "norm_label": ".init()"
     },
     {
@@ -241,7 +313,7 @@
       "source_file": "Sources/Speakwerk/AboutView.swift",
       "source_location": "L6",
       "id": "sources_speakwerk_aboutview_swift_string",
-      "community": 17,
+      "community": 14,
       "norm_label": "string"
     },
     {
@@ -250,7 +322,7 @@
       "source_file": "Sources/Speakwerk/AppState.swift",
       "source_location": "L1",
       "id": "sources_speakwerk_appstate_swift",
-      "community": 7,
+      "community": 0,
       "norm_label": "appstate.swift"
     },
     {
@@ -259,7 +331,7 @@
       "source_file": "Sources/Speakwerk/AppState.swift",
       "source_location": "L1",
       "id": "speakwerk_appstate_appstate",
-      "community": 7,
+      "community": 0,
       "norm_label": "appstate"
     },
     {
@@ -268,7 +340,7 @@
       "source_file": "",
       "source_location": "",
       "id": "equatable",
-      "community": 7,
+      "community": 0,
       "norm_label": "equatable"
     },
     {
@@ -277,7 +349,7 @@
       "source_file": "Sources/Speakwerk/AppState.swift",
       "source_location": "L2",
       "id": "speakwerk_appstate_appstate_idle",
-      "community": 7,
+      "community": 0,
       "norm_label": "idle"
     },
     {
@@ -286,7 +358,7 @@
       "source_file": "Sources/Speakwerk/AppState.swift",
       "source_location": "L3",
       "id": "speakwerk_appstate_appstate_recording",
-      "community": 7,
+      "community": 0,
       "norm_label": "recording"
     },
     {
@@ -295,7 +367,7 @@
       "source_file": "Sources/Speakwerk/AppState.swift",
       "source_location": "L4",
       "id": "speakwerk_appstate_appstate_transcribing",
-      "community": 7,
+      "community": 0,
       "norm_label": "transcribing"
     },
     {
@@ -304,7 +376,7 @@
       "source_file": "Sources/Speakwerk/AppState.swift",
       "source_location": "L5",
       "id": "speakwerk_appstate_appstate_downloadingmodel",
-      "community": 7,
+      "community": 0,
       "norm_label": "downloadingmodel"
     },
     {
@@ -313,7 +385,7 @@
       "source_file": "Sources/Speakwerk/AppState.swift",
       "source_location": "L6",
       "id": "speakwerk_appstate_appstate_error",
-      "community": 7,
+      "community": 0,
       "norm_label": "error"
     },
     {
@@ -448,7 +520,7 @@
       "source_file": "Sources/Speakwerk/SettingsView.swift",
       "source_location": "L1",
       "id": "sources_speakwerk_settingsview_swift",
-      "community": 17,
+      "community": 14,
       "norm_label": "settingsview.swift"
     },
     {
@@ -457,17 +529,35 @@
       "source_file": "Sources/Speakwerk/SettingsView.swift",
       "source_location": "L4",
       "id": "speakwerk_settingsview_settingsview",
-      "community": 17,
+      "community": 14,
       "norm_label": "settingsview"
+    },
+    {
+      "label": "String",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/SettingsView.swift",
+      "source_location": "L9",
+      "id": "sources_speakwerk_settingsview_swift_string",
+      "community": 14,
+      "norm_label": "string"
     },
     {
       "label": ".init()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/SettingsView.swift",
-      "source_location": "L7",
+      "source_location": "L11",
       "id": "speakwerk_settingsview_settingsview_init",
-      "community": 17,
+      "community": 14,
       "norm_label": ".init()"
+    },
+    {
+      "label": ".validateAndAddRule()",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/SettingsView.swift",
+      "source_location": "L257",
+      "id": "speakwerk_settingsview_settingsview_validateandaddrule",
+      "community": 14,
+      "norm_label": ".validateandaddrule()"
     },
     {
       "label": "HotkeyManager.swift",
@@ -731,6 +821,186 @@
       "norm_label": "string"
     },
     {
+      "label": "TextProcessor.swift",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L1",
+      "id": "sources_speakwerk_textprocessor_swift",
+      "community": 20,
+      "norm_label": "textprocessor.swift"
+    },
+    {
+      "label": "TextProcessor",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L4",
+      "id": "speakwerk_textprocessor_textprocessor",
+      "community": 20,
+      "norm_label": "textprocessor"
+    },
+    {
+      "label": ".process()",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L12",
+      "id": "speakwerk_textprocessor_textprocessor_process",
+      "community": 20,
+      "norm_label": ".process()"
+    },
+    {
+      "label": "String",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L12",
+      "id": "sources_speakwerk_textprocessor_swift_string",
+      "community": 20,
+      "norm_label": "string"
+    },
+    {
+      "label": "DictationRule",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L12",
+      "id": "dictationrule",
+      "community": 20,
+      "norm_label": "dictationrule"
+    },
+    {
+      "label": ".cleanUpWhitespace()",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L43",
+      "id": "speakwerk_textprocessor_textprocessor_cleanupwhitespace",
+      "community": 20,
+      "norm_label": ".cleanupwhitespace()"
+    },
+    {
+      "label": "DictationManager.swift",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L1",
+      "id": "sources_speakwerk_dictationmanager_swift",
+      "community": 7,
+      "norm_label": "dictationmanager.swift"
+    },
+    {
+      "label": "DictationRule",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L6",
+      "id": "speakwerk_dictationmanager_dictationrule",
+      "community": 7,
+      "norm_label": "dictationrule"
+    },
+    {
+      "label": "Codable",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "codable",
+      "community": 7,
+      "norm_label": "codable"
+    },
+    {
+      "label": "Hashable",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "hashable",
+      "community": 7,
+      "norm_label": "hashable"
+    },
+    {
+      "label": "UUID",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L7",
+      "id": "sources_speakwerk_dictationmanager_swift_uuid",
+      "community": 7,
+      "norm_label": "uuid"
+    },
+    {
+      "label": "String",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L8",
+      "id": "sources_speakwerk_dictationmanager_swift_string",
+      "community": 7,
+      "norm_label": "string"
+    },
+    {
+      "label": "Bool",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L10",
+      "id": "sources_speakwerk_dictationmanager_swift_bool",
+      "community": 7,
+      "norm_label": "bool"
+    },
+    {
+      "label": ".init()",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L12",
+      "id": "speakwerk_dictationmanager_dictationrule_init",
+      "community": 7,
+      "norm_label": ".init()"
+    },
+    {
+      "label": "DictationManager",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L21",
+      "id": "speakwerk_dictationmanager_dictationmanager",
+      "community": 7,
+      "norm_label": "dictationmanager"
+    },
+    {
+      "label": ".init()",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L46",
+      "id": "speakwerk_dictationmanager_dictationmanager_init",
+      "community": 7,
+      "norm_label": ".init()"
+    },
+    {
+      "label": ".loadRules()",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L51",
+      "id": "speakwerk_dictationmanager_dictationmanager_loadrules",
+      "community": 7,
+      "norm_label": ".loadrules()"
+    },
+    {
+      "label": ".saveRules()",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L62",
+      "id": "speakwerk_dictationmanager_dictationmanager_saverules",
+      "community": 7,
+      "norm_label": ".saverules()"
+    },
+    {
+      "label": ".addRule()",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L73",
+      "id": "speakwerk_dictationmanager_dictationmanager_addrule",
+      "community": 7,
+      "norm_label": ".addrule()"
+    },
+    {
+      "label": ".removeRule()",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L93",
+      "id": "speakwerk_dictationmanager_dictationmanager_removerule",
+      "community": 7,
+      "norm_label": ".removerule()"
+    },
+    {
       "label": "ModelManager.swift",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
@@ -968,7 +1238,7 @@
       "label": "AppDelegate",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L8",
+      "source_location": "L9",
       "id": "speakwerk_main_appdelegate",
       "community": 3,
       "norm_label": "appdelegate"
@@ -1013,7 +1283,7 @@
       "label": "Timer",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L14",
+      "source_location": "L15",
       "id": "sources_speakwerk_main_swift_timer",
       "community": 3,
       "norm_label": "timer"
@@ -1022,7 +1292,7 @@
       "label": "SPUStandardUpdaterController",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L15",
+      "source_location": "L16",
       "id": "spustandardupdatercontroller",
       "community": 3,
       "norm_label": "spustandardupdatercontroller"
@@ -1031,7 +1301,7 @@
       "label": "NSStatusItem",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L17",
+      "source_location": "L18",
       "id": "nsstatusitem",
       "community": 3,
       "norm_label": "nsstatusitem"
@@ -1040,7 +1310,7 @@
       "label": "AppState",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L18",
+      "source_location": "L19",
       "id": "appstate",
       "community": 3,
       "norm_label": "appstate"
@@ -1049,7 +1319,7 @@
       "label": "NSWindow",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L19",
+      "source_location": "L20",
       "id": "nswindow",
       "community": 3,
       "norm_label": "nswindow"
@@ -1058,7 +1328,7 @@
       "label": ".applicationDidFinishLaunching()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L23",
+      "source_location": "L24",
       "id": "speakwerk_main_appdelegate_applicationdidfinishlaunching",
       "community": 3,
       "norm_label": ".applicationdidfinishlaunching()"
@@ -1067,7 +1337,7 @@
       "label": "Notification",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L23",
+      "source_location": "L24",
       "id": "notification",
       "community": 3,
       "norm_label": "notification"
@@ -1076,7 +1346,7 @@
       "label": ".updateUI()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L71",
+      "source_location": "L72",
       "id": "speakwerk_main_appdelegate_updateui",
       "community": 3,
       "norm_label": ".updateui()"
@@ -1085,7 +1355,7 @@
       "label": ".rebuildMenu()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L96",
+      "source_location": "L97",
       "id": "speakwerk_main_appdelegate_rebuildmenu",
       "community": 3,
       "norm_label": ".rebuildmenu()"
@@ -1094,7 +1364,7 @@
       "label": ".selectModelItem()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L225",
+      "source_location": "L226",
       "id": "speakwerk_main_appdelegate_selectmodelitem",
       "community": 3,
       "norm_label": ".selectmodelitem()"
@@ -1103,7 +1373,7 @@
       "label": "NSMenuItem",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L225",
+      "source_location": "L226",
       "id": "nsmenuitem",
       "community": 3,
       "norm_label": "nsmenuitem"
@@ -1112,7 +1382,7 @@
       "label": ".startOnboardingAction()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L243",
+      "source_location": "L244",
       "id": "speakwerk_main_appdelegate_startonboardingaction",
       "community": 3,
       "norm_label": ".startonboardingaction()"
@@ -1121,7 +1391,7 @@
       "label": ".resetOnboardingAction()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L247",
+      "source_location": "L248",
       "id": "speakwerk_main_appdelegate_resetonboardingaction",
       "community": 3,
       "norm_label": ".resetonboardingaction()"
@@ -1130,7 +1400,7 @@
       "label": ".showOnboarding()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L251",
+      "source_location": "L252",
       "id": "speakwerk_main_appdelegate_showonboarding",
       "community": 3,
       "norm_label": ".showonboarding()"
@@ -1139,7 +1409,7 @@
       "label": "OnboardingViewMode",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L251",
+      "source_location": "L252",
       "id": "onboardingviewmode",
       "community": 3,
       "norm_label": "onboardingviewmode"
@@ -1148,16 +1418,16 @@
       "label": ".showSettingsAction()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L301",
+      "source_location": "L302",
       "id": "speakwerk_main_appdelegate_showsettingsaction",
-      "community": 17,
+      "community": 3,
       "norm_label": ".showsettingsaction()"
     },
     {
       "label": ".showAboutAction()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L328",
+      "source_location": "L329",
       "id": "speakwerk_main_appdelegate_showaboutaction",
       "community": 3,
       "norm_label": ".showaboutaction()"
@@ -1166,7 +1436,7 @@
       "label": ".completeOnboardingFlow()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L355",
+      "source_location": "L356",
       "id": "speakwerk_main_appdelegate_completeonboardingflow",
       "community": 3,
       "norm_label": ".completeonboardingflow()"
@@ -1175,7 +1445,7 @@
       "label": ".setupGlobalHotkey()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L364",
+      "source_location": "L365",
       "id": "speakwerk_main_appdelegate_setupglobalhotkey",
       "community": 3,
       "norm_label": ".setupglobalhotkey()"
@@ -1184,16 +1454,34 @@
       "label": ".startRecordingProcess()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L371",
+      "source_location": "L372",
       "id": "speakwerk_main_appdelegate_startrecordingprocess",
       "community": 3,
       "norm_label": ".startrecordingprocess()"
     },
     {
+      "label": ".handleMicrophoneAccessDenied()",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L397",
+      "id": "speakwerk_main_appdelegate_handlemicrophoneaccessdenied",
+      "community": 3,
+      "norm_label": ".handlemicrophoneaccessdenied()"
+    },
+    {
+      "label": ".beginRecording()",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L418",
+      "id": "speakwerk_main_appdelegate_beginrecording",
+      "community": 3,
+      "norm_label": ".beginrecording()"
+    },
+    {
       "label": ".setErrorState()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L389",
+      "source_location": "L436",
       "id": "speakwerk_main_appdelegate_seterrorstate",
       "community": 3,
       "norm_label": ".seterrorstate()"
@@ -1202,7 +1490,7 @@
       "label": "String",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L389",
+      "source_location": "L436",
       "id": "sources_speakwerk_main_swift_string",
       "community": 3,
       "norm_label": "string"
@@ -1211,7 +1499,7 @@
       "label": ".toggleRecording()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L405",
+      "source_location": "L452",
       "id": "speakwerk_main_appdelegate_togglerecording",
       "community": 3,
       "norm_label": ".togglerecording()"
@@ -1220,7 +1508,7 @@
       "label": ".quitApp()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L466",
+      "source_location": "L519",
       "id": "speakwerk_main_appdelegate_quitapp",
       "community": 3,
       "norm_label": ".quitapp()"
@@ -1229,7 +1517,7 @@
       "label": ".standardUserDriverWillShowModalAlert()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L475",
+      "source_location": "L528",
       "id": "speakwerk_main_appdelegate_standarduserdriverwillshowmodalalert",
       "community": 3,
       "norm_label": ".standarduserdriverwillshowmodalalert()"
@@ -1238,43 +1526,43 @@
       "label": ".standardUserDriverWillHandleShowingUpdate()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L481",
+      "source_location": "L534",
       "id": "speakwerk_main_appdelegate_standarduserdriverwillhandleshowingupdate",
-      "community": 3,
+      "community": 21,
       "norm_label": ".standarduserdriverwillhandleshowingupdate()"
     },
     {
       "label": "Bool",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L481",
+      "source_location": "L534",
       "id": "sources_speakwerk_main_swift_bool",
-      "community": 3,
+      "community": 21,
       "norm_label": "bool"
     },
     {
       "label": "SUAppcastItem",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L481",
+      "source_location": "L534",
       "id": "suappcastitem",
-      "community": 3,
+      "community": 21,
       "norm_label": "suappcastitem"
     },
     {
       "label": "SPUUserUpdateState",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L481",
+      "source_location": "L534",
       "id": "spuuserupdatestate",
-      "community": 3,
+      "community": 21,
       "norm_label": "spuuserupdatestate"
     },
     {
       "label": ".windowWillClose()",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/main.swift",
-      "source_location": "L491",
+      "source_location": "L544",
       "id": "speakwerk_main_appdelegate_windowwillclose",
       "community": 3,
       "norm_label": ".windowwillclose()"
@@ -1393,7 +1681,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L1",
       "id": "sources_speakwerk_onboardingview_swift",
-      "community": 17,
+      "community": 14,
       "norm_label": "onboardingview.swift"
     },
     {
@@ -1456,7 +1744,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L15",
       "id": "speakwerk_onboardingview_onboardingviewmode",
-      "community": 17,
+      "community": 14,
       "norm_label": "onboardingviewmode"
     },
     {
@@ -1465,7 +1753,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L16",
       "id": "speakwerk_onboardingview_onboardingviewmode_fullonboarding",
-      "community": 17,
+      "community": 14,
       "norm_label": "fullonboarding"
     },
     {
@@ -1474,7 +1762,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L17",
       "id": "speakwerk_onboardingview_onboardingviewmode_downloadonly",
-      "community": 17,
+      "community": 14,
       "norm_label": "downloadonly"
     },
     {
@@ -1492,7 +1780,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L24",
       "id": "sources_speakwerk_onboardingview_swift_modeltier",
-      "community": 17,
+      "community": 14,
       "norm_label": "modeltier"
     },
     {
@@ -1582,7 +1870,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L80",
       "id": "speakwerk_onboardingview_onboardingview",
-      "community": 17,
+      "community": 14,
       "norm_label": "onboardingview"
     },
     {
@@ -1591,7 +1879,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L82",
       "id": "sources_speakwerk_onboardingview_swift_void",
-      "community": 17,
+      "community": 14,
       "norm_label": "void"
     },
     {
@@ -1600,7 +1888,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L88",
       "id": "speakwerk_onboardingview_onboardingview_init",
-      "community": 17,
+      "community": 14,
       "norm_label": ".init()"
     },
     {
@@ -1609,7 +1897,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L242",
       "id": "speakwerk_onboardingview_onboardingview_downloadstep",
-      "community": 17,
+      "community": 14,
       "norm_label": ".downloadstep()"
     },
     {
@@ -1618,7 +1906,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L587",
       "id": "speakwerk_onboardingview_onboardingview_triggerdownload",
-      "community": 17,
+      "community": 14,
       "norm_label": ".triggerdownload()"
     },
     {
@@ -1627,7 +1915,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L602",
       "id": "speakwerk_onboardingview_onboardingview_sizedescription",
-      "community": 17,
+      "community": 14,
       "norm_label": ".sizedescription()"
     },
     {
@@ -1636,7 +1924,7 @@
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L602",
       "id": "sources_speakwerk_onboardingview_swift_string",
-      "community": 17,
+      "community": 14,
       "norm_label": "string"
     },
     {
@@ -1658,20 +1946,11 @@
       "norm_label": "transcriptionentry"
     },
     {
-      "label": "Codable",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "id": "codable",
-      "community": 0,
-      "norm_label": "codable"
-    },
-    {
       "label": "UUID",
       "file_type": "code",
       "source_file": "Sources/Speakwerk/HistoryManager.swift",
       "source_location": "L5",
-      "id": "uuid",
+      "id": "sources_speakwerk_historymanager_swift_uuid",
       "community": 0,
       "norm_label": "uuid"
     },
@@ -2216,28 +2495,37 @@
       "norm_label": "voraussetzungen (einmalig)"
     },
     {
-      "label": "Sparkle Ed25519-Schl\u00fcsselpaar",
+      "label": "Selbst-signiertes Code-Signing-Zertifikat",
       "file_type": "document",
       "source_file": "docs/RELEASING.md",
       "source_location": "L11",
+      "id": "docs_releasing_selbst_signiertes_code_signing_zertifikat",
+      "community": 16,
+      "norm_label": "selbst-signiertes code-signing-zertifikat"
+    },
+    {
+      "label": "Sparkle Ed25519-Schl\u00fcsselpaar",
+      "file_type": "document",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L30",
       "id": "docs_releasing_sparkle_ed25519_schl\u00fcsselpaar",
       "community": 16,
       "norm_label": "sparkle ed25519-schlusselpaar"
     },
     {
-      "label": "Release-Prozess (Ad-hoc, ohne Notarisierung)",
+      "label": "Release-Prozess (selbst-signiert, ohne Notarisierung)",
       "file_type": "document",
       "source_file": "docs/RELEASING.md",
-      "source_location": "L26",
-      "id": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
+      "source_location": "L45",
+      "id": "docs_releasing_release_prozess_selbst_signiert_ohne_notarisierung",
       "community": 16,
-      "norm_label": "release-prozess (ad-hoc, ohne notarisierung)"
+      "norm_label": "release-prozess (selbst-signiert, ohne notarisierung)"
     },
     {
       "label": "1. Versionen erh\u00f6hen",
       "file_type": "document",
       "source_file": "docs/RELEASING.md",
-      "source_location": "L30",
+      "source_location": "L49",
       "id": "docs_releasing_1_versionen_erh\u00f6hen",
       "community": 16,
       "norm_label": "1. versionen erhohen"
@@ -2246,25 +2534,25 @@
       "label": "2. App-Bundle bauen",
       "file_type": "document",
       "source_file": "docs/RELEASING.md",
-      "source_location": "L34",
+      "source_location": "L53",
       "id": "docs_releasing_2_app_bundle_bauen",
       "community": 16,
       "norm_label": "2. app-bundle bauen"
     },
     {
-      "label": "3. Ad-hoc signieren (inside-out)",
+      "label": "3. Signieren (inside-out, selbst-signiertes Zertifikat)",
       "file_type": "document",
       "source_file": "docs/RELEASING.md",
-      "source_location": "L42",
-      "id": "docs_releasing_3_ad_hoc_signieren_inside_out",
+      "source_location": "L61",
+      "id": "docs_releasing_3_signieren_inside_out_selbst_signiertes_zertifikat",
       "community": 16,
-      "norm_label": "3. ad-hoc signieren (inside-out)"
+      "norm_label": "3. signieren (inside-out, selbst-signiertes zertifikat)"
     },
     {
       "label": "4. Distributions-Archiv erstellen",
       "file_type": "document",
       "source_file": "docs/RELEASING.md",
-      "source_location": "L55",
+      "source_location": "L77",
       "id": "docs_releasing_4_distributions_archiv_erstellen",
       "community": 16,
       "norm_label": "4. distributions-archiv erstellen"
@@ -2273,7 +2561,7 @@
       "label": "5. Appcast generieren",
       "file_type": "document",
       "source_file": "docs/RELEASING.md",
-      "source_location": "L63",
+      "source_location": "L85",
       "id": "docs_releasing_5_appcast_generieren",
       "community": 16,
       "norm_label": "5. appcast generieren"
@@ -2282,7 +2570,7 @@
       "label": "6. Appcast committen und nach `main` bringen",
       "file_type": "document",
       "source_file": "docs/RELEASING.md",
-      "source_location": "L75",
+      "source_location": "L97",
       "id": "docs_releasing_6_appcast_committen_und_nach_main_bringen",
       "community": 16,
       "norm_label": "6. appcast committen und nach `main` bringen"
@@ -2291,7 +2579,7 @@
       "label": "7. GitHub-Release erstellen",
       "file_type": "document",
       "source_file": "docs/RELEASING.md",
-      "source_location": "L85",
+      "source_location": "L107",
       "id": "docs_releasing_7_github_release_erstellen",
       "community": 16,
       "norm_label": "7. github-release erstellen"
@@ -2300,7 +2588,7 @@
       "label": "8. Verifizieren",
       "file_type": "document",
       "source_file": "docs/RELEASING.md",
-      "source_location": "L95",
+      "source_location": "L117",
       "id": "docs_releasing_8_verifizieren",
       "community": 16,
       "norm_label": "8. verifizieren"
@@ -2309,7 +2597,7 @@
       "label": "9. Produktseite aktualisieren",
       "file_type": "document",
       "source_file": "docs/RELEASING.md",
-      "source_location": "L104",
+      "source_location": "L126",
       "id": "docs_releasing_9_produktseite_aktualisieren",
       "community": 16,
       "norm_label": "9. produktseite aktualisieren"
@@ -2318,7 +2606,7 @@
       "label": "Ausblick: Notarisiertes Release (mit Apple Developer Account)",
       "file_type": "document",
       "source_file": "docs/RELEASING.md",
-      "source_location": "L110",
+      "source_location": "L132",
       "id": "docs_releasing_ausblick_notarisiertes_release_mit_apple_developer_account",
       "community": 16,
       "norm_label": "ausblick: notarisiertes release (mit apple developer account)"
@@ -2376,6 +2664,33 @@
       "id": "docs_roadmap_in_evaluation_kein_versionsziel",
       "community": 18,
       "norm_label": "in evaluation (kein versionsziel)"
+    },
+    {
+      "label": "UUID",
+      "file_type": "code",
+      "source_file": "Sources/Speakwerk/HistoryManager.swift",
+      "source_location": "L5",
+      "community": 0,
+      "norm_label": "uuid",
+      "id": "uuid"
+    },
+    {
+      "label": "Release-Prozess (Ad-hoc, ohne Notarisierung)",
+      "file_type": "document",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L26",
+      "community": 16,
+      "norm_label": "release-prozess (ad-hoc, ohne notarisierung)",
+      "id": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung"
+    },
+    {
+      "label": "3. Ad-hoc signieren (inside-out)",
+      "file_type": "document",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L42",
+      "community": 16,
+      "norm_label": "3. ad-hoc signieren (inside-out)",
+      "id": "docs_releasing_3_ad_hoc_signieren_inside_out"
     },
     {
       "label": "Installation & Build f\u00fcr Entwickler",
@@ -2544,7 +2859,7 @@
       "file_type": "code",
       "source_file": "Sources/Speakwerk/OnboardingView.swift",
       "source_location": "L484",
-      "community": 17,
+      "community": 14,
       "norm_label": ".keycap()",
       "id": "speakwerk_onboardingview_onboardingview_keycap"
     },
@@ -2580,6 +2895,106 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "Tests/TextProcessorTests.swift",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_textprocessortests_swift",
+      "target": "tests_textprocessortests_textprocessortests"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Tests/TextProcessorTests.swift",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_textprocessortests_textprocessortests",
+      "target": "tests_textprocessortests_textprocessortests_testbasedictationcommands"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Tests/TextProcessorTests.swift",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_textprocessortests_textprocessortests",
+      "target": "tests_textprocessortests_textprocessortests_testcaseinsensitivity"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Tests/TextProcessorTests.swift",
+      "source_location": "L84",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_textprocessortests_textprocessortests",
+      "target": "tests_textprocessortests_textprocessortests_testdictationmanagerrules"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Tests/TextProcessorTests.swift",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_textprocessortests_textprocessortests",
+      "target": "tests_textprocessortests_textprocessortests_testtriggerlengthsorting"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Tests/TextProcessorTests.swift",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_textprocessortests_textprocessortests",
+      "target": "tests_textprocessortests_textprocessortests_testwhitespacecleanup"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Tests/TextProcessorTests.swift",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_textprocessortests_textprocessortests",
+      "target": "tests_textprocessortests_textprocessortests_testwordboundaries"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "Tests/TextProcessorTests.swift",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_textprocessortests_textprocessortests",
+      "target": "xctestcase"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "Tests/HistoryManagerTests.swift",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_historymanagertests_historymanagertests",
+      "target": "xctestcase"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "Tests/SpeakwerkTests.swift",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tests_speakwerktests_speakwerktests",
+      "target": "xctestcase"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "Tests/SpeakwerkTests.swift",
       "source_location": "L4",
       "weight": 1.0,
@@ -2596,26 +3011,6 @@
       "confidence_score": 1.0,
       "source": "tests_speakwerktests_speakwerktests",
       "target": "tests_speakwerktests_speakwerktests_testexample"
-    },
-    {
-      "relation": "inherits",
-      "confidence": "EXTRACTED",
-      "source_file": "Tests/SpeakwerkTests.swift",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_speakwerktests_speakwerktests",
-      "target": "xctestcase"
-    },
-    {
-      "relation": "inherits",
-      "confidence": "EXTRACTED",
-      "source_file": "Tests/HistoryManagerTests.swift",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_historymanagertests_historymanagertests",
-      "target": "xctestcase"
     },
     {
       "relation": "contains",
@@ -3125,6 +3520,16 @@
     {
       "relation": "implements",
       "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationrule",
+      "target": "identifiable"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
       "source_file": "Sources/Speakwerk/HistoryManager.swift",
       "source_location": "L4",
       "weight": 1.0,
@@ -3141,6 +3546,16 @@
       "confidence_score": 1.0,
       "source": "speakwerk_modelmanager_modeltier",
       "target": "identifiable"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationrule",
+      "target": "sendable"
     },
     {
       "relation": "implements",
@@ -3195,6 +3610,17 @@
       "target": "speakwerk_settingsview_settingsview"
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/SettingsView.swift",
+      "source_location": "L9",
+      "weight": 1.0,
+      "context": "field",
+      "source": "speakwerk_settingsview_settingsview",
+      "target": "sources_speakwerk_settingsview_swift_string",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "Sources/Speakwerk/SettingsView.swift",
@@ -3203,6 +3629,16 @@
       "confidence_score": 1.0,
       "source": "speakwerk_settingsview_settingsview",
       "target": "speakwerk_settingsview_settingsview_init"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/SettingsView.swift",
+      "source_location": "L257",
+      "weight": 1.0,
+      "source": "speakwerk_settingsview_settingsview",
+      "target": "speakwerk_settingsview_settingsview_validateandaddrule",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3738,6 +4174,333 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "sources_speakwerk_textprocessor_swift",
+      "target": "speakwerk_textprocessor_textprocessor"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_textprocessor_textprocessor",
+      "target": "speakwerk_textprocessor_textprocessor_cleanupwhitespace"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_textprocessor_textprocessor",
+      "target": "speakwerk_textprocessor_textprocessor_process"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L12",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "speakwerk_textprocessor_textprocessor_process",
+      "target": "dictationrule"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L12",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "speakwerk_textprocessor_textprocessor_process",
+      "target": "sources_speakwerk_textprocessor_swift_string"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L37",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_textprocessor_textprocessor_process",
+      "target": "speakwerk_textprocessor_textprocessor_cleanupwhitespace"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/TextProcessor.swift",
+      "source_location": "L43",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "speakwerk_textprocessor_textprocessor_cleanupwhitespace",
+      "target": "sources_speakwerk_textprocessor_swift_string"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "sources_speakwerk_dictationmanager_swift",
+      "target": "speakwerk_dictationmanager_dictationmanager"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "sources_speakwerk_dictationmanager_swift",
+      "target": "speakwerk_dictationmanager_dictationrule"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L98",
+      "weight": 1.0,
+      "context": "field",
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationmanager",
+      "target": "speakwerk_dictationmanager_dictationrule"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L87",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationmanager_addrule",
+      "target": "speakwerk_dictationmanager_dictationrule"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationrule",
+      "target": "codable"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationrule",
+      "target": "hashable"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L10",
+      "weight": 1.0,
+      "context": "field",
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationrule",
+      "target": "sources_speakwerk_dictationmanager_swift_bool"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L9",
+      "weight": 1.0,
+      "context": "field",
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationrule",
+      "target": "sources_speakwerk_dictationmanager_swift_string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L7",
+      "weight": 1.0,
+      "context": "field",
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationrule",
+      "target": "sources_speakwerk_dictationmanager_swift_uuid"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationrule",
+      "target": "speakwerk_dictationmanager_dictationrule_init"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/HistoryManager.swift",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_historymanager_transcriptionentry",
+      "target": "codable"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L93",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationmanager_removerule",
+      "target": "sources_speakwerk_dictationmanager_swift_uuid"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L12",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationrule_init",
+      "target": "sources_speakwerk_dictationmanager_swift_uuid"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L73",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationmanager_addrule",
+      "target": "sources_speakwerk_dictationmanager_swift_string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L12",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationrule_init",
+      "target": "sources_speakwerk_dictationmanager_swift_string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L32",
+      "weight": 1.0,
+      "context": "field",
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationmanager",
+      "target": "sources_speakwerk_dictationmanager_swift_bool"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L73",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationmanager_addrule",
+      "target": "sources_speakwerk_dictationmanager_swift_bool"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L12",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationrule_init",
+      "target": "sources_speakwerk_dictationmanager_swift_bool"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationmanager",
+      "target": "speakwerk_dictationmanager_dictationmanager_addrule"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationmanager",
+      "target": "speakwerk_dictationmanager_dictationmanager_init"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L51",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationmanager",
+      "target": "speakwerk_dictationmanager_dictationmanager_loadrules"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L93",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationmanager",
+      "target": "speakwerk_dictationmanager_dictationmanager_removerule"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationmanager",
+      "target": "speakwerk_dictationmanager_dictationmanager_saverules"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/DictationManager.swift",
+      "source_location": "L48",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_dictationmanager_dictationmanager_init",
+      "target": "speakwerk_dictationmanager_dictationmanager_loadrules"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "Sources/Speakwerk/ModelManager.swift",
       "source_location": "L30",
       "weight": 1.0,
@@ -4266,11 +5029,31 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L418",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_main_appdelegate",
+      "target": "speakwerk_main_appdelegate_beginrecording"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/main.swift",
       "source_location": "L231",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "speakwerk_main_appdelegate",
       "target": "speakwerk_main_appdelegate_completeonboardingflow"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L397",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_main_appdelegate",
+      "target": "speakwerk_main_appdelegate_handlemicrophoneaccessdenied"
     },
     {
       "relation": "method",
@@ -4642,6 +5425,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L429",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_main_appdelegate_beginrecording",
+      "target": "speakwerk_main_appdelegate_updateui"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/main.swift",
       "source_location": "L235",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -4873,6 +5667,28 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L375",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_main_appdelegate_startrecordingprocess",
+      "target": "speakwerk_main_appdelegate_beginrecording"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L383",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_main_appdelegate_startrecordingprocess",
+      "target": "speakwerk_main_appdelegate_handlemicrophoneaccessdenied"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/main.swift",
       "source_location": "L121",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -4889,6 +5705,28 @@
       "confidence_score": 1.0,
       "source": "speakwerk_main_appdelegate_togglerecording",
       "target": "speakwerk_main_appdelegate_startrecordingprocess"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L399",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_main_appdelegate_handlemicrophoneaccessdenied",
+      "target": "speakwerk_main_appdelegate_seterrorstate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/main.swift",
+      "source_location": "L432",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_main_appdelegate_beginrecording",
+      "target": "speakwerk_main_appdelegate_seterrorstate"
     },
     {
       "relation": "references",
@@ -5597,16 +6435,6 @@
       "target": "speakwerk_historymanager_transcriptionentry"
     },
     {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "source_file": "Sources/Speakwerk/HistoryManager.swift",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "speakwerk_historymanager_transcriptionentry",
-      "target": "codable"
-    },
-    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "Sources/Speakwerk/HistoryManager.swift",
@@ -5627,6 +6455,17 @@
       "confidence_score": 1.0,
       "source": "speakwerk_historymanager_transcriptionentry",
       "target": "sources_speakwerk_historymanager_swift_string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/HistoryManager.swift",
+      "source_location": "L5",
+      "weight": 1.0,
+      "context": "field",
+      "confidence_score": 1.0,
+      "source": "speakwerk_historymanager_transcriptionentry",
+      "target": "sources_speakwerk_historymanager_swift_uuid"
     },
     {
       "relation": "method",
@@ -5658,7 +6497,7 @@
       "context": "parameter_type",
       "confidence_score": 1.0,
       "source": "speakwerk_historymanager_transcriptionentry_init",
-      "target": "uuid"
+      "target": "sources_speakwerk_historymanager_swift_uuid"
     },
     {
       "relation": "references",
@@ -5692,6 +6531,17 @@
       "confidence_score": 1.0,
       "source": "speakwerk_historymanager_transcriptionentry_init",
       "target": "sources_speakwerk_historymanager_swift_string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "Sources/Speakwerk/HistoryManager.swift",
+      "source_location": "L10",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "speakwerk_historymanager_transcriptionentry_init",
+      "target": "uuid"
     },
     {
       "relation": "references",
@@ -5867,9 +6717,9 @@
       "source_file": "README.md",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_readme_speakwerk",
-      "target": "speakwerk_readme_bauen_aus_dem_quellcode_f\u00fcr_entwickler",
-      "confidence_score": 1.0
+      "target": "speakwerk_readme_bauen_aus_dem_quellcode_f\u00fcr_entwickler"
     },
     {
       "relation": "contains",
@@ -5887,9 +6737,9 @@
       "source_file": "README.md",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_readme_speakwerk",
-      "target": "speakwerk_readme_installation_f\u00fcr_nutzer",
-      "confidence_score": 1.0
+      "target": "speakwerk_readme_installation_f\u00fcr_nutzer"
     },
     {
       "relation": "contains",
@@ -5917,9 +6767,9 @@
       "source_file": "README.md",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_readme_installation_f\u00fcr_nutzer",
-      "target": "speakwerk_readme_alternativ_download_per_browser",
-      "confidence_score": 1.0
+      "target": "speakwerk_readme_alternativ_download_per_browser"
     },
     {
       "relation": "contains",
@@ -5927,9 +6777,9 @@
       "source_file": "README.md",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_readme_installation_f\u00fcr_nutzer",
-      "target": "speakwerk_readme_empfohlen_installation_per_terminal",
-      "confidence_score": 1.0
+      "target": "speakwerk_readme_empfohlen_installation_per_terminal"
     },
     {
       "relation": "contains",
@@ -5937,9 +6787,9 @@
       "source_file": "README.md",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_readme_bauen_aus_dem_quellcode_f\u00fcr_entwickler",
-      "target": "speakwerk_readme_1_lokales_bauen_kompilierung",
-      "confidence_score": 1.0
+      "target": "speakwerk_readme_1_lokales_bauen_kompilierung"
     },
     {
       "relation": "contains",
@@ -5947,9 +6797,9 @@
       "source_file": "README.md",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_readme_bauen_aus_dem_quellcode_f\u00fcr_entwickler",
-      "target": "speakwerk_readme_2_app_bundle_erstellen",
-      "confidence_score": 1.0
+      "target": "speakwerk_readme_2_app_bundle_erstellen"
     },
     {
       "relation": "contains",
@@ -5957,9 +6807,9 @@
       "source_file": "README.md",
       "source_location": "L83",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_readme_bauen_aus_dem_quellcode_f\u00fcr_entwickler",
-      "target": "speakwerk_readme_releases_ver\u00f6ffentlichen_maintainer",
-      "confidence_score": 1.0
+      "target": "speakwerk_readme_releases_ver\u00f6ffentlichen_maintainer"
     },
     {
       "relation": "contains",
@@ -6127,9 +6977,9 @@
       "source_file": "AGENTS.md",
       "source_location": "L89",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_agents_planung_und_workflow",
-      "target": "speakwerk_agents_releases",
-      "confidence_score": 1.0
+      "target": "speakwerk_agents_releases"
     },
     {
       "relation": "contains",
@@ -6287,9 +7137,9 @@
       "source_file": "CLAUDE.md",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_claude_planung_und_workflow",
-      "target": "speakwerk_claude_releases",
-      "confidence_score": 1.0
+      "target": "speakwerk_claude_releases"
     },
     {
       "relation": "contains",
@@ -6297,9 +7147,9 @@
       "source_file": "docs/RELEASING.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_releasing_md",
-      "target": "docs_releasing_release_anleitung_maintainer",
-      "confidence_score": 1.0
+      "target": "docs_releasing_release_anleitung_maintainer"
     },
     {
       "relation": "contains",
@@ -6307,9 +7157,9 @@
       "source_file": "docs/RELEASING.md",
       "source_location": "L110",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_releasing_release_anleitung_maintainer",
-      "target": "docs_releasing_ausblick_notarisiertes_release_mit_apple_developer_account",
-      "confidence_score": 1.0
+      "target": "docs_releasing_ausblick_notarisiertes_release_mit_apple_developer_account"
     },
     {
       "relation": "contains",
@@ -6317,9 +7167,19 @@
       "source_file": "docs/RELEASING.md",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_releasing_release_anleitung_maintainer",
-      "target": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
-      "confidence_score": 1.0
+      "target": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_releasing_release_anleitung_maintainer",
+      "target": "docs_releasing_release_prozess_selbst_signiert_ohne_notarisierung"
     },
     {
       "relation": "contains",
@@ -6327,9 +7187,9 @@
       "source_file": "docs/RELEASING.md",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_releasing_release_anleitung_maintainer",
-      "target": "docs_releasing_voraussetzungen_einmalig",
-      "confidence_score": 1.0
+      "target": "docs_releasing_voraussetzungen_einmalig"
     },
     {
       "relation": "contains",
@@ -6337,69 +7197,59 @@
       "source_file": "docs/RELEASING.md",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_releasing_voraussetzungen_einmalig",
-      "target": "docs_releasing_sparkle_ed25519_schl\u00fcsselpaar",
-      "confidence_score": 1.0
+      "target": "docs_releasing_selbst_signiertes_code_signing_zertifikat"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/RELEASING.md",
-      "source_location": "L30",
+      "source_location": "L11",
       "weight": 1.0,
-      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
-      "target": "docs_releasing_1_versionen_erh\u00f6hen",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "docs_releasing_voraussetzungen_einmalig",
+      "target": "docs_releasing_sparkle_ed25519_schl\u00fcsselpaar"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/RELEASING.md",
-      "source_location": "L34",
+      "source_location": "L49",
       "weight": 1.0,
-      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
-      "target": "docs_releasing_2_app_bundle_bauen",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "docs_releasing_release_prozess_selbst_signiert_ohne_notarisierung",
+      "target": "docs_releasing_1_versionen_erh\u00f6hen"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/RELEASING.md",
-      "source_location": "L42",
+      "source_location": "L53",
       "weight": 1.0,
-      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
-      "target": "docs_releasing_3_ad_hoc_signieren_inside_out",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "docs_releasing_release_prozess_selbst_signiert_ohne_notarisierung",
+      "target": "docs_releasing_2_app_bundle_bauen"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/RELEASING.md",
-      "source_location": "L55",
+      "source_location": "L61",
       "weight": 1.0,
-      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
-      "target": "docs_releasing_4_distributions_archiv_erstellen",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "docs_releasing_release_prozess_selbst_signiert_ohne_notarisierung",
+      "target": "docs_releasing_3_signieren_inside_out_selbst_signiertes_zertifikat"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/RELEASING.md",
-      "source_location": "L63",
+      "source_location": "L77",
       "weight": 1.0,
-      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
-      "target": "docs_releasing_5_appcast_generieren",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/RELEASING.md",
-      "source_location": "L75",
-      "weight": 1.0,
-      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
-      "target": "docs_releasing_6_appcast_committen_und_nach_main_bringen",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "docs_releasing_release_prozess_selbst_signiert_ohne_notarisierung",
+      "target": "docs_releasing_4_distributions_archiv_erstellen"
     },
     {
       "relation": "contains",
@@ -6407,9 +7257,109 @@
       "source_file": "docs/RELEASING.md",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_releasing_release_prozess_selbst_signiert_ohne_notarisierung",
+      "target": "docs_releasing_5_appcast_generieren"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L97",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_releasing_release_prozess_selbst_signiert_ohne_notarisierung",
+      "target": "docs_releasing_6_appcast_committen_und_nach_main_bringen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L107",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_releasing_release_prozess_selbst_signiert_ohne_notarisierung",
+      "target": "docs_releasing_7_github_release_erstellen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L117",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_releasing_release_prozess_selbst_signiert_ohne_notarisierung",
+      "target": "docs_releasing_8_verifizieren"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L126",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_releasing_release_prozess_selbst_signiert_ohne_notarisierung",
+      "target": "docs_releasing_9_produktseite_aktualisieren"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
-      "target": "docs_releasing_7_github_release_erstellen",
-      "confidence_score": 1.0
+      "target": "docs_releasing_1_versionen_erh\u00f6hen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
+      "target": "docs_releasing_2_app_bundle_bauen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L55",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
+      "target": "docs_releasing_4_distributions_archiv_erstellen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L63",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
+      "target": "docs_releasing_5_appcast_generieren"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L75",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
+      "target": "docs_releasing_6_appcast_committen_und_nach_main_bringen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L85",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
+      "target": "docs_releasing_7_github_release_erstellen"
     },
     {
       "relation": "contains",
@@ -6417,9 +7367,9 @@
       "source_file": "docs/RELEASING.md",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
-      "target": "docs_releasing_8_verifizieren",
-      "confidence_score": 1.0
+      "target": "docs_releasing_8_verifizieren"
     },
     {
       "relation": "contains",
@@ -6427,9 +7377,9 @@
       "source_file": "docs/RELEASING.md",
       "source_location": "L104",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
-      "target": "docs_releasing_9_produktseite_aktualisieren",
-      "confidence_score": 1.0
+      "target": "docs_releasing_9_produktseite_aktualisieren"
     },
     {
       "relation": "contains",
@@ -6437,9 +7387,9 @@
       "source_file": "docs/ROADMAP.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_roadmap_md",
-      "target": "docs_roadmap_roadmap",
-      "confidence_score": 1.0
+      "target": "docs_roadmap_roadmap"
     },
     {
       "relation": "contains",
@@ -6447,9 +7397,9 @@
       "source_file": "docs/ROADMAP.md",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_roadmap_roadmap",
-      "target": "docs_roadmap_in_evaluation_kein_versionsziel",
-      "confidence_score": 1.0
+      "target": "docs_roadmap_in_evaluation_kein_versionsziel"
     },
     {
       "relation": "contains",
@@ -6457,9 +7407,9 @@
       "source_file": "docs/ROADMAP.md",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_roadmap_roadmap",
-      "target": "docs_roadmap_v1_1_bedienkomfort",
-      "confidence_score": 1.0
+      "target": "docs_roadmap_v1_1_bedienkomfort"
     },
     {
       "relation": "contains",
@@ -6467,9 +7417,9 @@
       "source_file": "docs/ROADMAP.md",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_roadmap_roadmap",
-      "target": "docs_roadmap_v1_2_eigenes_vokabular",
-      "confidence_score": 1.0
+      "target": "docs_roadmap_v1_2_eigenes_vokabular"
     },
     {
       "relation": "contains",
@@ -6477,9 +7427,19 @@
       "source_file": "docs/ROADMAP.md",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_roadmap_roadmap",
-      "target": "docs_roadmap_v2_0_intelligente_nachbearbeitung",
-      "confidence_score": 1.0
+      "target": "docs_roadmap_v2_0_intelligente_nachbearbeitung"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/RELEASING.md",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_releasing_release_prozess_ad_hoc_ohne_notarisierung",
+      "target": "docs_releasing_3_ad_hoc_signieren_inside_out"
     },
     {
       "relation": "contains",
@@ -6601,5 +7561,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "da5e4c0d519f0289927a1cf613fbd328747b353a"
+  "built_at_commit": "beac260c37114719d2154469ac9547f4bb30518e"
 }
