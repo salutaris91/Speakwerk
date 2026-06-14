@@ -50,8 +50,8 @@
     "semantic_hash": ""
   },
   "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Sources/Speakwerk/main.swift": {
-    "mtime": 1781432059.8499687,
-    "ast_hash": "b2ca6cf83df119c030d7e68530acb528",
+    "mtime": 1781436054.026415,
+    "ast_hash": "5cd4e2e3bc4e28bb8439024842fbcdb0",
     "semantic_hash": ""
   },
   "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Sources/Speakwerk/AudioRecorder.swift": {
@@ -65,8 +65,8 @@
     "semantic_hash": ""
   },
   "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/README.md": {
-    "mtime": 1781187804.513938,
-    "ast_hash": "e6e43b8015a0caf2b93b85df5b0ba918",
+    "mtime": 1781432812.7131846,
+    "ast_hash": "a037066528ea8c02b9634ee661cafe5e",
     "semantic_hash": ""
   },
   "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/AGENTS.md": {
@@ -90,8 +90,8 @@
     "semantic_hash": ""
   },
   "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Sources/Speakwerk/SettingsView.swift": {
-    "mtime": 1781432077.2037952,
-    "ast_hash": "45dc690cecba68b2825df4b9425671c3",
+    "mtime": 1781436047.5721264,
+    "ast_hash": "8b07720fa6222bbf3c1ef64d7bcfcec6",
     "semantic_hash": ""
   },
   "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Sources/Speakwerk/AboutView.swift": {
@@ -125,18 +125,18 @@
     "semantic_hash": ""
   },
   "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Tests/TextProcessorTests.swift": {
-    "mtime": 1781431977.933169,
-    "ast_hash": "9b539ef328e1fed63194df06f6e5950e",
+    "mtime": 1781433147.7998195,
+    "ast_hash": "f23b2b16019dd7affdb5732424d8e20d",
     "semantic_hash": ""
   },
   "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Sources/Speakwerk/TextProcessor.swift": {
-    "mtime": 1781431971.4319065,
-    "ast_hash": "f5307df8ad6a436ebd018e900c806e20",
+    "mtime": 1781433140.8433416,
+    "ast_hash": "cf6fa298d653ba4313aa7c152e252920",
     "semantic_hash": ""
   },
   "/Users/alex/Documents/Programmierungsprojekte/Speakwerk/Sources/Speakwerk/DictationManager.swift": {
-    "mtime": 1781431966.31308,
-    "ast_hash": "a5a86cc83e00cdf7c15f24e6304a375c",
+    "mtime": 1781435982.933851,
+    "ast_hash": "0480a4f238d743b3f0724c4f2213bfc0",
     "semantic_hash": ""
   }
 }

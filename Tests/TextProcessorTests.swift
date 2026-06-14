@@ -75,9 +75,17 @@ final class TextProcessorTests: XCTestCase {
         
         // Spaces inside parentheses should be stripped
         XCTAssertEqual(TextProcessor.process("( Hallo welt )", with: rules), "(Hallo welt)")
+        XCTAssertEqual(TextProcessor.process("[ Hallo welt ]", with: rules), "[Hallo welt]")
+        XCTAssertEqual(TextProcessor.process("{ Hallo welt }", with: rules), "{Hallo welt}")
         
-        // Spacing inside double quotes
+        // Punctuation directly after opening or before closing parentheses should be stripped
+        XCTAssertEqual(TextProcessor.process("(, wirklich sehr, )", with: rules), "(wirklich sehr)")
+        XCTAssertEqual(TextProcessor.process("[; wirklich sehr; ]", with: rules), "[wirklich sehr]")
+        
+        // Spacing inside double quotes and smart quotes
         XCTAssertEqual(TextProcessor.process("Er sagte \" Hallo \" zu mir", with: rules), "Er sagte \"Hallo\" zu mir")
+        XCTAssertEqual(TextProcessor.process("Sie sagte „ Hallo “ zu mir", with: rules), "Sie sagte „Hallo“ zu mir")
+        XCTAssertEqual(TextProcessor.process("Oder auch « Hallo »", with: rules), "Oder auch «Hallo»")
     }
     
     // Test DictationManager logic

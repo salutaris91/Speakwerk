@@ -88,7 +88,7 @@
       "label": ".testDictationManagerRules()",
       "file_type": "code",
       "source_file": "Tests/TextProcessorTests.swift",
-      "source_location": "L84",
+      "source_location": "L92",
       "id": "tests_textprocessortests_textprocessortests_testdictationmanagerrules",
       "community": 17,
       "norm_label": ".testdictationmanagerrules()"
@@ -322,7 +322,7 @@
       "source_file": "Sources/Speakwerk/AppState.swift",
       "source_location": "L1",
       "id": "sources_speakwerk_appstate_swift",
-      "community": 0,
+      "community": 19,
       "norm_label": "appstate.swift"
     },
     {
@@ -331,7 +331,7 @@
       "source_file": "Sources/Speakwerk/AppState.swift",
       "source_location": "L1",
       "id": "speakwerk_appstate_appstate",
-      "community": 0,
+      "community": 19,
       "norm_label": "appstate"
     },
     {
@@ -340,7 +340,7 @@
       "source_file": "",
       "source_location": "",
       "id": "equatable",
-      "community": 0,
+      "community": 19,
       "norm_label": "equatable"
     },
     {
@@ -349,7 +349,7 @@
       "source_file": "Sources/Speakwerk/AppState.swift",
       "source_location": "L2",
       "id": "speakwerk_appstate_appstate_idle",
-      "community": 0,
+      "community": 19,
       "norm_label": "idle"
     },
     {
@@ -358,7 +358,7 @@
       "source_file": "Sources/Speakwerk/AppState.swift",
       "source_location": "L3",
       "id": "speakwerk_appstate_appstate_recording",
-      "community": 0,
+      "community": 19,
       "norm_label": "recording"
     },
     {
@@ -367,7 +367,7 @@
       "source_file": "Sources/Speakwerk/AppState.swift",
       "source_location": "L4",
       "id": "speakwerk_appstate_appstate_transcribing",
-      "community": 0,
+      "community": 19,
       "norm_label": "transcribing"
     },
     {
@@ -376,7 +376,7 @@
       "source_file": "Sources/Speakwerk/AppState.swift",
       "source_location": "L5",
       "id": "speakwerk_appstate_appstate_downloadingmodel",
-      "community": 0,
+      "community": 19,
       "norm_label": "downloadingmodel"
     },
     {
@@ -385,7 +385,7 @@
       "source_file": "Sources/Speakwerk/AppState.swift",
       "source_location": "L6",
       "id": "speakwerk_appstate_appstate_error",
-      "community": 0,
+      "community": 19,
       "norm_label": "error"
     },
     {
@@ -1528,7 +1528,7 @@
       "source_file": "Sources/Speakwerk/main.swift",
       "source_location": "L534",
       "id": "speakwerk_main_appdelegate_standarduserdriverwillhandleshowingupdate",
-      "community": 21,
+      "community": 3,
       "norm_label": ".standarduserdriverwillhandleshowingupdate()"
     },
     {
@@ -1537,7 +1537,7 @@
       "source_file": "Sources/Speakwerk/main.swift",
       "source_location": "L534",
       "id": "sources_speakwerk_main_swift_bool",
-      "community": 21,
+      "community": 3,
       "norm_label": "bool"
     },
     {
@@ -1546,7 +1546,7 @@
       "source_file": "Sources/Speakwerk/main.swift",
       "source_location": "L534",
       "id": "suappcastitem",
-      "community": 21,
+      "community": 3,
       "norm_label": "suappcastitem"
     },
     {
@@ -1555,7 +1555,7 @@
       "source_file": "Sources/Speakwerk/main.swift",
       "source_location": "L534",
       "id": "spuuserupdatestate",
-      "community": 21,
+      "community": 3,
       "norm_label": "spuuserupdatestate"
     },
     {
@@ -2081,10 +2081,19 @@
       "norm_label": "speakwerk"
     },
     {
-      "label": "\ud83d\udce6 Installation (f\u00fcr Nutzer)",
+      "label": "\u2728 Features",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L16",
+      "id": "speakwerk_readme_features",
+      "community": 10,
+      "norm_label": "\u2728 features"
+    },
+    {
+      "label": "\ud83d\udce6 Installation (f\u00fcr Nutzer)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L23",
       "id": "speakwerk_readme_installation_f\u00fcr_nutzer",
       "community": 10,
       "norm_label": "\ud83d\udce6 installation (fur nutzer)"
@@ -2093,7 +2102,7 @@
       "label": "Empfohlen: Installation per Terminal",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L18",
+      "source_location": "L25",
       "id": "speakwerk_readme_empfohlen_installation_per_terminal",
       "community": 10,
       "norm_label": "empfohlen: installation per terminal"
@@ -2102,7 +2111,7 @@
       "label": "Alternativ: Download per Browser",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L29",
+      "source_location": "L36",
       "id": "speakwerk_readme_alternativ_download_per_browser",
       "community": 10,
       "norm_label": "alternativ: download per browser"
@@ -2111,7 +2120,7 @@
       "label": "Systemvoraussetzungen",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L53",
+      "source_location": "L60",
       "id": "speakwerk_readme_systemvoraussetzungen",
       "community": 10,
       "norm_label": "systemvoraussetzungen"
@@ -2120,7 +2129,7 @@
       "label": "Tech-Stack",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L58",
+      "source_location": "L65",
       "id": "speakwerk_readme_tech_stack",
       "community": 10,
       "norm_label": "tech-stack"
@@ -2129,7 +2138,7 @@
       "label": "Bauen aus dem Quellcode (f\u00fcr Entwickler)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L69",
+      "source_location": "L76",
       "id": "speakwerk_readme_bauen_aus_dem_quellcode_f\u00fcr_entwickler",
       "community": 10,
       "norm_label": "bauen aus dem quellcode (fur entwickler)"
@@ -2138,7 +2147,7 @@
       "label": "1. Lokales Bauen (Kompilierung)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L71",
+      "source_location": "L78",
       "id": "speakwerk_readme_1_lokales_bauen_kompilierung",
       "community": 10,
       "norm_label": "1. lokales bauen (kompilierung)"
@@ -2147,7 +2156,7 @@
       "label": "2. App-Bundle erstellen",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L77",
+      "source_location": "L84",
       "id": "speakwerk_readme_2_app_bundle_erstellen",
       "community": 10,
       "norm_label": "2. app-bundle erstellen"
@@ -2156,7 +2165,7 @@
       "label": "Releases ver\u00f6ffentlichen (Maintainer)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L83",
+      "source_location": "L90",
       "id": "speakwerk_readme_releases_ver\u00f6ffentlichen_maintainer",
       "community": 10,
       "norm_label": "releases veroffentlichen (maintainer)"
@@ -3616,9 +3625,9 @@
       "source_location": "L9",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "speakwerk_settingsview_settingsview",
-      "target": "sources_speakwerk_settingsview_swift_string",
-      "confidence_score": 1.0
+      "target": "sources_speakwerk_settingsview_swift_string"
     },
     {
       "relation": "method",
@@ -3636,9 +3645,9 @@
       "source_file": "Sources/Speakwerk/SettingsView.swift",
       "source_location": "L257",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "speakwerk_settingsview_settingsview",
-      "target": "speakwerk_settingsview_settingsview_validateandaddrule",
-      "confidence_score": 1.0
+      "target": "speakwerk_settingsview_settingsview_validateandaddrule"
     },
     {
       "relation": "contains",
@@ -6725,6 +6734,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "speakwerk_readme_speakwerk",
+      "target": "speakwerk_readme_features"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
       "source_location": "L23",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -7561,5 +7580,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "beac260c37114719d2154469ac9547f4bb30518e"
+  "built_at_commit": "29e54673e9c5e3de070bf1c261701f4daefe97f2"
 }
