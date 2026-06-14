@@ -13,6 +13,13 @@ Das Projekt ist **kostenlos**, Open Source (MIT-Lizenz) und speichert/verarbeite
   <img src="docs/images/onboarding.jpg" width="640" alt="Speakwerk Onboarding: Auswahl des Whisper-Modells">
 </p>
 
+## ✨ Features
+
+*   🎙️ **Lokale Transkription:** Audiodaten werden via WhisperKit komplett offline auf dem Mac verarbeitet.
+*   ⌨️ **Globaler Hotkey:** Aufnahme von überall aus starten; der Text wird direkt an der Cursorposition eingefügt.
+*   💬 **Diktierbefehle (Neu ab v1.1.0):** Konfigurierbare Regeln wandeln gesprochene Befehle (z. B. „Punkt" oder „Klammer auf") automatisch in die entsprechenden Sonderzeichen um.
+*   🔄 **Auto-Updates:** Bequeme Aktualisierungen direkt über die App (via Sparkle).
+
 ## 📦 Installation (für Nutzer)
 
 ### Empfohlen: Installation per Terminal
