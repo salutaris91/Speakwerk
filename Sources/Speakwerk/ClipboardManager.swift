@@ -127,6 +127,19 @@ public class ClipboardManager {
         logger.info("Text insertion and clipboard restoration completed.")
     }
     
+    /// Sets the specified text to the general pasteboard without simulating keystrokes.
+    public func copyToClipboard(_ text: String) {
+        let pasteboard = NSPasteboard.general
+        pasteboard.clearContents()
+        pasteboard.declareTypes([.string], owner: nil)
+        
+        if pasteboard.setString(text, forType: .string) {
+            logger.info("Successfully copied text of length \(text.count) to clipboard.")
+        } else {
+            logger.error("Failed to copy text to general pasteboard.")
+        }
+    }
+    
     /// Helper to simulate Cmd+V event using CoreGraphics events.
     private func simulateCmdV() throws {
         let source = CGEventSource(stateID: .combinedSessionState)

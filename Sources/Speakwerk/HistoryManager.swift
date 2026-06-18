@@ -73,6 +73,19 @@ public actor HistoryManager {
         cachedEntries = []
     }
 
+    /// Deletes a specific entry from the transcription history by its ID.
+    public func deleteEntry(id: UUID) throws {
+        var entries = try loadEntries()
+        if let index = entries.firstIndex(where: { $0.id == id }) {
+            entries.remove(at: index)
+            try saveEntries(entries)
+            cachedEntries = entries
+            logger.info("Deleted history entry with ID: \(id)")
+        } else {
+            logger.warning("History entry with ID: \(id) not found for deletion.")
+        }
+    }
+
     // MARK: - Private Helpers
 
     private func loadEntries() throws -> [TranscriptionEntry] {
