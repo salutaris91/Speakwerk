@@ -20,6 +20,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
     private var onboardingWindow: NSWindow?
     private var settingsWindow: NSWindow?
     private var aboutWindow: NSWindow?
+    private var historyWindow: NSWindow?
+    private var recentEntries: [TranscriptionEntry] = []
+    private var historyLoadError = false
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Initialize Sparkle Updater (verifies linking during smoke-test)
@@ -66,6 +69,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
                 updateUI()
                 showOnboarding(mode: .fullOnboarding)
             }
+        }
+        
+        // Initial load of history entries for the menu
+        Task {
+            await refreshRecentEntries()
         }
     }
     
@@ -150,6 +158,47 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
             actionItem.target = self
             actionItem.isEnabled = isEnabled
             menu.addItem(actionItem)
+            
+            menu.addItem(NSMenuItem.separator())
+            
+            // 2b. Verlauf Submenu
+            let historySubmenu = NSMenu()
+            
+            if historyLoadError {
+                let errorItem = NSMenuItem(title: "Fehler beim Laden des Verlaufs", action: nil, keyEquivalent: "")
+                errorItem.isEnabled = false
+                historySubmenu.addItem(errorItem)
+            } else if recentEntries.isEmpty {
+                let emptyItem = NSMenuItem(title: "Keine Transkriptionen vorhanden", action: nil, keyEquivalent: "")
+                emptyItem.isEnabled = false
+                historySubmenu.addItem(emptyItem)
+            } else {
+                for entry in recentEntries {
+                    let truncatedText = entry.text.count > 40 ? String(entry.text.prefix(37)) + "..." : entry.text
+                    let cleanText = truncatedText.replacingOccurrences(of: "\n", with: " ")
+                    
+                    let item = NSMenuItem(title: cleanText, action: #selector(copyHistoryItem(_:)), keyEquivalent: "")
+                    item.target = self
+                    item.representedObject = entry.text
+                    item.toolTip = entry.text
+                    historySubmenu.addItem(item)
+                }
+            }
+            
+            historySubmenu.addItem(NSMenuItem.separator())
+            
+            let openHistoryItem = NSMenuItem(title: "Verlauf anzeigen...", action: #selector(showHistoryAction), keyEquivalent: "y")
+            openHistoryItem.target = self
+            historySubmenu.addItem(openHistoryItem)
+            
+            let clearHistoryItem = NSMenuItem(title: "Verlauf leeren...", action: #selector(clearHistoryAction), keyEquivalent: "")
+            clearHistoryItem.target = self
+            clearHistoryItem.isEnabled = !recentEntries.isEmpty
+            historySubmenu.addItem(clearHistoryItem)
+            
+            let historyMenuItem = NSMenuItem(title: "Verlauf", action: nil, keyEquivalent: "")
+            historyMenuItem.submenu = historySubmenu
+            menu.addItem(historyMenuItem)
             
             menu.addItem(NSMenuItem.separator())
             
@@ -353,6 +402,79 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
         NSApp.activate(ignoringOtherApps: true)
     }
     
+    private func refreshRecentEntries() async {
+        do {
+            let history = try await historyManager.loadHistory()
+            self.recentEntries = Array(history.suffix(5).reversed())
+            self.historyLoadError = false
+        } catch {
+            logger.error("Failed to refresh recent history entries: \(error.localizedDescription)")
+            self.recentEntries = []
+            self.historyLoadError = true
+        }
+        self.updateUI()
+    }
+    
+    @MainActor
+    @objc private func showHistoryAction() {
+        if historyWindow != nil {
+            historyWindow?.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
+            return
+        }
+        
+        let viewModel = HistoryViewModel(historyManager: historyManager) { [weak self] in
+            Task {
+                await self?.refreshRecentEntries()
+            }
+        }
+        let historyView = HistoryView(viewModel: viewModel)
+        
+        let window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 520, height: 580),
+            styleMask: [.titled, .closable],
+            backing: .buffered,
+            defer: false
+        )
+        window.center()
+        window.title = "Speakwerk - Verlauf"
+        window.contentView = NSHostingView(rootView: historyView)
+        window.isReleasedWhenClosed = false
+        window.delegate = self
+        
+        self.historyWindow = window
+        window.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
+    }
+    
+    @objc private func clearHistoryAction() {
+        let alert = NSAlert()
+        alert.messageText = "Verlauf leeren?"
+        alert.informativeText = "Möchtest du wirklich alle Transkriptionen aus dem Verlauf löschen?"
+        alert.alertStyle = .warning
+        alert.addButton(withTitle: "Verlauf leeren")
+        alert.addButton(withTitle: "Abbrechen")
+        
+        NSApp.activate(ignoringOtherApps: true)
+        let response = alert.runModal()
+        
+        if response == .alertFirstButtonReturn {
+            Task {
+                do {
+                    try await historyManager.clearHistory()
+                    await refreshRecentEntries()
+                } catch {
+                    logger.error("Failed to clear history from menu: \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+    
+    @objc private func copyHistoryItem(_ sender: NSMenuItem) {
+        guard let text = sender.representedObject as? String else { return }
+        ClipboardManager.shared.copyToClipboard(text)
+    }
+    
     private func completeOnboardingFlow() {
         logger.info("Onboarding completed successfully.")
         UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
@@ -360,6 +482,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
         updateUI()
         setupGlobalHotkey()
         transcriptionManager.preloadModel()
+        
+        Task {
+            await refreshRecentEntries()
+        }
     }
     
     private func setupGlobalHotkey() {
@@ -485,6 +611,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
                         do {
                             let activeModelName = ModelManager.shared.selectedModel.rawValue
                             _ = try await historyManager.addEntry(text: processedText, modelName: activeModelName)
+                            await refreshRecentEntries()
                         } catch {
                             logger.error("Failed to save to history: \(error.localizedDescription)")
                         }
@@ -561,6 +688,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
             settingsWindow = nil
         } else if window == aboutWindow {
             aboutWindow = nil
+        } else if window == historyWindow {
+            historyWindow = nil
         }
     }
 }
