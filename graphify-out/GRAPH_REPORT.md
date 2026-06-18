@@ -1,16 +1,16 @@
 # Graph Report - Speakwerk  (2026-06-18)
 
 ## Corpus Check
-- 28 files · ~51,792 words
+- 28 files · ~51,820 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 356 nodes · 513 edges · 24 communities (21 shown, 3 thin omitted)
+- 358 nodes · 517 edges · 24 communities (21 shown, 3 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 11 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `407fff98`
+- Built from commit: `9d2d13bb`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -40,7 +40,7 @@
 - [[_COMMUNITY_Community 23|Community 23]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `AppDelegate` - 39 edges
+1. `AppDelegate` - 40 edges
 2. `ModelManager` - 19 edges
 3. `TranscriptionEntry` - 16 edges
 4. `ModelTier` - 15 edges
@@ -69,8 +69,8 @@
 ## Communities (24 total, 3 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.13
-Nodes (10): Date, Int, String, URL, UUID, HistoryManager, TranscriptionEntry, HistoryManagerTests (+2 more)
+Cohesion: 0.12
+Nodes (11): Data, Date, Int, String, URL, UUID, HistoryManager, TranscriptionEntry (+3 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.12
@@ -81,12 +81,12 @@ Cohesion: 0.12
 Nodes (16): Arbeitsweise, Aufgabenwechsel und Übergabe, CLAUDE.md — Hausregeln für Coding-Projekte (Speakwerk), Codequalität (Swift & macOS), Deployment-Notizen, Git und Commits, graphify, Kommunikation (+8 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.11
-Nodes (16): AppState, Notification, NSApplicationDelegate, NSMenuItem, NSStatusItem, NSWindow, NSWindowDelegate, OnboardingViewMode (+8 more)
+Cohesion: 0.10
+Nodes (17): AppState, Notification, NSApplicationDelegate, NSMenuItem, NSStatusItem, NSWindow, NSWindowDelegate, OnboardingViewMode (+9 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.18
-Nodes (8): Data, NSPasteboard, Bool, Int, String, BackupItem, ClipboardManager, PasteboardBackup
+Cohesion: 0.20
+Nodes (7): NSPasteboard, Bool, Int, String, BackupItem, ClipboardManager, PasteboardBackup
 
 ### Community 5 - "Community 5"
 Cohesion: 0.21
@@ -141,8 +141,8 @@ Cohesion: 0.17
 Nodes (9): HistoryManager, Bool, MainActor, Sendable, String, TranscriptionEntry, UUID, Void (+1 more)
 
 ### Community 22 - "Community 22"
-Cohesion: 0.29
-Nodes (5): DateFormatter, HistoryViewModel, String, UUID, HistoryView
+Cohesion: 0.28
+Nodes (6): DateFormatter, HistoryViewModel, HistoryViewModel, String, UUID, HistoryView
 
 ### Community 23 - "Community 23"
 Cohesion: 0.50
@@ -157,15 +157,15 @@ Nodes (3): Bool, SPUUserUpdateState, SUAppcastItem
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `WhisperKit` connect `Community 8` to `Community 14`, `Community 15`?**
-  _High betweenness centrality (0.310) - this node is a cross-community bridge._
+  _High betweenness centrality (0.311) - this node is a cross-community bridge._
 - **Why does `OnboardingView` connect `Community 14` to `Community 3`?**
-  _High betweenness centrality (0.281) - this node is a cross-community bridge._
+  _High betweenness centrality (0.283) - this node is a cross-community bridge._
 - **Why does `TranscriptionEntry` connect `Community 0` to `Community 19`, `Community 20`, `Community 21`, `Community 7`?**
-  _High betweenness centrality (0.202) - this node is a cross-community bridge._
+  _High betweenness centrality (0.201) - this node is a cross-community bridge._
 - **What connects `URL`, `allow`, `refresh_graphify.sh script` to the rest of the system?**
   _120 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.12962962962962962 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.12315270935960591 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**

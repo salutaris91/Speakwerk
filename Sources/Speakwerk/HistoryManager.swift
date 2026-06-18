@@ -23,14 +23,14 @@ public actor HistoryManager {
 
     public init(storageURL: URL? = nil, maxEntriesLimit: Int = 500) {
         self.maxEntriesLimit = maxEntriesLimit
-        
+
         if let url = storageURL {
             self.storageURL = url
         } else {
             let fileManager = FileManager.default
             let appSupportURL = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first?
                 .appendingPathComponent("com.alex.Speakwerk", isDirectory: true)
-            
+
             // Ensure directory exists
             if let dirURL = appSupportURL {
                 try? fileManager.createDirectory(at: dirURL, withIntermediateDirectories: true)
@@ -46,17 +46,17 @@ public actor HistoryManager {
     @discardableResult
     public func addEntry(text: String, modelName: String) throws -> TranscriptionEntry {
         var entries = try loadEntries()
-        
+
         let newEntry = TranscriptionEntry(text: text, modelName: modelName)
         entries.append(newEntry)
-        
+
         // Enforce limit: remove oldest items if count exceeds limit
         if entries.count > maxEntriesLimit {
             let itemsToRemove = entries.count - maxEntriesLimit
             entries.removeFirst(itemsToRemove)
             logger.info("History limit reached. Removed \(itemsToRemove) oldest entries.")
         }
-        
+
         try saveEntries(entries)
         cachedEntries = entries
         return newEntry
@@ -112,15 +112,15 @@ public actor HistoryManager {
     private func saveEntries(_ entries: [TranscriptionEntry]) throws {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
-        
+
         do {
             let data = try encoder.encode(entries)
-            
+
             let tempURL = storageURL.appendingPathExtension("tmp")
-            
+
             // 1. Write to temporary file
             try data.write(to: tempURL)
-            
+
             // 2. Atomically replace the destination file
             if FileManager.default.fileExists(atPath: storageURL.path) {
                 _ = try FileManager.default.replaceItem(
@@ -133,7 +133,7 @@ public actor HistoryManager {
             } else {
                 try FileManager.default.moveItem(at: tempURL, to: storageURL)
             }
-            
+
             logger.info("History saved atomically to: \(self.storageURL.path)")
         } catch {
             logger.error("Failed to save history atomically: \(error.localizedDescription)")

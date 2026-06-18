@@ -6,20 +6,20 @@ import os
 @Observable
 public final class HistoryViewModel {
     private let logger = Logger(subsystem: "com.alex.Speakwerk", category: "HistoryViewModel")
-    
+
     public var entries: [TranscriptionEntry] = []
     public var searchText: String = ""
     public var isLoading: Bool = false
     public var errorMessage: String? = nil
-    
+
     private let historyManager: HistoryManager
     private let onChanged: @MainActor @Sendable () -> Void
-    
+
     public init(historyManager: HistoryManager, onChanged: @escaping @MainActor @Sendable () -> Void) {
         self.historyManager = historyManager
         self.onChanged = onChanged
     }
-    
+
     /// Filters entries based on the searchText property.
     public var filteredEntries: [TranscriptionEntry] {
         if searchText.isEmpty {
@@ -28,7 +28,7 @@ public final class HistoryViewModel {
             return entries.filter { $0.text.localizedCaseInsensitiveContains(searchText) }
         }
     }
-    
+
     /// Loads history from HistoryManager and updates the local state (newest first).
     public func load() async {
         isLoading = true
@@ -43,7 +43,7 @@ public final class HistoryViewModel {
         }
         isLoading = false
     }
-    
+
     /// Deletes a specific entry by its ID and refreshes the view.
     public func delete(id: UUID) async {
         errorMessage = nil
@@ -57,7 +57,7 @@ public final class HistoryViewModel {
             errorMessage = "Eintrag konnte nicht gelöscht werden."
         }
     }
-    
+
     /// Clears all entries and refreshes the view.
     public func clear() async {
         errorMessage = nil
@@ -70,7 +70,7 @@ public final class HistoryViewModel {
             errorMessage = "Verlauf konnte nicht geleert werden."
         }
     }
-    
+
     /// Copies text to clipboard using ClipboardManager.
     public func copy(text: String) {
         ClipboardManager.shared.copyToClipboard(text)

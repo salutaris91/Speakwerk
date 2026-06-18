@@ -4,18 +4,18 @@ public struct HistoryView: View {
     @State private var viewModel: HistoryViewModel
     @State private var copiedId: UUID? = nil
     @State private var showClearConfirmation = false
-    
+
     public init(viewModel: HistoryViewModel) {
         _viewModel = State(initialValue: viewModel)
     }
-    
+
     private let formatter: DateFormatter = {
         let f = DateFormatter()
         f.dateStyle = .medium
         f.timeStyle = .short
         return f
     }()
-    
+
     public var body: some View {
         VStack(spacing: 0) {
             // Header
@@ -30,7 +30,7 @@ public struct HistoryView: View {
                         )
                     )
                 Spacer()
-                
+
                 if !viewModel.entries.isEmpty {
                     Button(action: {
                         showClearConfirmation = true
@@ -59,9 +59,9 @@ public struct HistoryView: View {
             .padding(.horizontal)
             .padding(.top, 15)
             .padding(.bottom, 10)
-            
+
             Divider()
-            
+
             // Search Bar
             HStack {
                 Image(systemName: "magnifyingglass")
@@ -84,7 +84,7 @@ public struct HistoryView: View {
             .padding(.horizontal)
             .padding(.top, 12)
             .padding(.bottom, 8)
-            
+
             if viewModel.isLoading {
                 Spacer()
                 ProgressView("Verlauf wird geladen...")
@@ -120,9 +120,9 @@ public struct HistoryView: View {
                                     Text(formatter.string(from: entry.timestamp))
                                         .font(.caption)
                                         .foregroundStyle(.secondary)
-                                    
+
                                     Spacer()
-                                    
+
                                     // Model Name Badge
                                     Text(displayName(for: entry.modelName))
                                         .font(.system(size: 10, weight: .semibold))
@@ -132,7 +132,7 @@ public struct HistoryView: View {
                                         .foregroundStyle(.blue)
                                         .cornerRadius(4)
                                 }
-                                
+
                                 // Text Content
                                 Text(entry.text)
                                     .font(.body)
@@ -140,13 +140,13 @@ public struct HistoryView: View {
                                     .fixedSize(horizontal: false, vertical: true)
                                     .textSelection(.enabled)
                                     .frame(maxWidth: .infinity, alignment: .leading)
-                                
+
                                 Divider()
-                                
+
                                 // Actions for item
                                 HStack {
                                     Spacer()
-                                    
+
                                     Button(action: {
                                         viewModel.copy(text: entry.text)
                                         withAnimation {
@@ -170,7 +170,7 @@ public struct HistoryView: View {
                                     }
                                     .buttonStyle(.bordered)
                                     .tint(copiedId == entry.id ? .green.opacity(0.1) : .primary.opacity(0.05))
-                                    
+
                                     Button(action: {
                                         Task {
                                             await viewModel.delete(id: entry.id)
@@ -208,14 +208,14 @@ public struct HistoryView: View {
             }
         }
     }
-    
+
     private func displayName(for modelName: String) -> String {
         switch modelName {
-        case "base":
+        case "openai_whisper-base":
             return "Schnell"
-        case "small":
+        case "openai_whisper-small":
             return "Ausgewogen"
-        case "large-v3-turbo":
+        case "openai_whisper-large-v3_turbo":
             return "Genau"
         default:
             return modelName
