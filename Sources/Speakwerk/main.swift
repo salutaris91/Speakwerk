@@ -14,33 +14,37 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
     private let historyManager = HistoryManager()
     private var errorResetTimer: Timer?
     private var updaterController: SPUStandardUpdaterController?
-    
+
     var statusItem: NSStatusItem?
     var state: AppState = .idle
     private var onboardingWindow: NSWindow?
     private var settingsWindow: NSWindow?
     private var aboutWindow: NSWindow?
-    
+    private var historyWindow: NSWindow?
+    private var activeHistoryViewModel: HistoryViewModel?
+    private var recentEntries: [TranscriptionEntry] = []
+    private var historyLoadError = false
+
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Initialize Sparkle Updater (verifies linking during smoke-test)
         updaterController = SPUStandardUpdaterController(startingUpdater: false, updaterDelegate: nil, userDriverDelegate: self)
-        
+
         // Smoke test protection: exit successfully if argument is passed
         if CommandLine.arguments.contains("--smoke-test") {
             print("Smoke test check passed after full initialization.")
             exit(0)
         }
-        
+
         // Start updater immediately after smoke-test validation
         updaterController?.startUpdater()
-        
+
         // Set activation policy programmatically to run as an accessory app without a dock icon
         NSApp.setActivationPolicy(.accessory)
-        
+
         // Initialize status item in the system menu bar
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusItem?.isVisible = true
-        
+
         // Observe model downloader progress updates to update the menu bar status
         ModelManager.shared.onProgressUpdate = { [weak self] progress in
             guard let self = self else { return }
@@ -49,7 +53,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
                 self.updateUI()
             }
         }
-        
+
         // Check onboarding status
         if !UserDefaults.standard.bool(forKey: "hasCompletedOnboarding") {
             state = .error("Onboarding ausstehend")
@@ -67,19 +71,24 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
                 showOnboarding(mode: .fullOnboarding)
             }
         }
+
+        // Initial load of history entries for the menu
+        Task {
+            await refreshRecentEntries()
+        }
     }
-    
+
     func updateUI() {
         guard let statusItem = self.statusItem,
               let button = statusItem.button else {
             return
         }
-        
+
         rebuildMenu()
-        
+
         // Ensure no image is set, only use the robust emoji text-based title
         button.image = nil
-        
+
         switch state {
         case .idle:
             button.title = "🎙️"
@@ -93,16 +102,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
             button.title = "🎙️⚠️"
         }
     }
-    
+
     private func rebuildMenu() {
         let menu = NSMenu()
-        
+
         // 0. About
         let aboutItem = NSMenuItem(title: "Über Speakwerk...", action: #selector(showAboutAction), keyEquivalent: "")
         aboutItem.target = self
         menu.addItem(aboutItem)
         menu.addItem(NSMenuItem.separator())
-        
+
         // 1. Status Label
         let statusTitle: String
         switch state {
@@ -120,13 +129,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
         let statusLabel = NSMenuItem(title: statusTitle, action: nil, keyEquivalent: "")
         statusLabel.isEnabled = false
         menu.addItem(statusLabel)
-        
+
         // 2. Action Items (only if onboarding is complete)
         if UserDefaults.standard.bool(forKey: "hasCompletedOnboarding") {
             let actionTitle: String
             let isEnabled: Bool
             let selector: Selector?
-            
+
             switch state {
             case .idle, .error:
                 actionTitle = "Aufnahme starten"
@@ -145,22 +154,63 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
                 isEnabled = false
                 selector = nil
             }
-            
+
             let actionItem = NSMenuItem(title: actionTitle, action: selector, keyEquivalent: "r")
             actionItem.target = self
             actionItem.isEnabled = isEnabled
             menu.addItem(actionItem)
-            
+
             menu.addItem(NSMenuItem.separator())
-            
+
+            // 2b. Verlauf Submenu
+            let historySubmenu = NSMenu()
+
+            if historyLoadError {
+                let errorItem = NSMenuItem(title: "Fehler beim Laden des Verlaufs", action: nil, keyEquivalent: "")
+                errorItem.isEnabled = false
+                historySubmenu.addItem(errorItem)
+            } else if recentEntries.isEmpty {
+                let emptyItem = NSMenuItem(title: "Keine Transkriptionen vorhanden", action: nil, keyEquivalent: "")
+                emptyItem.isEnabled = false
+                historySubmenu.addItem(emptyItem)
+            } else {
+                for entry in recentEntries {
+                    let truncatedText = entry.text.count > 40 ? String(entry.text.prefix(37)) + "..." : entry.text
+                    let cleanText = truncatedText.replacingOccurrences(of: "\n", with: " ")
+
+                    let item = NSMenuItem(title: cleanText, action: #selector(copyHistoryItem(_:)), keyEquivalent: "")
+                    item.target = self
+                    item.representedObject = entry.text
+                    item.toolTip = entry.text
+                    historySubmenu.addItem(item)
+                }
+            }
+
+            historySubmenu.addItem(NSMenuItem.separator())
+
+            let openHistoryItem = NSMenuItem(title: "Verlauf anzeigen...", action: #selector(showHistoryAction), keyEquivalent: "y")
+            openHistoryItem.target = self
+            historySubmenu.addItem(openHistoryItem)
+
+            let clearHistoryItem = NSMenuItem(title: "Verlauf leeren...", action: #selector(clearHistoryAction), keyEquivalent: "")
+            clearHistoryItem.target = self
+            clearHistoryItem.isEnabled = !recentEntries.isEmpty
+            historySubmenu.addItem(clearHistoryItem)
+
+            let historyMenuItem = NSMenuItem(title: "Verlauf", action: nil, keyEquivalent: "")
+            historyMenuItem.submenu = historySubmenu
+            menu.addItem(historyMenuItem)
+
+            menu.addItem(NSMenuItem.separator())
+
             // 3. Model Switch Submenu
             let modelMenu = NSMenu()
             let selectedModel = ModelManager.shared.selectedModel
-            
+
             for tier in ModelTier.allCases {
                 let isSelected = (tier == selectedModel)
                 let isDownloaded = ModelManager.shared.isModelDownloaded(tier: tier)
-                
+
                 let titleStr = "\(tier.displayName) (\(tier.sizeDescription))\(isDownloaded ? "" : " ⬇️")"
                 let item = NSMenuItem(title: titleStr, action: #selector(selectModelItem(_:)), keyEquivalent: "")
                 item.target = self
@@ -168,10 +218,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
                 item.state = isSelected ? .on : .off
                 modelMenu.addItem(item)
             }
-            
+
             let modelSubmenuItem = NSMenuItem(title: "Modell wechseln", action: nil, keyEquivalent: "")
             modelSubmenuItem.submenu = modelMenu
-            
+
             var isBusy = false
             switch state {
             case .recording, .transcribing, .downloadingModel:
@@ -179,32 +229,32 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
             default:
                 break
             }
-            
+
             modelSubmenuItem.isEnabled = !isBusy
             menu.addItem(modelSubmenuItem)
-            
+
             // 4. Settings
             let settingsItem = NSMenuItem(title: "Einstellungen...", action: #selector(showSettingsAction), keyEquivalent: ",")
             settingsItem.target = self
             settingsItem.isEnabled = !isBusy
             menu.addItem(settingsItem)
-            
+
             // 5. Repeat Setup
             let resetItem = NSMenuItem(title: "Einrichtung erneut ausführen...", action: #selector(resetOnboardingAction), keyEquivalent: "")
             resetItem.target = self
             resetItem.isEnabled = !isBusy
             menu.addItem(resetItem)
-            
+
             menu.addItem(NSMenuItem.separator())
         } else {
             // Setup pending
             let setupItem = NSMenuItem(title: "Einrichtung starten...", action: #selector(startOnboardingAction), keyEquivalent: "")
             setupItem.target = self
             menu.addItem(setupItem)
-            
+
             menu.addItem(NSMenuItem.separator())
         }
-        
+
         // 6. Sparkle Update Check
         menu.addItem(NSMenuItem.separator())
         let updateItem = NSMenuItem(
@@ -214,22 +264,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
         )
         updateItem.target = updaterController
         menu.addItem(updateItem)
-        
+
         // 7. Quit App
         let quit = NSMenuItem(title: "Beenden", action: #selector(quitApp), keyEquivalent: "q")
         quit.target = self
         menu.addItem(quit)
-        
+
         statusItem?.menu = menu
     }
-    
+
     @objc private func selectModelItem(_ sender: NSMenuItem) {
         guard let tier = sender.representedObject as? ModelTier else { return }
-        
+
         if tier == ModelManager.shared.selectedModel {
             return
         }
-        
+
         if ModelManager.shared.isModelDownloaded(tier: tier) {
             ModelManager.shared.selectedModel = tier
             transcriptionManager.switchModel(to: tier)
@@ -240,29 +290,29 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
             showOnboarding(mode: .downloadOnly(tier))
         }
     }
-    
+
     @objc private func startOnboardingAction() {
         showOnboarding(mode: .fullOnboarding)
     }
-    
+
     @objc private func resetOnboardingAction() {
         showOnboarding(mode: .fullOnboarding)
     }
-    
+
     @MainActor
     func showOnboarding(mode: OnboardingViewMode) {
         if onboardingWindow != nil {
             onboardingWindow?.makeKeyAndOrderFront(nil)
             return
         }
-        
+
         let onboardingView = OnboardingView(
             mode: mode,
             onCompletion: { [weak self] in
                 guard let self = self else { return }
                 self.onboardingWindow?.close()
                 self.onboardingWindow = nil
-                
+
                 if case .fullOnboarding = mode {
                     self.completeOnboardingFlow()
                 } else if case .downloadOnly(let tier) = mode {
@@ -281,7 +331,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
                 }
             }
         )
-        
+
         let window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 600, height: 580),
             styleMask: [.titled, .closable],
@@ -293,12 +343,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
         window.contentView = NSHostingView(rootView: onboardingView)
         window.isReleasedWhenClosed = false
         window.delegate = self
-        
+
         self.onboardingWindow = window
         window.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
     }
-    
+
     @MainActor
     @objc private func showSettingsAction() {
         if settingsWindow != nil {
@@ -306,9 +356,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
             NSApp.activate(ignoringOtherApps: true)
             return
         }
-        
+
         let settingsView = SettingsView()
-        
+
         let window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 520, height: 680),
             styleMask: [.titled, .closable],
@@ -320,12 +370,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
         window.contentView = NSHostingView(rootView: settingsView)
         window.isReleasedWhenClosed = false
         window.delegate = self
-        
+
         self.settingsWindow = window
         window.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
     }
-    
+
     @MainActor
     @objc private func showAboutAction() {
         if aboutWindow != nil {
@@ -333,9 +383,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
             NSApp.activate(ignoringOtherApps: true)
             return
         }
-        
+
         let aboutView = AboutView()
-        
+
         let window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 380, height: 460),
             styleMask: [.titled, .closable],
@@ -347,12 +397,89 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
         window.contentView = NSHostingView(rootView: aboutView)
         window.isReleasedWhenClosed = false
         window.delegate = self
-        
+
         self.aboutWindow = window
         window.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
     }
-    
+
+    private func refreshRecentEntries() async {
+        do {
+            let history = try await historyManager.loadHistory()
+            self.recentEntries = Array(history.suffix(5).reversed())
+            self.historyLoadError = false
+        } catch {
+            logger.error("Failed to refresh recent history entries: \(error.localizedDescription)")
+            self.recentEntries = []
+            self.historyLoadError = true
+        }
+        self.updateUI()
+    }
+
+    @MainActor
+    @objc private func showHistoryAction() {
+        if historyWindow != nil {
+            historyWindow?.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
+            return
+        }
+
+        let viewModel = HistoryViewModel(historyManager: historyManager) { [weak self] in
+            Task {
+                await self?.refreshRecentEntries()
+            }
+        }
+        self.activeHistoryViewModel = viewModel
+        let historyView = HistoryView(viewModel: viewModel)
+
+        let window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 520, height: 580),
+            styleMask: [.titled, .closable],
+            backing: .buffered,
+            defer: false
+        )
+        window.center()
+        window.title = "Speakwerk - Verlauf"
+        window.contentView = NSHostingView(rootView: historyView)
+        window.isReleasedWhenClosed = false
+        window.delegate = self
+
+        self.historyWindow = window
+        window.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
+    }
+
+    @objc private func clearHistoryAction() {
+        let alert = NSAlert()
+        alert.messageText = "Verlauf leeren?"
+        alert.informativeText = "Möchtest du wirklich alle Transkriptionen aus dem Verlauf löschen?"
+        alert.alertStyle = .warning
+        alert.addButton(withTitle: "Verlauf leeren")
+        alert.addButton(withTitle: "Abbrechen")
+
+        NSApp.activate(ignoringOtherApps: true)
+        let response = alert.runModal()
+
+        if response == .alertFirstButtonReturn {
+            Task {
+                do {
+                    try await historyManager.clearHistory()
+                    await refreshRecentEntries()
+                    if let activeVM = activeHistoryViewModel {
+                        await activeVM.load()
+                    }
+                } catch {
+                    logger.error("Failed to clear history from menu: \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+
+    @objc private func copyHistoryItem(_ sender: NSMenuItem) {
+        guard let text = sender.representedObject as? String else { return }
+        ClipboardManager.shared.copyToClipboard(text)
+    }
+
     private func completeOnboardingFlow() {
         logger.info("Onboarding completed successfully.")
         UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
@@ -360,15 +487,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
         updateUI()
         setupGlobalHotkey()
         transcriptionManager.preloadModel()
+
+        Task {
+            await refreshRecentEntries()
+        }
     }
-    
+
     private func setupGlobalHotkey() {
         HotkeyManager.shared.setup {
             self.toggleRecording()
         }
         logger.info("Global hotkey setup configured.")
     }
-    
+
     private func startRecordingProcess() {
         switch AVCaptureDevice.authorizationStatus(for: .audio) {
         case .authorized:
@@ -422,9 +553,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
         do {
             let fileURL = try audioRecorder.startRecording()
             logger.info("Recording started and saving to: \(fileURL.path)")
-            
+
             transcriptionManager.preloadModel()
-            
+
             state = .recording
             updateUI()
         } catch {
@@ -432,12 +563,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
             setErrorState(message: "Aufnahme fehlgeschlagen")
         }
     }
-    
+
     private func setErrorState(message: String) {
         errorResetTimer?.invalidate()
         state = .error(message)
         updateUI()
-        
+
         errorResetTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false) { [weak self] _ in
             guard let self = self else { return }
             Task { @MainActor in
@@ -448,18 +579,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
             }
         }
     }
-    
+
     @objc func toggleRecording() {
         switch state {
         case .idle, .error:
             startRecordingProcess()
-            
+
         case .recording:
             audioRecorder.stopRecording()
-            
+
             state = .transcribing
             updateUI()
-            
+
             Task {
                 var textToInsert: String?
                 do {
@@ -470,21 +601,25 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
                             userInfo: [NSLocalizedDescriptionKey: "Audio file URL is missing after recording stopped"]
                         )
                     }
-                    
+
                     let result = try await transcriptionManager.transcribe(audioURL: fileURL)
                     logger.info("Transcription result: \(result)")
-                    
+
                     if !result.isEmpty {
                         var processedText = result
                         if DictationManager.shared.dictationCommandsEnabled {
                             processedText = TextProcessor.process(result, with: DictationManager.shared.dictationRules)
                             logger.info("Processed transcription result: \(processedText)")
                         }
-                        
+
                         textToInsert = processedText
                         do {
                             let activeModelName = ModelManager.shared.selectedModel.rawValue
                             _ = try await historyManager.addEntry(text: processedText, modelName: activeModelName)
+                            await refreshRecentEntries()
+                            if let activeVM = activeHistoryViewModel {
+                                await activeVM.load()
+                            }
                         } catch {
                             logger.error("Failed to save to history: \(error.localizedDescription)")
                         }
@@ -493,9 +628,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
                     logger.error("Error during transcription process: \(error.localizedDescription)")
                     setErrorState(message: "Transkription fehlgeschlagen")
                 }
-                
+
                 audioRecorder.deleteRecording()
-                
+
                 if let text = textToInsert {
                     let finalInsertText = DictationManager.shared.appendTrailingSpace ? text + " " : text
                     do {
@@ -511,21 +646,21 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
                     self.updateUI()
                 }
             }
-            
+
         case .transcribing, .downloadingModel:
             logger.info("Ignoring toggle request: busy with transcription or model download.")
         }
     }
-    
+
     @objc func quitApp() {
         errorResetTimer?.invalidate()
         audioRecorder.stopRecording()
         audioRecorder.deleteRecording()
         NSApp.terminate(nil)
     }
-    
+
     // MARK: - SPUStandardUserDriverDelegate
-    
+
     nonisolated func standardUserDriverWillShowModalAlert() {
         Task { @MainActor in
             NSApp.activate(ignoringOtherApps: true)
@@ -541,13 +676,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
     }
 
     // MARK: - NSWindowDelegate
-    
+
     func windowWillClose(_ notification: Notification) {
         guard let window = notification.object as? NSWindow else { return }
-        
+
         if window == onboardingWindow {
             onboardingWindow = nil
-            
+
             if !UserDefaults.standard.bool(forKey: "hasCompletedOnboarding") {
                 state = .error("Onboarding ausstehend")
                 ModelManager.shared.resetDownloadState()
@@ -555,12 +690,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, SPUStandar
                 state = .idle
                 ModelManager.shared.resetDownloadState()
             }
-            
+
             updateUI()
         } else if window == settingsWindow {
             settingsWindow = nil
         } else if window == aboutWindow {
             aboutWindow = nil
+        } else if window == historyWindow {
+            historyWindow = nil
+            activeHistoryViewModel = nil
         }
     }
 }

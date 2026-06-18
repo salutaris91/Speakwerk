@@ -1,16 +1,16 @@
-# Graph Report - Speakwerk  (2026-06-14)
+# Graph Report - Speakwerk  (2026-06-18)
 
 ## Corpus Check
-- 26 files · ~50,307 words
+- 28 files · ~51,820 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 323 nodes · 456 edges · 21 communities (18 shown, 3 thin omitted)
-- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 10 edges (avg confidence: 0.8)
+- 358 nodes · 517 edges · 24 communities (21 shown, 3 thin omitted)
+- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 11 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `09d1b7f1`
+- Built from commit: `9d2d13bb`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -35,38 +35,41 @@
 - [[_COMMUNITY_Community 18|Community 18]]
 - [[_COMMUNITY_Community 19|Community 19]]
 - [[_COMMUNITY_Community 20|Community 20]]
+- [[_COMMUNITY_Community 21|Community 21]]
+- [[_COMMUNITY_Community 22|Community 22]]
+- [[_COMMUNITY_Community 23|Community 23]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `AppDelegate` - 34 edges
-2. `ModelManager` - 18 edges
-3. `TranscriptionEntry` - 15 edges
-4. `ModelTier` - 14 edges
-5. `TranscriptionLanguage` - 13 edges
-6. `HistoryManager` - 13 edges
-7. `AGENTS.md — Hausregeln für Coding-Projekte (Speakwerk)` - 13 edges
-8. `CLAUDE.md — Hausregeln für Coding-Projekte (Speakwerk)` - 13 edges
-9. `OnboardingState` - 12 edges
-10. `HotkeyManager` - 11 edges
+1. `AppDelegate` - 40 edges
+2. `ModelManager` - 19 edges
+3. `TranscriptionEntry` - 16 edges
+4. `ModelTier` - 15 edges
+5. `TranscriptionLanguage` - 14 edges
+6. `HistoryManager` - 14 edges
+7. `HistoryViewModel` - 13 edges
+8. `AGENTS.md — Hausregeln für Coding-Projekte (Speakwerk)` - 13 edges
+9. `CLAUDE.md — Hausregeln für Coding-Projekte (Speakwerk)` - 13 edges
+10. `DictationRule` - 12 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `HistoryManagerTests` --inherits--> `XCTestCase`  [EXTRACTED]
-  Tests/HistoryManagerTests.swift →   _Bridges community 17 → community 0_
-- `TranscriptionEntry` --implements--> `Equatable`  [EXTRACTED]
-  Sources/Speakwerk/HistoryManager.swift →   _Bridges community 19 → community 0_
-- `DownloadState` --implements--> `Equatable`  [EXTRACTED]
-  Sources/Speakwerk/ModelManager.swift →   _Bridges community 19 → community 15_
-- `TranscriptionLanguage` --references--> `String`  [EXTRACTED]
-  Sources/Speakwerk/TranscriptionLanguage.swift →   _Bridges community 7 → community 15_
-- `TranscriptionEntry` --implements--> `Identifiable`  [EXTRACTED]
-  Sources/Speakwerk/HistoryManager.swift →   _Bridges community 7 → community 0_
+- `TranscriptionLanguage` --implements--> `Sendable`  [EXTRACTED]
+  Sources/Speakwerk/TranscriptionLanguage.swift → Sources/Speakwerk/HistoryViewModel.swift
+- `DictationRule` --implements--> `Sendable`  [EXTRACTED]
+  Sources/Speakwerk/DictationManager.swift → Sources/Speakwerk/HistoryViewModel.swift
+- `TranscriptionEntry` --implements--> `Sendable`  [EXTRACTED]
+  Sources/Speakwerk/HistoryManager.swift → Sources/Speakwerk/HistoryViewModel.swift
+- `ModelManager` --references--> `Sendable`  [EXTRACTED]
+  Sources/Speakwerk/ModelManager.swift → Sources/Speakwerk/HistoryViewModel.swift
+- `ModelTier` --implements--> `Sendable`  [EXTRACTED]
+  Sources/Speakwerk/ModelManager.swift → Sources/Speakwerk/HistoryViewModel.swift
 
 ## Import Cycles
 - None detected.
 
-## Communities (21 total, 3 thin omitted)
+## Communities (24 total, 3 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.14
+Cohesion: 0.12
 Nodes (11): Data, Date, Int, String, URL, UUID, HistoryManager, TranscriptionEntry (+3 more)
 
 ### Community 1 - "Community 1"
@@ -79,10 +82,10 @@ Nodes (16): Arbeitsweise, Aufgabenwechsel und Übergabe, CLAUDE.md — Hausregel
 
 ### Community 3 - "Community 3"
 Cohesion: 0.10
-Nodes (18): AppState, Notification, NSApplicationDelegate, NSMenuItem, NSStatusItem, NSWindow, NSWindowDelegate, OnboardingViewMode (+10 more)
+Nodes (17): AppState, Notification, NSApplicationDelegate, NSMenuItem, NSStatusItem, NSWindow, NSWindowDelegate, OnboardingViewMode (+9 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.21
+Cohesion: 0.20
 Nodes (7): NSPasteboard, Bool, Int, String, BackupItem, ClipboardManager, PasteboardBackup
 
 ### Community 5 - "Community 5"
@@ -94,8 +97,8 @@ Cohesion: 0.15
 Nodes (12): EventHandlerRef, EventHotKeyRef, FourCharCode, MainActor, Bool, MainActor, String, Void (+4 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.11
-Nodes (19): CaseIterable, Codable, Hashable, Identifiable, Sendable, Bool, String, UUID (+11 more)
+Cohesion: 0.23
+Nodes (8): Codable, Hashable, Identifiable, Bool, String, UUID, DictationManager, DictationRule
 
 ### Community 8 - "Community 8"
 Cohesion: 0.33
@@ -110,8 +113,8 @@ Cohesion: 0.07
 Nodes (22): AVAuthorizationStatus, String, Bool, ModelTier, String, Timer, Void, String (+14 more)
 
 ### Community 15 - "Community 15"
-Cohesion: 0.13
-Nodes (17): Double, Bool, MainActor, URL, Void, DownloadState, completed, downloading (+9 more)
+Cohesion: 0.12
+Nodes (18): CaseIterable, Double, Bool, MainActor, URL, Void, DownloadState, completed (+10 more)
 
 ### Community 16 - "Community 16"
 Cohesion: 0.16
@@ -130,11 +133,23 @@ Cohesion: 0.25
 Nodes (7): Equatable, AppState, downloadingModel, error, idle, recording, transcribing
 
 ### Community 20 - "Community 20"
-Cohesion: 0.39
-Nodes (6): AnyRegexOutput, DictationRule, Regex, String, TextProcessor, TypographyRule
+Cohesion: 0.13
+Nodes (16): AnyRegexOutput, DictationRule, Regex, Sendable, String, TextProcessor, TypographyRule, TranscriptionLanguage (+8 more)
+
+### Community 21 - "Community 21"
+Cohesion: 0.17
+Nodes (9): HistoryManager, Bool, MainActor, Sendable, String, TranscriptionEntry, UUID, Void (+1 more)
+
+### Community 22 - "Community 22"
+Cohesion: 0.28
+Nodes (6): DateFormatter, HistoryViewModel, HistoryViewModel, String, UUID, HistoryView
+
+### Community 23 - "Community 23"
+Cohesion: 0.50
+Nodes (3): Bool, SPUUserUpdateState, SUAppcastItem
 
 ## Knowledge Gaps
-- **113 isolated node(s):** `URL`, `allow`, `refresh_graphify.sh script`, `build.sh script`, `String` (+108 more)
+- **120 isolated node(s):** `URL`, `allow`, `refresh_graphify.sh script`, `build.sh script`, `String` (+115 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -142,15 +157,15 @@ Nodes (6): AnyRegexOutput, DictationRule, Regex, String, TextProcessor, Typograp
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `WhisperKit` connect `Community 8` to `Community 14`, `Community 15`?**
-  _High betweenness centrality (0.293) - this node is a cross-community bridge._
+  _High betweenness centrality (0.311) - this node is a cross-community bridge._
 - **Why does `OnboardingView` connect `Community 14` to `Community 3`?**
-  _High betweenness centrality (0.265) - this node is a cross-community bridge._
-- **Why does `TranscriptionEntry` connect `Community 0` to `Community 19`, `Community 7`?**
-  _High betweenness centrality (0.194) - this node is a cross-community bridge._
+  _High betweenness centrality (0.283) - this node is a cross-community bridge._
+- **Why does `TranscriptionEntry` connect `Community 0` to `Community 19`, `Community 20`, `Community 21`, `Community 7`?**
+  _High betweenness centrality (0.201) - this node is a cross-community bridge._
 - **What connects `URL`, `allow`, `refresh_graphify.sh script` to the rest of the system?**
-  _113 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _120 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.14333333333333334 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.12315270935960591 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
